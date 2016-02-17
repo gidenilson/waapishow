@@ -1,3 +1,6154 @@
-!function(e,t){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error("jQuery requires a window with a document");return t(e)}:t(e)}("undefined"!=typeof window?window:this,function(e,t){function n(e){var t=!!e&&"length"in e&&e.length,n=oe.type(e);return"function"===n||oe.isWindow(e)?!1:"array"===n||0===t||"number"==typeof t&&t>0&&t-1 in e}function r(e,t,n){if(oe.isFunction(t))return oe.grep(e,function(e,r){return!!t.call(e,r,e)!==n});if(t.nodeType)return oe.grep(e,function(e){return e===t!==n});if("string"==typeof t){if(ge.test(t))return oe.filter(t,e,n);t=oe.filter(t,e)}return oe.grep(e,function(e){return Z.call(t,e)>-1!==n})}function i(e,t){for(;(e=e[t])&&1!==e.nodeType;);return e}function o(e){var t={};return oe.each(e.match(we)||[],function(e,n){t[n]=!0}),t}function s(){G.removeEventListener("DOMContentLoaded",s),e.removeEventListener("load",s),oe.ready()}function a(){this.expando=oe.expando+a.uid++}function u(e,t,n){var r;if(void 0===n&&1===e.nodeType)if(r="data-"+t.replace(De,"-$&").toLowerCase(),n=e.getAttribute(r),"string"==typeof n){try{n="true"===n?!0:"false"===n?!1:"null"===n?null:+n+""===n?+n:Se.test(n)?oe.parseJSON(n):n}catch(i){}Ne.set(e,t,n)}else n=void 0;return n}function l(e,t,n,r){var i,o=1,s=20,a=r?function(){return r.cur()}:function(){return oe.css(e,t,"")},u=a(),l=n&&n[3]||(oe.cssNumber[t]?"":"px"),c=(oe.cssNumber[t]||"px"!==l&&+u)&&Ae.exec(oe.css(e,t));if(c&&c[3]!==l){l=l||c[3],n=n||[],c=+u||1;do o=o||".5",c/=o,oe.style(e,t,c+l);while(o!==(o=a()/u)&&1!==o&&--s)}return n&&(c=+c||+u||0,i=n[1]?c+(n[1]+1)*n[2]:+n[2],r&&(r.unit=l,r.start=c,r.end=i)),i}function c(e,t){var n="undefined"!=typeof e.getElementsByTagName?e.getElementsByTagName(t||"*"):"undefined"!=typeof e.querySelectorAll?e.querySelectorAll(t||"*"):[];return void 0===t||t&&oe.nodeName(e,t)?oe.merge([e],n):n}function f(e,t){for(var n=0,r=e.length;r>n;n++)Ee.set(e[n],"globalEval",!t||Ee.get(t[n],"globalEval"))}function p(e,t,n,r,i){for(var o,s,a,u,l,p,d=t.createDocumentFragment(),h=[],g=0,m=e.length;m>g;g++)if(o=e[g],o||0===o)if("object"===oe.type(o))oe.merge(h,o.nodeType?[o]:o);else if(Re.test(o)){for(s=s||d.appendChild(t.createElement("div")),a=(Oe.exec(o)||["",""])[1].toLowerCase(),u=Pe[a]||Pe._default,s.innerHTML=u[1]+oe.htmlPrefilter(o)+u[2],p=u[0];p--;)s=s.lastChild;oe.merge(h,s.childNodes),s=d.firstChild,s.textContent=""}else h.push(t.createTextNode(o));for(d.textContent="",g=0;o=h[g++];)if(r&&oe.inArray(o,r)>-1)i&&i.push(o);else if(l=oe.contains(o.ownerDocument,o),s=c(d.appendChild(o),"script"),l&&f(s),n)for(p=0;o=s[p++];)Fe.test(o.type||"")&&n.push(o);return d}function d(){return!0}function h(){return!1}function g(){try{return G.activeElement}catch(e){}}function m(e,t,n,r,i,o){var s,a;if("object"==typeof t){"string"!=typeof n&&(r=r||n,n=void 0);for(a in t)m(e,a,n,r,t[a],o);return e}if(null==r&&null==i?(i=n,r=n=void 0):null==i&&("string"==typeof n?(i=r,r=void 0):(i=r,r=n,n=void 0)),i===!1)i=h;else if(!i)return this;return 1===o&&(s=i,i=function(e){return oe().off(e),s.apply(this,arguments)},i.guid=s.guid||(s.guid=oe.guid++)),e.each(function(){oe.event.add(this,t,i,r,n)})}function v(e,t){return oe.nodeName(e,"table")&&oe.nodeName(11!==t.nodeType?t:t.firstChild,"tr")?e.getElementsByTagName("tbody")[0]||e:e}function y(e){return e.type=(null!==e.getAttribute("type"))+"/"+e.type,e}function x(e){var t=Xe.exec(e.type);return t?e.type=t[1]:e.removeAttribute("type"),e}function b(e,t){var n,r,i,o,s,a,u,l;if(1===t.nodeType){if(Ee.hasData(e)&&(o=Ee.access(e),s=Ee.set(t,o),l=o.events)){delete s.handle,s.events={};for(i in l)for(n=0,r=l[i].length;r>n;n++)oe.event.add(t,i,l[i][n])}Ne.hasData(e)&&(a=Ne.access(e),u=oe.extend({},a),Ne.set(t,u))}}function w(e,t){var n=t.nodeName.toLowerCase();"input"===n&&He.test(e.type)?t.checked=e.checked:("input"===n||"textarea"===n)&&(t.defaultValue=e.defaultValue)}function T(e,t,n,r){t=J.apply([],t);var i,o,s,a,u,l,f=0,d=e.length,h=d-1,g=t[0],m=oe.isFunction(g);if(m||d>1&&"string"==typeof g&&!re.checkClone&&_e.test(g))return e.each(function(i){var o=e.eq(i);m&&(t[0]=g.call(this,i,o.html())),T(o,t,n,r)});if(d&&(i=p(t,e[0].ownerDocument,!1,e,r),o=i.firstChild,1===i.childNodes.length&&(i=o),o||r)){for(s=oe.map(c(i,"script"),y),a=s.length;d>f;f++)u=i,f!==h&&(u=oe.clone(u,!0,!0),a&&oe.merge(s,c(u,"script"))),n.call(e[f],u,f);if(a)for(l=s[s.length-1].ownerDocument,oe.map(s,x),f=0;a>f;f++)u=s[f],Fe.test(u.type||"")&&!Ee.access(u,"globalEval")&&oe.contains(l,u)&&(u.src?oe._evalUrl&&oe._evalUrl(u.src):oe.globalEval(u.textContent.replace(ze,"")))}return e}function C(e,t,n){for(var r,i=t?oe.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||oe.cleanData(c(r)),r.parentNode&&(n&&oe.contains(r.ownerDocument,r)&&f(c(r,"script")),r.parentNode.removeChild(r));return e}function k(e,t){var n=oe(t.createElement(e)).appendTo(t.body),r=oe.css(n[0],"display");return n.detach(),r}function E(e){var t=G,n=Ve[e];return n||(n=k(e,t),"none"!==n&&n||(Ue=(Ue||oe("<iframe frameborder='0' width='0' height='0'/>")).appendTo(t.documentElement),t=Ue[0].contentDocument,t.write(),t.close(),n=k(e,t),Ue.detach()),Ve[e]=n),n}function N(e,t,n){var r,i,o,s,a=e.style;return n=n||Qe(e),n&&(s=n.getPropertyValue(t)||n[t],""!==s||oe.contains(e.ownerDocument,e)||(s=oe.style(e,t)),!re.pixelMarginRight()&&Ge.test(s)&&Ye.test(t)&&(r=a.width,i=a.minWidth,o=a.maxWidth,a.minWidth=a.maxWidth=a.width=s,s=n.width,a.width=r,a.minWidth=i,a.maxWidth=o)),void 0!==s?s+"":s}function S(e,t){return{get:function(){return e()?void delete this.get:(this.get=t).apply(this,arguments)}}}function D(e){if(e in rt)return e;for(var t=e[0].toUpperCase()+e.slice(1),n=nt.length;n--;)if(e=nt[n]+t,e in rt)return e}function j(e,t,n){var r=Ae.exec(t);return r?Math.max(0,r[2]-(n||0))+(r[3]||"px"):t}function A(e,t,n,r,i){for(var o=n===(r?"border":"content")?4:"width"===t?1:0,s=0;4>o;o+=2)"margin"===n&&(s+=oe.css(e,n+Le[o],!0,i)),r?("content"===n&&(s-=oe.css(e,"padding"+Le[o],!0,i)),"margin"!==n&&(s-=oe.css(e,"border"+Le[o]+"Width",!0,i))):(s+=oe.css(e,"padding"+Le[o],!0,i),"padding"!==n&&(s+=oe.css(e,"border"+Le[o]+"Width",!0,i)));return s}function L(t,n,r){var i=!0,o="width"===n?t.offsetWidth:t.offsetHeight,s=Qe(t),a="border-box"===oe.css(t,"boxSizing",!1,s);if(G.msFullscreenElement&&e.top!==e&&t.getClientRects().length&&(o=Math.round(100*t.getBoundingClientRect()[n])),0>=o||null==o){if(o=N(t,n,s),(0>o||null==o)&&(o=t.style[n]),Ge.test(o))return o;i=a&&(re.boxSizingReliable()||o===t.style[n]),o=parseFloat(o)||0}return o+A(t,n,r||(a?"border":"content"),i,s)+"px"}function q(e,t){for(var n,r,i,o=[],s=0,a=e.length;a>s;s++)r=e[s],r.style&&(o[s]=Ee.get(r,"olddisplay"),n=r.style.display,t?(o[s]||"none"!==n||(r.style.display=""),""===r.style.display&&qe(r)&&(o[s]=Ee.access(r,"olddisplay",E(r.nodeName)))):(i=qe(r),"none"===n&&i||Ee.set(r,"olddisplay",i?n:oe.css(r,"display"))));for(s=0;a>s;s++)r=e[s],r.style&&(t&&"none"!==r.style.display&&""!==r.style.display||(r.style.display=t?o[s]||"":"none"));return e}function H(e,t,n,r,i){return new H.prototype.init(e,t,n,r,i)}function O(){return e.setTimeout(function(){it=void 0}),it=oe.now()}function F(e,t){var n,r=0,i={height:e};for(t=t?1:0;4>r;r+=2-t)n=Le[r],i["margin"+n]=i["padding"+n]=e;return t&&(i.opacity=i.width=e),i}function P(e,t,n){for(var r,i=(W.tweeners[t]||[]).concat(W.tweeners["*"]),o=0,s=i.length;s>o;o++)if(r=i[o].call(n,t,e))return r}function R(e,t,n){var r,i,o,s,a,u,l,c,f=this,p={},d=e.style,h=e.nodeType&&qe(e),g=Ee.get(e,"fxshow");n.queue||(a=oe._queueHooks(e,"fx"),null==a.unqueued&&(a.unqueued=0,u=a.empty.fire,a.empty.fire=function(){a.unqueued||u()}),a.unqueued++,f.always(function(){f.always(function(){a.unqueued--,oe.queue(e,"fx").length||a.empty.fire()})})),1===e.nodeType&&("height"in t||"width"in t)&&(n.overflow=[d.overflow,d.overflowX,d.overflowY],l=oe.css(e,"display"),c="none"===l?Ee.get(e,"olddisplay")||E(e.nodeName):l,"inline"===c&&"none"===oe.css(e,"float")&&(d.display="inline-block")),n.overflow&&(d.overflow="hidden",f.always(function(){d.overflow=n.overflow[0],d.overflowX=n.overflow[1],d.overflowY=n.overflow[2]}));for(r in t)if(i=t[r],st.exec(i)){if(delete t[r],o=o||"toggle"===i,i===(h?"hide":"show")){if("show"!==i||!g||void 0===g[r])continue;h=!0}p[r]=g&&g[r]||oe.style(e,r)}else l=void 0;if(oe.isEmptyObject(p))"inline"===("none"===l?E(e.nodeName):l)&&(d.display=l);else{g?"hidden"in g&&(h=g.hidden):g=Ee.access(e,"fxshow",{}),o&&(g.hidden=!h),h?oe(e).show():f.done(function(){oe(e).hide()}),f.done(function(){var t;Ee.remove(e,"fxshow");for(t in p)oe.style(e,t,p[t])});for(r in p)s=P(h?g[r]:0,r,f),r in g||(g[r]=s.start,h&&(s.end=s.start,s.start="width"===r||"height"===r?1:0))}}function M(e,t){var n,r,i,o,s;for(n in e)if(r=oe.camelCase(n),i=t[r],o=e[n],oe.isArray(o)&&(i=o[1],o=e[n]=o[0]),n!==r&&(e[r]=o,delete e[n]),s=oe.cssHooks[r],s&&"expand"in s){o=s.expand(o),delete e[r];for(n in o)n in e||(e[n]=o[n],t[n]=i)}else t[r]=i}function W(e,t,n){var r,i,o=0,s=W.prefilters.length,a=oe.Deferred().always(function(){delete u.elem}),u=function(){if(i)return!1;for(var t=it||O(),n=Math.max(0,l.startTime+l.duration-t),r=n/l.duration||0,o=1-r,s=0,u=l.tweens.length;u>s;s++)l.tweens[s].run(o);return a.notifyWith(e,[l,o,n]),1>o&&u?n:(a.resolveWith(e,[l]),!1)},l=a.promise({elem:e,props:oe.extend({},t),opts:oe.extend(!0,{specialEasing:{},easing:oe.easing._default},n),originalProperties:t,originalOptions:n,startTime:it||O(),duration:n.duration,tweens:[],createTween:function(t,n){var r=oe.Tween(e,l.opts,t,n,l.opts.specialEasing[t]||l.opts.easing);return l.tweens.push(r),r},stop:function(t){var n=0,r=t?l.tweens.length:0;if(i)return this;for(i=!0;r>n;n++)l.tweens[n].run(1);return t?(a.notifyWith(e,[l,1,0]),a.resolveWith(e,[l,t])):a.rejectWith(e,[l,t]),this}}),c=l.props;for(M(c,l.opts.specialEasing);s>o;o++)if(r=W.prefilters[o].call(l,e,c,l.opts))return oe.isFunction(r.stop)&&(oe._queueHooks(l.elem,l.opts.queue).stop=oe.proxy(r.stop,r)),r;return oe.map(c,P,l),oe.isFunction(l.opts.start)&&l.opts.start.call(e,l),oe.fx.timer(oe.extend(u,{elem:e,anim:l,queue:l.opts.queue})),l.progress(l.opts.progress).done(l.opts.done,l.opts.complete).fail(l.opts.fail).always(l.opts.always)}function I(e){return e.getAttribute&&e.getAttribute("class")||""}function $(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(we)||[];if(oe.isFunction(n))for(;r=o[i++];)"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function B(e,t,n,r){function i(a){var u;return o[a]=!0,oe.each(e[a]||[],function(e,a){var l=a(t,n,r);return"string"!=typeof l||s||o[l]?s?!(u=l):void 0:(t.dataTypes.unshift(l),i(l),!1)}),u}var o={},s=e===Et;return i(t.dataTypes[0])||!o["*"]&&i("*")}function _(e,t){var n,r,i=oe.ajaxSettings.flatOptions||{};for(n in t)void 0!==t[n]&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&oe.extend(!0,e,r),e}function X(e,t,n){for(var r,i,o,s,a=e.contents,u=e.dataTypes;"*"===u[0];)u.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader("Content-Type"));if(r)for(i in a)if(a[i]&&a[i].test(r)){u.unshift(i);break}if(u[0]in n)o=u[0];else{for(i in n){if(!u[0]||e.converters[i+" "+u[0]]){o=i;break}s||(s=i)}o=o||s}return o?(o!==u[0]&&u.unshift(o),n[o]):void 0}function z(e,t,n,r){var i,o,s,a,u,l={},c=e.dataTypes.slice();if(c[1])for(s in e.converters)l[s.toLowerCase()]=e.converters[s];for(o=c.shift();o;)if(e.responseFields[o]&&(n[e.responseFields[o]]=t),!u&&r&&e.dataFilter&&(t=e.dataFilter(t,e.dataType)),u=o,o=c.shift())if("*"===o)o=u;else if("*"!==u&&u!==o){if(s=l[u+" "+o]||l["* "+o],!s)for(i in l)if(a=i.split(" "),a[1]===o&&(s=l[u+" "+a[0]]||l["* "+a[0]])){s===!0?s=l[i]:l[i]!==!0&&(o=a[0],c.unshift(a[1]));break}if(s!==!0)if(s&&e["throws"])t=s(t);else try{t=s(t)}catch(f){return{state:"parsererror",error:s?f:"No conversion from "+u+" to "+o}}}return{state:"success",data:t}}function U(e,t,n,r){var i;if(oe.isArray(t))oe.each(t,function(t,i){n||jt.test(e)?r(e,i):U(e+"["+("object"==typeof i&&null!=i?t:"")+"]",i,n,r)});else if(n||"object"!==oe.type(t))r(e,t);else for(i in t)U(e+"["+i+"]",t[i],n,r)}function V(e){return oe.isWindow(e)?e:9===e.nodeType&&e.defaultView}var Y=[],G=e.document,Q=Y.slice,J=Y.concat,K=Y.push,Z=Y.indexOf,ee={},te=ee.toString,ne=ee.hasOwnProperty,re={},ie="2.2.0",oe=function(e,t){return new oe.fn.init(e,t)},se=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,ae=/^-ms-/,ue=/-([\da-z])/gi,le=function(e,t){return t.toUpperCase()};oe.fn=oe.prototype={jquery:ie,constructor:oe,selector:"",length:0,toArray:function(){return Q.call(this)},get:function(e){return null!=e?0>e?this[e+this.length]:this[e]:Q.call(this)},pushStack:function(e){var t=oe.merge(this.constructor(),e);return t.prevObject=this,t.context=this.context,t},each:function(e){return oe.each(this,e)},map:function(e){return this.pushStack(oe.map(this,function(t,n){return e.call(t,n,t)}))},slice:function(){return this.pushStack(Q.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(e){var t=this.length,n=+e+(0>e?t:0);return this.pushStack(n>=0&&t>n?[this[n]]:[])},end:function(){return this.prevObject||this.constructor()},push:K,sort:Y.sort,splice:Y.splice},oe.extend=oe.fn.extend=function(){var e,t,n,r,i,o,s=arguments[0]||{},a=1,u=arguments.length,l=!1;for("boolean"==typeof s&&(l=s,s=arguments[a]||{},a++),"object"==typeof s||oe.isFunction(s)||(s={}),a===u&&(s=this,a--);u>a;a++)if(null!=(e=arguments[a]))for(t in e)n=s[t],r=e[t],s!==r&&(l&&r&&(oe.isPlainObject(r)||(i=oe.isArray(r)))?(i?(i=!1,o=n&&oe.isArray(n)?n:[]):o=n&&oe.isPlainObject(n)?n:{},s[t]=oe.extend(l,o,r)):void 0!==r&&(s[t]=r));return s},oe.extend({expando:"jQuery"+(ie+Math.random()).replace(/\D/g,""),isReady:!0,error:function(e){throw new Error(e)},noop:function(){},isFunction:function(e){return"function"===oe.type(e)},isArray:Array.isArray,isWindow:function(e){return null!=e&&e===e.window},isNumeric:function(e){var t=e&&e.toString();return!oe.isArray(e)&&t-parseFloat(t)+1>=0},isPlainObject:function(e){return"object"!==oe.type(e)||e.nodeType||oe.isWindow(e)?!1:e.constructor&&!ne.call(e.constructor.prototype,"isPrototypeOf")?!1:!0},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},type:function(e){return null==e?e+"":"object"==typeof e||"function"==typeof e?ee[te.call(e)]||"object":typeof e},globalEval:function(e){var t,n=eval;e=oe.trim(e),e&&(1===e.indexOf("use strict")?(t=G.createElement("script"),t.text=e,G.head.appendChild(t).parentNode.removeChild(t)):n(e))},camelCase:function(e){return e.replace(ae,"ms-").replace(ue,le)},nodeName:function(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()},each:function(e,t){var r,i=0;if(n(e))for(r=e.length;r>i&&t.call(e[i],i,e[i])!==!1;i++);else for(i in e)if(t.call(e[i],i,e[i])===!1)break;return e},trim:function(e){return null==e?"":(e+"").replace(se,"")},makeArray:function(e,t){var r=t||[];return null!=e&&(n(Object(e))?oe.merge(r,"string"==typeof e?[e]:e):K.call(r,e)),r},inArray:function(e,t,n){return null==t?-1:Z.call(t,e,n)},merge:function(e,t){for(var n=+t.length,r=0,i=e.length;n>r;r++)e[i++]=t[r];return e.length=i,e},grep:function(e,t,n){for(var r,i=[],o=0,s=e.length,a=!n;s>o;o++)r=!t(e[o],o),r!==a&&i.push(e[o]);return i},map:function(e,t,r){var i,o,s=0,a=[];if(n(e))for(i=e.length;i>s;s++)o=t(e[s],s,r),null!=o&&a.push(o);else for(s in e)o=t(e[s],s,r),null!=o&&a.push(o);return J.apply([],a)},guid:1,proxy:function(e,t){var n,r,i;return"string"==typeof t&&(n=e[t],t=e,e=n),oe.isFunction(e)?(r=Q.call(arguments,2),i=function(){return e.apply(t||this,r.concat(Q.call(arguments)))},i.guid=e.guid=e.guid||oe.guid++,i):void 0},now:Date.now,support:re}),"function"==typeof Symbol&&(oe.fn[Symbol.iterator]=Y[Symbol.iterator]),oe.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "),function(e,t){ee["[object "+t+"]"]=t.toLowerCase()});var ce=function(e){function t(e,t,n,r){var i,o,s,a,u,l,f,d,h=t&&t.ownerDocument,g=t?t.nodeType:9;if(n=n||[],"string"!=typeof e||!e||1!==g&&9!==g&&11!==g)return n;if(!r&&((t?t.ownerDocument||t:I)!==q&&L(t),t=t||q,O)){if(11!==g&&(l=ve.exec(e)))if(i=l[1]){if(9===g){if(!(s=t.getElementById(i)))return n;if(s.id===i)return n.push(s),n}else if(h&&(s=h.getElementById(i))&&M(t,s)&&s.id===i)return n.push(s),n}else{if(l[2])return K.apply(n,t.getElementsByTagName(e)),n;if((i=l[3])&&w.getElementsByClassName&&t.getElementsByClassName)return K.apply(n,t.getElementsByClassName(i)),n}if(w.qsa&&!z[e+" "]&&(!F||!F.test(e))){if(1!==g)h=t,d=e;else if("object"!==t.nodeName.toLowerCase()){for((a=t.getAttribute("id"))?a=a.replace(xe,"\\$&"):t.setAttribute("id",a=W),f=E(e),o=f.length,u=pe.test(a)?"#"+a:"[id='"+a+"']";o--;)f[o]=u+" "+p(f[o]);d=f.join(","),h=ye.test(e)&&c(t.parentNode)||t}if(d)try{return K.apply(n,h.querySelectorAll(d)),n}catch(m){}finally{a===W&&t.removeAttribute("id")}}}return S(e.replace(ae,"$1"),t,n,r)}function n(){function e(n,r){return t.push(n+" ")>T.cacheLength&&delete e[t.shift()],e[n+" "]=r}var t=[];return e}function r(e){return e[W]=!0,e}function i(e){var t=q.createElement("div");try{return!!e(t)}catch(n){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function o(e,t){for(var n=e.split("|"),r=n.length;r--;)T.attrHandle[n[r]]=t}function s(e,t){var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&(~t.sourceIndex||V)-(~e.sourceIndex||V);if(r)return r;if(n)for(;n=n.nextSibling;)if(n===t)return-1;return e?1:-1}function a(e){return function(t){var n=t.nodeName.toLowerCase();return"input"===n&&t.type===e}}function u(e){return function(t){var n=t.nodeName.toLowerCase();return("input"===n||"button"===n)&&t.type===e}}function l(e){return r(function(t){return t=+t,r(function(n,r){for(var i,o=e([],n.length,t),s=o.length;s--;)n[i=o[s]]&&(n[i]=!(r[i]=n[i]))})})}function c(e){return e&&"undefined"!=typeof e.getElementsByTagName&&e}function f(){}function p(e){for(var t=0,n=e.length,r="";n>t;t++)r+=e[t].value;return r}function d(e,t,n){var r=t.dir,i=n&&"parentNode"===r,o=B++;return t.first?function(t,n,o){for(;t=t[r];)if(1===t.nodeType||i)return e(t,n,o)}:function(t,n,s){var a,u,l,c=[$,o];if(s){for(;t=t[r];)if((1===t.nodeType||i)&&e(t,n,s))return!0}else for(;t=t[r];)if(1===t.nodeType||i){if(l=t[W]||(t[W]={}),u=l[t.uniqueID]||(l[t.uniqueID]={}),(a=u[r])&&a[0]===$&&a[1]===o)return c[2]=a[2];if(u[r]=c,c[2]=e(t,n,s))return!0}}}function h(e){return e.length>1?function(t,n,r){for(var i=e.length;i--;)if(!e[i](t,n,r))return!1;return!0}:e[0]}function g(e,n,r){for(var i=0,o=n.length;o>i;i++)t(e,n[i],r);return r}function m(e,t,n,r,i){for(var o,s=[],a=0,u=e.length,l=null!=t;u>a;a++)(o=e[a])&&(!n||n(o,r,i))&&(s.push(o),l&&t.push(a));return s}function v(e,t,n,i,o,s){return i&&!i[W]&&(i=v(i)),o&&!o[W]&&(o=v(o,s)),r(function(r,s,a,u){var l,c,f,p=[],d=[],h=s.length,v=r||g(t||"*",a.nodeType?[a]:a,[]),y=!e||!r&&t?v:m(v,p,e,a,u),x=n?o||(r?e:h||i)?[]:s:y;if(n&&n(y,x,a,u),i)for(l=m(x,d),i(l,[],a,u),c=l.length;c--;)(f=l[c])&&(x[d[c]]=!(y[d[c]]=f));if(r){if(o||e){if(o){for(l=[],c=x.length;c--;)(f=x[c])&&l.push(y[c]=f);o(null,x=[],l,u)}for(c=x.length;c--;)(f=x[c])&&(l=o?ee(r,f):p[c])>-1&&(r[l]=!(s[l]=f))}}else x=m(x===s?x.splice(h,x.length):x),o?o(null,s,x,u):K.apply(s,x)})}function y(e){for(var t,n,r,i=e.length,o=T.relative[e[0].type],s=o||T.relative[" "],a=o?1:0,u=d(function(e){return e===t},s,!0),l=d(function(e){return ee(t,e)>-1},s,!0),c=[function(e,n,r){var i=!o&&(r||n!==D)||((t=n).nodeType?u(e,n,r):l(e,n,r));return t=null,i}];i>a;a++)if(n=T.relative[e[a].type])c=[d(h(c),n)];else{if(n=T.filter[e[a].type].apply(null,e[a].matches),n[W]){for(r=++a;i>r&&!T.relative[e[r].type];r++);return v(a>1&&h(c),a>1&&p(e.slice(0,a-1).concat({value:" "===e[a-2].type?"*":""})).replace(ae,"$1"),n,r>a&&y(e.slice(a,r)),i>r&&y(e=e.slice(r)),i>r&&p(e))}c.push(n)}return h(c)}function x(e,n){var i=n.length>0,o=e.length>0,s=function(r,s,a,u,l){var c,f,p,d=0,h="0",g=r&&[],v=[],y=D,x=r||o&&T.find.TAG("*",l),b=$+=null==y?1:Math.random()||.1,w=x.length;for(l&&(D=s===q||s||l);h!==w&&null!=(c=x[h]);h++){if(o&&c){for(f=0,s||c.ownerDocument===q||(L(c),a=!O);p=e[f++];)if(p(c,s||q,a)){u.push(c);break}l&&($=b)}i&&((c=!p&&c)&&d--,r&&g.push(c))}if(d+=h,i&&h!==d){for(f=0;p=n[f++];)p(g,v,s,a);if(r){if(d>0)for(;h--;)g[h]||v[h]||(v[h]=Q.call(u));v=m(v)}K.apply(u,v),l&&!r&&v.length>0&&d+n.length>1&&t.uniqueSort(u)}return l&&($=b,D=y),g};return i?r(s):s}var b,w,T,C,k,E,N,S,D,j,A,L,q,H,O,F,P,R,M,W="sizzle"+1*new Date,I=e.document,$=0,B=0,_=n(),X=n(),z=n(),U=function(e,t){return e===t&&(A=!0),0},V=1<<31,Y={}.hasOwnProperty,G=[],Q=G.pop,J=G.push,K=G.push,Z=G.slice,ee=function(e,t){for(var n=0,r=e.length;r>n;n++)if(e[n]===t)return n;return-1},te="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",ne="[\\x20\\t\\r\\n\\f]",re="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",ie="\\["+ne+"*("+re+")(?:"+ne+"*([*^$|!~]?=)"+ne+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+re+"))|)"+ne+"*\\]",oe=":("+re+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+ie+")*)|.*)\\)|)",se=new RegExp(ne+"+","g"),ae=new RegExp("^"+ne+"+|((?:^|[^\\\\])(?:\\\\.)*)"+ne+"+$","g"),ue=new RegExp("^"+ne+"*,"+ne+"*"),le=new RegExp("^"+ne+"*([>+~]|"+ne+")"+ne+"*"),ce=new RegExp("="+ne+"*([^\\]'\"]*?)"+ne+"*\\]","g"),fe=new RegExp(oe),pe=new RegExp("^"+re+"$"),de={ID:new RegExp("^#("+re+")"),CLASS:new RegExp("^\\.("+re+")"),TAG:new RegExp("^("+re+"|[*])"),ATTR:new RegExp("^"+ie),PSEUDO:new RegExp("^"+oe),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+ne+"*(even|odd|(([+-]|)(\\d*)n|)"+ne+"*(?:([+-]|)"+ne+"*(\\d+)|))"+ne+"*\\)|)","i"),bool:new RegExp("^(?:"+te+")$","i"),needsContext:new RegExp("^"+ne+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+ne+"*((?:-\\d)?\\d*)"+ne+"*\\)|)(?=[^-]|$)","i")},he=/^(?:input|select|textarea|button)$/i,ge=/^h\d$/i,me=/^[^{]+\{\s*\[native \w/,ve=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,ye=/[+~]/,xe=/'|\\/g,be=new RegExp("\\\\([\\da-f]{1,6}"+ne+"?|("+ne+")|.)","ig"),we=function(e,t,n){var r="0x"+t-65536;return r!==r||n?t:0>r?String.fromCharCode(r+65536):String.fromCharCode(r>>10|55296,1023&r|56320)},Te=function(){L()};try{K.apply(G=Z.call(I.childNodes),I.childNodes),G[I.childNodes.length].nodeType}catch(Ce){K={apply:G.length?function(e,t){J.apply(e,Z.call(t))}:function(e,t){for(var n=e.length,r=0;e[n++]=t[r++];);e.length=n-1}}}w=t.support={},k=t.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return t?"HTML"!==t.nodeName:!1},L=t.setDocument=function(e){var t,n,r=e?e.ownerDocument||e:I;return r!==q&&9===r.nodeType&&r.documentElement?(q=r,H=q.documentElement,O=!k(q),(n=q.defaultView)&&n.top!==n&&(n.addEventListener?n.addEventListener("unload",Te,!1):n.attachEvent&&n.attachEvent("onunload",Te)),w.attributes=i(function(e){return e.className="i",!e.getAttribute("className")}),w.getElementsByTagName=i(function(e){return e.appendChild(q.createComment("")),!e.getElementsByTagName("*").length}),w.getElementsByClassName=me.test(q.getElementsByClassName),w.getById=i(function(e){return H.appendChild(e).id=W,!q.getElementsByName||!q.getElementsByName(W).length}),w.getById?(T.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&O){var n=t.getElementById(e);return n?[n]:[]}},T.filter.ID=function(e){var t=e.replace(be,we);return function(e){return e.getAttribute("id")===t}}):(delete T.find.ID,T.filter.ID=function(e){var t=e.replace(be,we);return function(e){var n="undefined"!=typeof e.getAttributeNode&&e.getAttributeNode("id");return n&&n.value===t}}),T.find.TAG=w.getElementsByTagName?function(e,t){return"undefined"!=typeof t.getElementsByTagName?t.getElementsByTagName(e):w.qsa?t.querySelectorAll(e):void 0}:function(e,t){var n,r=[],i=0,o=t.getElementsByTagName(e);if("*"===e){for(;n=o[i++];)1===n.nodeType&&r.push(n);return r}return o},T.find.CLASS=w.getElementsByClassName&&function(e,t){return"undefined"!=typeof t.getElementsByClassName&&O?t.getElementsByClassName(e):void 0},P=[],F=[],(w.qsa=me.test(q.querySelectorAll))&&(i(function(e){H.appendChild(e).innerHTML="<a id='"+W+"'></a><select id='"+W+"-\r\\' msallowcapture=''><option selected=''></option></select>",e.querySelectorAll("[msallowcapture^='']").length&&F.push("[*^$]="+ne+"*(?:''|\"\")"),e.querySelectorAll("[selected]").length||F.push("\\["+ne+"*(?:value|"+te+")"),e.querySelectorAll("[id~="+W+"-]").length||F.push("~="),e.querySelectorAll(":checked").length||F.push(":checked"),e.querySelectorAll("a#"+W+"+*").length||F.push(".#.+[+~]")}),i(function(e){var t=q.createElement("input");t.setAttribute("type","hidden"),e.appendChild(t).setAttribute("name","D"),e.querySelectorAll("[name=d]").length&&F.push("name"+ne+"*[*^$|!~]?="),e.querySelectorAll(":enabled").length||F.push(":enabled",":disabled"),e.querySelectorAll("*,:x"),F.push(",.*:")})),(w.matchesSelector=me.test(R=H.matches||H.webkitMatchesSelector||H.mozMatchesSelector||H.oMatchesSelector||H.msMatchesSelector))&&i(function(e){w.disconnectedMatch=R.call(e,"div"),R.call(e,"[s!='']:x"),P.push("!=",oe)}),F=F.length&&new RegExp(F.join("|")),P=P.length&&new RegExp(P.join("|")),t=me.test(H.compareDocumentPosition),M=t||me.test(H.contains)?function(e,t){var n=9===e.nodeType?e.documentElement:e,r=t&&t.parentNode;return e===r||!(!r||1!==r.nodeType||!(n.contains?n.contains(r):e.compareDocumentPosition&&16&e.compareDocumentPosition(r)))}:function(e,t){if(t)for(;t=t.parentNode;)if(t===e)return!0;return!1},U=t?function(e,t){if(e===t)return A=!0,0;var n=!e.compareDocumentPosition-!t.compareDocumentPosition;return n?n:(n=(e.ownerDocument||e)===(t.ownerDocument||t)?e.compareDocumentPosition(t):1,1&n||!w.sortDetached&&t.compareDocumentPosition(e)===n?e===q||e.ownerDocument===I&&M(I,e)?-1:t===q||t.ownerDocument===I&&M(I,t)?1:j?ee(j,e)-ee(j,t):0:4&n?-1:1)}:function(e,t){if(e===t)return A=!0,0;var n,r=0,i=e.parentNode,o=t.parentNode,a=[e],u=[t];if(!i||!o)return e===q?-1:t===q?1:i?-1:o?1:j?ee(j,e)-ee(j,t):0;if(i===o)return s(e,t);for(n=e;n=n.parentNode;)a.unshift(n);for(n=t;n=n.parentNode;)u.unshift(n);for(;a[r]===u[r];)r++;return r?s(a[r],u[r]):a[r]===I?-1:u[r]===I?1:0},q):q},t.matches=function(e,n){return t(e,null,null,n)},t.matchesSelector=function(e,n){if((e.ownerDocument||e)!==q&&L(e),n=n.replace(ce,"='$1']"),w.matchesSelector&&O&&!z[n+" "]&&(!P||!P.test(n))&&(!F||!F.test(n)))try{var r=R.call(e,n);if(r||w.disconnectedMatch||e.document&&11!==e.document.nodeType)return r}catch(i){}return t(n,q,null,[e]).length>0},t.contains=function(e,t){return(e.ownerDocument||e)!==q&&L(e),M(e,t)},t.attr=function(e,t){(e.ownerDocument||e)!==q&&L(e);var n=T.attrHandle[t.toLowerCase()],r=n&&Y.call(T.attrHandle,t.toLowerCase())?n(e,t,!O):void 0;return void 0!==r?r:w.attributes||!O?e.getAttribute(t):(r=e.getAttributeNode(t))&&r.specified?r.value:null},t.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},t.uniqueSort=function(e){var t,n=[],r=0,i=0;if(A=!w.detectDuplicates,j=!w.sortStable&&e.slice(0),e.sort(U),A){for(;t=e[i++];)t===e[i]&&(r=n.push(i));for(;r--;)e.splice(n[r],1)}return j=null,e},C=t.getText=function(e){var t,n="",r=0,i=e.nodeType;if(i){if(1===i||9===i||11===i){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=C(e)}else if(3===i||4===i)return e.nodeValue}else for(;t=e[r++];)n+=C(t);return n},T=t.selectors={cacheLength:50,createPseudo:r,match:de,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(be,we),e[3]=(e[3]||e[4]||e[5]||"").replace(be,we),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),"nth"===e[1].slice(0,3)?(e[3]||t.error(e[0]),e[4]=+(e[4]?e[5]+(e[6]||1):2*("even"===e[3]||"odd"===e[3])),e[5]=+(e[7]+e[8]||"odd"===e[3])):e[3]&&t.error(e[0]),e},PSEUDO:function(e){var t,n=!e[6]&&e[2];return de.CHILD.test(e[0])?null:(e[3]?e[2]=e[4]||e[5]||"":n&&fe.test(n)&&(t=E(n,!0))&&(t=n.indexOf(")",n.length-t)-n.length)&&(e[0]=e[0].slice(0,t),e[2]=n.slice(0,t)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(be,we).toLowerCase();return"*"===e?function(){return!0}:function(e){return e.nodeName&&e.nodeName.toLowerCase()===t}},CLASS:function(e){var t=_[e+" "];return t||(t=new RegExp("(^|"+ne+")"+e+"("+ne+"|$)"))&&_(e,function(e){return t.test("string"==typeof e.className&&e.className||"undefined"!=typeof e.getAttribute&&e.getAttribute("class")||"")})},ATTR:function(e,n,r){return function(i){var o=t.attr(i,e);return null==o?"!="===n:n?(o+="","="===n?o===r:"!="===n?o!==r:"^="===n?r&&0===o.indexOf(r):"*="===n?r&&o.indexOf(r)>-1:"$="===n?r&&o.slice(-r.length)===r:"~="===n?(" "+o.replace(se," ")+" ").indexOf(r)>-1:"|="===n?o===r||o.slice(0,r.length+1)===r+"-":!1):!0}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),s="last"!==e.slice(-4),a="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,u){var l,c,f,p,d,h,g=o!==s?"nextSibling":"previousSibling",m=t.parentNode,v=a&&t.nodeName.toLowerCase(),y=!u&&!a,x=!1;if(m){if(o){for(;g;){for(p=t;p=p[g];)if(a?p.nodeName.toLowerCase()===v:1===p.nodeType)return!1;h=g="only"===e&&!h&&"nextSibling"}return!0}if(h=[s?m.firstChild:m.lastChild],s&&y){for(p=m,f=p[W]||(p[W]={}),c=f[p.uniqueID]||(f[p.uniqueID]={}),l=c[e]||[],d=l[0]===$&&l[1],x=d&&l[2],p=d&&m.childNodes[d];p=++d&&p&&p[g]||(x=d=0)||h.pop();)if(1===p.nodeType&&++x&&p===t){c[e]=[$,d,x];break}}else if(y&&(p=t,f=p[W]||(p[W]={}),c=f[p.uniqueID]||(f[p.uniqueID]={}),l=c[e]||[],d=l[0]===$&&l[1],x=d),x===!1)for(;(p=++d&&p&&p[g]||(x=d=0)||h.pop())&&((a?p.nodeName.toLowerCase()!==v:1!==p.nodeType)||!++x||(y&&(f=p[W]||(p[W]={}),c=f[p.uniqueID]||(f[p.uniqueID]={}),c[e]=[$,x]),p!==t)););return x-=i,x===r||x%r===0&&x/r>=0}}},PSEUDO:function(e,n){var i,o=T.pseudos[e]||T.setFilters[e.toLowerCase()]||t.error("unsupported pseudo: "+e);return o[W]?o(n):o.length>1?(i=[e,e,"",n],T.setFilters.hasOwnProperty(e.toLowerCase())?r(function(e,t){for(var r,i=o(e,n),s=i.length;s--;)r=ee(e,i[s]),e[r]=!(t[r]=i[s])}):function(e){return o(e,0,i)}):o}},pseudos:{not:r(function(e){var t=[],n=[],i=N(e.replace(ae,"$1"));return i[W]?r(function(e,t,n,r){for(var o,s=i(e,null,r,[]),a=e.length;a--;)(o=s[a])&&(e[a]=!(t[a]=o))}):function(e,r,o){return t[0]=e,i(t,null,o,n),t[0]=null,!n.pop()}}),has:r(function(e){return function(n){return t(e,n).length>0}}),contains:r(function(e){return e=e.replace(be,we),function(t){return(t.textContent||t.innerText||C(t)).indexOf(e)>-1}}),lang:r(function(e){return pe.test(e||"")||t.error("unsupported lang: "+e),e=e.replace(be,we).toLowerCase(),function(t){var n;do if(n=O?t.lang:t.getAttribute("xml:lang")||t.getAttribute("lang"))return n=n.toLowerCase(),n===e||0===n.indexOf(e+"-");while((t=t.parentNode)&&1===t.nodeType);return!1}}),target:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===H},focus:function(e){return e===q.activeElement&&(!q.hasFocus||q.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:function(e){return e.disabled===!1},disabled:function(e){return e.disabled===!0},checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeType<6)return!1;return!0},parent:function(e){return!T.pseudos.empty(e)},header:function(e){return ge.test(e.nodeName)},input:function(e){return he.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||"text"===t.toLowerCase())},first:l(function(){return[0]}),last:l(function(e,t){return[t-1]}),eq:l(function(e,t,n){return[0>n?n+t:n]}),even:l(function(e,t){for(var n=0;t>n;n+=2)e.push(n);return e}),odd:l(function(e,t){for(var n=1;t>n;n+=2)e.push(n);return e;
-}),lt:l(function(e,t,n){for(var r=0>n?n+t:n;--r>=0;)e.push(r);return e}),gt:l(function(e,t,n){for(var r=0>n?n+t:n;++r<t;)e.push(r);return e})}},T.pseudos.nth=T.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})T.pseudos[b]=a(b);for(b in{submit:!0,reset:!0})T.pseudos[b]=u(b);return f.prototype=T.filters=T.pseudos,T.setFilters=new f,E=t.tokenize=function(e,n){var r,i,o,s,a,u,l,c=X[e+" "];if(c)return n?0:c.slice(0);for(a=e,u=[],l=T.preFilter;a;){(!r||(i=ue.exec(a)))&&(i&&(a=a.slice(i[0].length)||a),u.push(o=[])),r=!1,(i=le.exec(a))&&(r=i.shift(),o.push({value:r,type:i[0].replace(ae," ")}),a=a.slice(r.length));for(s in T.filter)!(i=de[s].exec(a))||l[s]&&!(i=l[s](i))||(r=i.shift(),o.push({value:r,type:s,matches:i}),a=a.slice(r.length));if(!r)break}return n?a.length:a?t.error(e):X(e,u).slice(0)},N=t.compile=function(e,t){var n,r=[],i=[],o=z[e+" "];if(!o){for(t||(t=E(e)),n=t.length;n--;)o=y(t[n]),o[W]?r.push(o):i.push(o);o=z(e,x(i,r)),o.selector=e}return o},S=t.select=function(e,t,n,r){var i,o,s,a,u,l="function"==typeof e&&e,f=!r&&E(e=l.selector||e);if(n=n||[],1===f.length){if(o=f[0]=f[0].slice(0),o.length>2&&"ID"===(s=o[0]).type&&w.getById&&9===t.nodeType&&O&&T.relative[o[1].type]){if(t=(T.find.ID(s.matches[0].replace(be,we),t)||[])[0],!t)return n;l&&(t=t.parentNode),e=e.slice(o.shift().value.length)}for(i=de.needsContext.test(e)?0:o.length;i--&&(s=o[i],!T.relative[a=s.type]);)if((u=T.find[a])&&(r=u(s.matches[0].replace(be,we),ye.test(o[0].type)&&c(t.parentNode)||t))){if(o.splice(i,1),e=r.length&&p(o),!e)return K.apply(n,r),n;break}}return(l||N(e,f))(r,t,!O,n,!t||ye.test(e)&&c(t.parentNode)||t),n},w.sortStable=W.split("").sort(U).join("")===W,w.detectDuplicates=!!A,L(),w.sortDetached=i(function(e){return 1&e.compareDocumentPosition(q.createElement("div"))}),i(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||o("type|href|height|width",function(e,t,n){return n?void 0:e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),w.attributes&&i(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||o("value",function(e,t,n){return n||"input"!==e.nodeName.toLowerCase()?void 0:e.defaultValue}),i(function(e){return null==e.getAttribute("disabled")})||o(te,function(e,t,n){var r;return n?void 0:e[t]===!0?t.toLowerCase():(r=e.getAttributeNode(t))&&r.specified?r.value:null}),t}(e);oe.find=ce,oe.expr=ce.selectors,oe.expr[":"]=oe.expr.pseudos,oe.uniqueSort=oe.unique=ce.uniqueSort,oe.text=ce.getText,oe.isXMLDoc=ce.isXML,oe.contains=ce.contains;var fe=function(e,t,n){for(var r=[],i=void 0!==n;(e=e[t])&&9!==e.nodeType;)if(1===e.nodeType){if(i&&oe(e).is(n))break;r.push(e)}return r},pe=function(e,t){for(var n=[];e;e=e.nextSibling)1===e.nodeType&&e!==t&&n.push(e);return n},de=oe.expr.match.needsContext,he=/^<([\w-]+)\s*\/?>(?:<\/\1>|)$/,ge=/^.[^:#\[\.,]*$/;oe.filter=function(e,t,n){var r=t[0];return n&&(e=":not("+e+")"),1===t.length&&1===r.nodeType?oe.find.matchesSelector(r,e)?[r]:[]:oe.find.matches(e,oe.grep(t,function(e){return 1===e.nodeType}))},oe.fn.extend({find:function(e){var t,n=this.length,r=[],i=this;if("string"!=typeof e)return this.pushStack(oe(e).filter(function(){for(t=0;n>t;t++)if(oe.contains(i[t],this))return!0}));for(t=0;n>t;t++)oe.find(e,i[t],r);return r=this.pushStack(n>1?oe.unique(r):r),r.selector=this.selector?this.selector+" "+e:e,r},filter:function(e){return this.pushStack(r(this,e||[],!1))},not:function(e){return this.pushStack(r(this,e||[],!0))},is:function(e){return!!r(this,"string"==typeof e&&de.test(e)?oe(e):e||[],!1).length}});var me,ve=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,ye=oe.fn.init=function(e,t,n){var r,i;if(!e)return this;if(n=n||me,"string"==typeof e){if(r="<"===e[0]&&">"===e[e.length-1]&&e.length>=3?[null,e,null]:ve.exec(e),!r||!r[1]&&t)return!t||t.jquery?(t||n).find(e):this.constructor(t).find(e);if(r[1]){if(t=t instanceof oe?t[0]:t,oe.merge(this,oe.parseHTML(r[1],t&&t.nodeType?t.ownerDocument||t:G,!0)),he.test(r[1])&&oe.isPlainObject(t))for(r in t)oe.isFunction(this[r])?this[r](t[r]):this.attr(r,t[r]);return this}return i=G.getElementById(r[2]),i&&i.parentNode&&(this.length=1,this[0]=i),this.context=G,this.selector=e,this}return e.nodeType?(this.context=this[0]=e,this.length=1,this):oe.isFunction(e)?void 0!==n.ready?n.ready(e):e(oe):(void 0!==e.selector&&(this.selector=e.selector,this.context=e.context),oe.makeArray(e,this))};ye.prototype=oe.fn,me=oe(G);var xe=/^(?:parents|prev(?:Until|All))/,be={children:!0,contents:!0,next:!0,prev:!0};oe.fn.extend({has:function(e){var t=oe(e,this),n=t.length;return this.filter(function(){for(var e=0;n>e;e++)if(oe.contains(this,t[e]))return!0})},closest:function(e,t){for(var n,r=0,i=this.length,o=[],s=de.test(e)||"string"!=typeof e?oe(e,t||this.context):0;i>r;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(n.nodeType<11&&(s?s.index(n)>-1:1===n.nodeType&&oe.find.matchesSelector(n,e))){o.push(n);break}return this.pushStack(o.length>1?oe.uniqueSort(o):o)},index:function(e){return e?"string"==typeof e?Z.call(oe(e),this[0]):Z.call(this,e.jquery?e[0]:e):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(e,t){return this.pushStack(oe.uniqueSort(oe.merge(this.get(),oe(e,t))))},addBack:function(e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}}),oe.each({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return fe(e,"parentNode")},parentsUntil:function(e,t,n){return fe(e,"parentNode",n)},next:function(e){return i(e,"nextSibling")},prev:function(e){return i(e,"previousSibling")},nextAll:function(e){return fe(e,"nextSibling")},prevAll:function(e){return fe(e,"previousSibling")},nextUntil:function(e,t,n){return fe(e,"nextSibling",n)},prevUntil:function(e,t,n){return fe(e,"previousSibling",n)},siblings:function(e){return pe((e.parentNode||{}).firstChild,e)},children:function(e){return pe(e.firstChild)},contents:function(e){return e.contentDocument||oe.merge([],e.childNodes)}},function(e,t){oe.fn[e]=function(n,r){var i=oe.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=oe.filter(r,i)),this.length>1&&(be[e]||oe.uniqueSort(i),xe.test(e)&&i.reverse()),this.pushStack(i)}});var we=/\S+/g;oe.Callbacks=function(e){e="string"==typeof e?o(e):oe.extend({},e);var t,n,r,i,s=[],a=[],u=-1,l=function(){for(i=e.once,r=t=!0;a.length;u=-1)for(n=a.shift();++u<s.length;)s[u].apply(n[0],n[1])===!1&&e.stopOnFalse&&(u=s.length,n=!1);e.memory||(n=!1),t=!1,i&&(s=n?[]:"")},c={add:function(){return s&&(n&&!t&&(u=s.length-1,a.push(n)),function r(t){oe.each(t,function(t,n){oe.isFunction(n)?e.unique&&c.has(n)||s.push(n):n&&n.length&&"string"!==oe.type(n)&&r(n)})}(arguments),n&&!t&&l()),this},remove:function(){return oe.each(arguments,function(e,t){for(var n;(n=oe.inArray(t,s,n))>-1;)s.splice(n,1),u>=n&&u--}),this},has:function(e){return e?oe.inArray(e,s)>-1:s.length>0},empty:function(){return s&&(s=[]),this},disable:function(){return i=a=[],s=n="",this},disabled:function(){return!s},lock:function(){return i=a=[],n||(s=n=""),this},locked:function(){return!!i},fireWith:function(e,n){return i||(n=n||[],n=[e,n.slice?n.slice():n],a.push(n),t||l()),this},fire:function(){return c.fireWith(this,arguments),this},fired:function(){return!!r}};return c},oe.extend({Deferred:function(e){var t=[["resolve","done",oe.Callbacks("once memory"),"resolved"],["reject","fail",oe.Callbacks("once memory"),"rejected"],["notify","progress",oe.Callbacks("memory")]],n="pending",r={state:function(){return n},always:function(){return i.done(arguments).fail(arguments),this},then:function(){var e=arguments;return oe.Deferred(function(n){oe.each(t,function(t,o){var s=oe.isFunction(e[t])&&e[t];i[o[1]](function(){var e=s&&s.apply(this,arguments);e&&oe.isFunction(e.promise)?e.promise().progress(n.notify).done(n.resolve).fail(n.reject):n[o[0]+"With"](this===r?n.promise():this,s?[e]:arguments)})}),e=null}).promise()},promise:function(e){return null!=e?oe.extend(e,r):r}},i={};return r.pipe=r.then,oe.each(t,function(e,o){var s=o[2],a=o[3];r[o[1]]=s.add,a&&s.add(function(){n=a},t[1^e][2].disable,t[2][2].lock),i[o[0]]=function(){return i[o[0]+"With"](this===i?r:this,arguments),this},i[o[0]+"With"]=s.fireWith}),r.promise(i),e&&e.call(i,i),i},when:function(e){var t,n,r,i=0,o=Q.call(arguments),s=o.length,a=1!==s||e&&oe.isFunction(e.promise)?s:0,u=1===a?e:oe.Deferred(),l=function(e,n,r){return function(i){n[e]=this,r[e]=arguments.length>1?Q.call(arguments):i,r===t?u.notifyWith(n,r):--a||u.resolveWith(n,r)}};if(s>1)for(t=new Array(s),n=new Array(s),r=new Array(s);s>i;i++)o[i]&&oe.isFunction(o[i].promise)?o[i].promise().progress(l(i,n,t)).done(l(i,r,o)).fail(u.reject):--a;return a||u.resolveWith(r,o),u.promise()}});var Te;oe.fn.ready=function(e){return oe.ready.promise().done(e),this},oe.extend({isReady:!1,readyWait:1,holdReady:function(e){e?oe.readyWait++:oe.ready(!0)},ready:function(e){(e===!0?--oe.readyWait:oe.isReady)||(oe.isReady=!0,e!==!0&&--oe.readyWait>0||(Te.resolveWith(G,[oe]),oe.fn.triggerHandler&&(oe(G).triggerHandler("ready"),oe(G).off("ready"))))}}),oe.ready.promise=function(t){return Te||(Te=oe.Deferred(),"complete"===G.readyState||"loading"!==G.readyState&&!G.documentElement.doScroll?e.setTimeout(oe.ready):(G.addEventListener("DOMContentLoaded",s),e.addEventListener("load",s))),Te.promise(t)},oe.ready.promise();var Ce=function(e,t,n,r,i,o,s){var a=0,u=e.length,l=null==n;if("object"===oe.type(n)){i=!0;for(a in n)Ce(e,t,a,n[a],!0,o,s)}else if(void 0!==r&&(i=!0,oe.isFunction(r)||(s=!0),l&&(s?(t.call(e,r),t=null):(l=t,t=function(e,t,n){return l.call(oe(e),n)})),t))for(;u>a;a++)t(e[a],n,s?r:r.call(e[a],a,t(e[a],n)));return i?e:l?t.call(e):u?t(e[0],n):o},ke=function(e){return 1===e.nodeType||9===e.nodeType||!+e.nodeType};a.uid=1,a.prototype={register:function(e,t){var n=t||{};return e.nodeType?e[this.expando]=n:Object.defineProperty(e,this.expando,{value:n,writable:!0,configurable:!0}),e[this.expando]},cache:function(e){if(!ke(e))return{};var t=e[this.expando];return t||(t={},ke(e)&&(e.nodeType?e[this.expando]=t:Object.defineProperty(e,this.expando,{value:t,configurable:!0}))),t},set:function(e,t,n){var r,i=this.cache(e);if("string"==typeof t)i[t]=n;else for(r in t)i[r]=t[r];return i},get:function(e,t){return void 0===t?this.cache(e):e[this.expando]&&e[this.expando][t]},access:function(e,t,n){var r;return void 0===t||t&&"string"==typeof t&&void 0===n?(r=this.get(e,t),void 0!==r?r:this.get(e,oe.camelCase(t))):(this.set(e,t,n),void 0!==n?n:t)},remove:function(e,t){var n,r,i,o=e[this.expando];if(void 0!==o){if(void 0===t)this.register(e);else{oe.isArray(t)?r=t.concat(t.map(oe.camelCase)):(i=oe.camelCase(t),t in o?r=[t,i]:(r=i,r=r in o?[r]:r.match(we)||[])),n=r.length;for(;n--;)delete o[r[n]]}(void 0===t||oe.isEmptyObject(o))&&(e.nodeType?e[this.expando]=void 0:delete e[this.expando])}},hasData:function(e){var t=e[this.expando];return void 0!==t&&!oe.isEmptyObject(t)}};var Ee=new a,Ne=new a,Se=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,De=/[A-Z]/g;oe.extend({hasData:function(e){return Ne.hasData(e)||Ee.hasData(e)},data:function(e,t,n){return Ne.access(e,t,n)},removeData:function(e,t){Ne.remove(e,t)},_data:function(e,t,n){return Ee.access(e,t,n)},_removeData:function(e,t){Ee.remove(e,t)}}),oe.fn.extend({data:function(e,t){var n,r,i,o=this[0],s=o&&o.attributes;if(void 0===e){if(this.length&&(i=Ne.get(o),1===o.nodeType&&!Ee.get(o,"hasDataAttrs"))){for(n=s.length;n--;)s[n]&&(r=s[n].name,0===r.indexOf("data-")&&(r=oe.camelCase(r.slice(5)),u(o,r,i[r])));Ee.set(o,"hasDataAttrs",!0)}return i}return"object"==typeof e?this.each(function(){Ne.set(this,e)}):Ce(this,function(t){var n,r;if(o&&void 0===t){if(n=Ne.get(o,e)||Ne.get(o,e.replace(De,"-$&").toLowerCase()),void 0!==n)return n;if(r=oe.camelCase(e),n=Ne.get(o,r),void 0!==n)return n;if(n=u(o,r,void 0),void 0!==n)return n}else r=oe.camelCase(e),this.each(function(){var n=Ne.get(this,r);Ne.set(this,r,t),e.indexOf("-")>-1&&void 0!==n&&Ne.set(this,e,t)})},null,t,arguments.length>1,null,!0)},removeData:function(e){return this.each(function(){Ne.remove(this,e)})}}),oe.extend({queue:function(e,t,n){var r;return e?(t=(t||"fx")+"queue",r=Ee.get(e,t),n&&(!r||oe.isArray(n)?r=Ee.access(e,t,oe.makeArray(n)):r.push(n)),r||[]):void 0},dequeue:function(e,t){t=t||"fx";var n=oe.queue(e,t),r=n.length,i=n.shift(),o=oe._queueHooks(e,t),s=function(){oe.dequeue(e,t)};"inprogress"===i&&(i=n.shift(),r--),i&&("fx"===t&&n.unshift("inprogress"),delete o.stop,i.call(e,s,o)),!r&&o&&o.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return Ee.get(e,n)||Ee.access(e,n,{empty:oe.Callbacks("once memory").add(function(){Ee.remove(e,[t+"queue",n])})})}}),oe.fn.extend({queue:function(e,t){var n=2;return"string"!=typeof e&&(t=e,e="fx",n--),arguments.length<n?oe.queue(this[0],e):void 0===t?this:this.each(function(){var n=oe.queue(this,e,t);oe._queueHooks(this,e),"fx"===e&&"inprogress"!==n[0]&&oe.dequeue(this,e)})},dequeue:function(e){return this.each(function(){oe.dequeue(this,e)})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,t){var n,r=1,i=oe.Deferred(),o=this,s=this.length,a=function(){--r||i.resolveWith(o,[o])};for("string"!=typeof e&&(t=e,e=void 0),e=e||"fx";s--;)n=Ee.get(o[s],e+"queueHooks"),n&&n.empty&&(r++,n.empty.add(a));return a(),i.promise(t)}});var je=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,Ae=new RegExp("^(?:([+-])=|)("+je+")([a-z%]*)$","i"),Le=["Top","Right","Bottom","Left"],qe=function(e,t){return e=t||e,"none"===oe.css(e,"display")||!oe.contains(e.ownerDocument,e)},He=/^(?:checkbox|radio)$/i,Oe=/<([\w:-]+)/,Fe=/^$|\/(?:java|ecma)script/i,Pe={option:[1,"<select multiple='multiple'>","</select>"],thead:[1,"<table>","</table>"],col:[2,"<table><colgroup>","</colgroup></table>"],tr:[2,"<table><tbody>","</tbody></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],_default:[0,"",""]};Pe.optgroup=Pe.option,Pe.tbody=Pe.tfoot=Pe.colgroup=Pe.caption=Pe.thead,Pe.th=Pe.td;var Re=/<|&#?\w+;/;!function(){var e=G.createDocumentFragment(),t=e.appendChild(G.createElement("div")),n=G.createElement("input");n.setAttribute("type","radio"),n.setAttribute("checked","checked"),n.setAttribute("name","t"),t.appendChild(n),re.checkClone=t.cloneNode(!0).cloneNode(!0).lastChild.checked,t.innerHTML="<textarea>x</textarea>",re.noCloneChecked=!!t.cloneNode(!0).lastChild.defaultValue}();var Me=/^key/,We=/^(?:mouse|pointer|contextmenu|drag|drop)|click/,Ie=/^([^.]*)(?:\.(.+)|)/;oe.event={global:{},add:function(e,t,n,r,i){var o,s,a,u,l,c,f,p,d,h,g,m=Ee.get(e);if(m)for(n.handler&&(o=n,n=o.handler,i=o.selector),n.guid||(n.guid=oe.guid++),(u=m.events)||(u=m.events={}),(s=m.handle)||(s=m.handle=function(t){return"undefined"!=typeof oe&&oe.event.triggered!==t.type?oe.event.dispatch.apply(e,arguments):void 0}),t=(t||"").match(we)||[""],l=t.length;l--;)a=Ie.exec(t[l])||[],d=g=a[1],h=(a[2]||"").split(".").sort(),d&&(f=oe.event.special[d]||{},d=(i?f.delegateType:f.bindType)||d,f=oe.event.special[d]||{},c=oe.extend({type:d,origType:g,data:r,handler:n,guid:n.guid,selector:i,needsContext:i&&oe.expr.match.needsContext.test(i),namespace:h.join(".")},o),(p=u[d])||(p=u[d]=[],p.delegateCount=0,f.setup&&f.setup.call(e,r,h,s)!==!1||e.addEventListener&&e.addEventListener(d,s)),f.add&&(f.add.call(e,c),c.handler.guid||(c.handler.guid=n.guid)),i?p.splice(p.delegateCount++,0,c):p.push(c),oe.event.global[d]=!0)},remove:function(e,t,n,r,i){var o,s,a,u,l,c,f,p,d,h,g,m=Ee.hasData(e)&&Ee.get(e);if(m&&(u=m.events)){for(t=(t||"").match(we)||[""],l=t.length;l--;)if(a=Ie.exec(t[l])||[],d=g=a[1],h=(a[2]||"").split(".").sort(),d){for(f=oe.event.special[d]||{},d=(r?f.delegateType:f.bindType)||d,p=u[d]||[],a=a[2]&&new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"),s=o=p.length;o--;)c=p[o],!i&&g!==c.origType||n&&n.guid!==c.guid||a&&!a.test(c.namespace)||r&&r!==c.selector&&("**"!==r||!c.selector)||(p.splice(o,1),c.selector&&p.delegateCount--,f.remove&&f.remove.call(e,c));s&&!p.length&&(f.teardown&&f.teardown.call(e,h,m.handle)!==!1||oe.removeEvent(e,d,m.handle),delete u[d])}else for(d in u)oe.event.remove(e,d+t[l],n,r,!0);oe.isEmptyObject(u)&&Ee.remove(e,"handle events")}},dispatch:function(e){e=oe.event.fix(e);var t,n,r,i,o,s=[],a=Q.call(arguments),u=(Ee.get(this,"events")||{})[e.type]||[],l=oe.event.special[e.type]||{};if(a[0]=e,e.delegateTarget=this,!l.preDispatch||l.preDispatch.call(this,e)!==!1){for(s=oe.event.handlers.call(this,e,u),t=0;(i=s[t++])&&!e.isPropagationStopped();)for(e.currentTarget=i.elem,n=0;(o=i.handlers[n++])&&!e.isImmediatePropagationStopped();)(!e.rnamespace||e.rnamespace.test(o.namespace))&&(e.handleObj=o,e.data=o.data,r=((oe.event.special[o.origType]||{}).handle||o.handler).apply(i.elem,a),void 0!==r&&(e.result=r)===!1&&(e.preventDefault(),e.stopPropagation()));return l.postDispatch&&l.postDispatch.call(this,e),e.result}},handlers:function(e,t){var n,r,i,o,s=[],a=t.delegateCount,u=e.target;if(a&&u.nodeType&&("click"!==e.type||isNaN(e.button)||e.button<1))for(;u!==this;u=u.parentNode||this)if(1===u.nodeType&&(u.disabled!==!0||"click"!==e.type)){for(r=[],n=0;a>n;n++)o=t[n],i=o.selector+" ",void 0===r[i]&&(r[i]=o.needsContext?oe(i,this).index(u)>-1:oe.find(i,this,null,[u]).length),r[i]&&r.push(o);r.length&&s.push({elem:u,handlers:r})}return a<t.length&&s.push({elem:this,handlers:t.slice(a)}),s},props:"altKey bubbles cancelable ctrlKey currentTarget detail eventPhase metaKey relatedTarget shiftKey target timeStamp view which".split(" "),fixHooks:{},keyHooks:{props:"char charCode key keyCode".split(" "),filter:function(e,t){return null==e.which&&(e.which=null!=t.charCode?t.charCode:t.keyCode),e}},mouseHooks:{props:"button buttons clientX clientY offsetX offsetY pageX pageY screenX screenY toElement".split(" "),filter:function(e,t){var n,r,i,o=t.button;return null==e.pageX&&null!=t.clientX&&(n=e.target.ownerDocument||G,r=n.documentElement,i=n.body,e.pageX=t.clientX+(r&&r.scrollLeft||i&&i.scrollLeft||0)-(r&&r.clientLeft||i&&i.clientLeft||0),e.pageY=t.clientY+(r&&r.scrollTop||i&&i.scrollTop||0)-(r&&r.clientTop||i&&i.clientTop||0)),e.which||void 0===o||(e.which=1&o?1:2&o?3:4&o?2:0),e}},fix:function(e){if(e[oe.expando])return e;var t,n,r,i=e.type,o=e,s=this.fixHooks[i];for(s||(this.fixHooks[i]=s=We.test(i)?this.mouseHooks:Me.test(i)?this.keyHooks:{}),r=s.props?this.props.concat(s.props):this.props,e=new oe.Event(o),t=r.length;t--;)n=r[t],e[n]=o[n];return e.target||(e.target=G),3===e.target.nodeType&&(e.target=e.target.parentNode),s.filter?s.filter(e,o):e},special:{load:{noBubble:!0},focus:{trigger:function(){return this!==g()&&this.focus?(this.focus(),!1):void 0},delegateType:"focusin"},blur:{trigger:function(){return this===g()&&this.blur?(this.blur(),!1):void 0},delegateType:"focusout"},click:{trigger:function(){return"checkbox"===this.type&&this.click&&oe.nodeName(this,"input")?(this.click(),!1):void 0},_default:function(e){return oe.nodeName(e.target,"a")}},beforeunload:{postDispatch:function(e){void 0!==e.result&&e.originalEvent&&(e.originalEvent.returnValue=e.result)}}}},oe.removeEvent=function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n)},oe.Event=function(e,t){return this instanceof oe.Event?(e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||void 0===e.defaultPrevented&&e.returnValue===!1?d:h):this.type=e,t&&oe.extend(this,t),this.timeStamp=e&&e.timeStamp||oe.now(),void(this[oe.expando]=!0)):new oe.Event(e,t)},oe.Event.prototype={constructor:oe.Event,isDefaultPrevented:h,isPropagationStopped:h,isImmediatePropagationStopped:h,preventDefault:function(){var e=this.originalEvent;this.isDefaultPrevented=d,e&&e.preventDefault()},stopPropagation:function(){var e=this.originalEvent;this.isPropagationStopped=d,e&&e.stopPropagation()},stopImmediatePropagation:function(){var e=this.originalEvent;this.isImmediatePropagationStopped=d,e&&e.stopImmediatePropagation(),this.stopPropagation()}},oe.each({mouseenter:"mouseover",mouseleave:"mouseout",pointerenter:"pointerover",pointerleave:"pointerout"},function(e,t){oe.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=this,i=e.relatedTarget,o=e.handleObj;return(!i||i!==r&&!oe.contains(r,i))&&(e.type=o.origType,n=o.handler.apply(this,arguments),e.type=t),n}}}),oe.fn.extend({on:function(e,t,n,r){return m(this,e,t,n,r)},one:function(e,t,n,r){return m(this,e,t,n,r,1)},off:function(e,t,n){var r,i;if(e&&e.preventDefault&&e.handleObj)return r=e.handleObj,oe(e.delegateTarget).off(r.namespace?r.origType+"."+r.namespace:r.origType,r.selector,r.handler),this;if("object"==typeof e){for(i in e)this.off(i,t,e[i]);return this}return(t===!1||"function"==typeof t)&&(n=t,t=void 0),n===!1&&(n=h),this.each(function(){oe.event.remove(this,e,n,t)})}});var $e=/<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:-]+)[^>]*)\/>/gi,Be=/<script|<style|<link/i,_e=/checked\s*(?:[^=]|=\s*.checked.)/i,Xe=/^true\/(.*)/,ze=/^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;oe.extend({htmlPrefilter:function(e){return e.replace($e,"<$1></$2>")},clone:function(e,t,n){var r,i,o,s,a=e.cloneNode(!0),u=oe.contains(e.ownerDocument,e);if(!(re.noCloneChecked||1!==e.nodeType&&11!==e.nodeType||oe.isXMLDoc(e)))for(s=c(a),o=c(e),r=0,i=o.length;i>r;r++)w(o[r],s[r]);if(t)if(n)for(o=o||c(e),s=s||c(a),r=0,i=o.length;i>r;r++)b(o[r],s[r]);else b(e,a);return s=c(a,"script"),s.length>0&&f(s,!u&&c(e,"script")),a},cleanData:function(e){for(var t,n,r,i=oe.event.special,o=0;void 0!==(n=e[o]);o++)if(ke(n)){if(t=n[Ee.expando]){if(t.events)for(r in t.events)i[r]?oe.event.remove(n,r):oe.removeEvent(n,r,t.handle);n[Ee.expando]=void 0}n[Ne.expando]&&(n[Ne.expando]=void 0)}}}),oe.fn.extend({domManip:T,detach:function(e){return C(this,e,!0)},remove:function(e){return C(this,e)},text:function(e){return Ce(this,function(e){return void 0===e?oe.text(this):this.empty().each(function(){(1===this.nodeType||11===this.nodeType||9===this.nodeType)&&(this.textContent=e)})},null,e,arguments.length)},append:function(){return T(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=v(this,e);t.appendChild(e)}})},prepend:function(){return T(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=v(this,e);t.insertBefore(e,t.firstChild)}})},before:function(){return T(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})},after:function(){return T(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})},empty:function(){for(var e,t=0;null!=(e=this[t]);t++)1===e.nodeType&&(oe.cleanData(c(e,!1)),e.textContent="");return this},clone:function(e,t){return e=null==e?!1:e,t=null==t?e:t,this.map(function(){return oe.clone(this,e,t)})},html:function(e){return Ce(this,function(e){var t=this[0]||{},n=0,r=this.length;if(void 0===e&&1===t.nodeType)return t.innerHTML;if("string"==typeof e&&!Be.test(e)&&!Pe[(Oe.exec(e)||["",""])[1].toLowerCase()]){e=oe.htmlPrefilter(e);try{for(;r>n;n++)t=this[n]||{},1===t.nodeType&&(oe.cleanData(c(t,!1)),t.innerHTML=e);t=0}catch(i){}}t&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(){var e=[];return T(this,arguments,function(t){var n=this.parentNode;oe.inArray(this,e)<0&&(oe.cleanData(c(this)),n&&n.replaceChild(t,this))},e)}}),oe.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){oe.fn[e]=function(e){for(var n,r=[],i=oe(e),o=i.length-1,s=0;o>=s;s++)n=s===o?this:this.clone(!0),oe(i[s])[t](n),K.apply(r,n.get());return this.pushStack(r)}});var Ue,Ve={HTML:"block",BODY:"block"},Ye=/^margin/,Ge=new RegExp("^("+je+")(?!px)[a-z%]+$","i"),Qe=function(t){var n=t.ownerDocument.defaultView;return n.opener||(n=e),n.getComputedStyle(t)},Je=function(e,t,n,r){var i,o,s={};for(o in t)s[o]=e.style[o],e.style[o]=t[o];i=n.apply(e,r||[]);for(o in t)e.style[o]=s[o];return i},Ke=G.documentElement;!function(){function t(){a.style.cssText="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",a.innerHTML="",Ke.appendChild(s);var t=e.getComputedStyle(a);n="1%"!==t.top,o="2px"===t.marginLeft,r="4px"===t.width,a.style.marginRight="50%",i="4px"===t.marginRight,Ke.removeChild(s)}var n,r,i,o,s=G.createElement("div"),a=G.createElement("div");a.style&&(a.style.backgroundClip="content-box",a.cloneNode(!0).style.backgroundClip="",re.clearCloneStyle="content-box"===a.style.backgroundClip,s.style.cssText="border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",s.appendChild(a),oe.extend(re,{pixelPosition:function(){return t(),n},boxSizingReliable:function(){return null==r&&t(),r},pixelMarginRight:function(){return null==r&&t(),i},reliableMarginLeft:function(){return null==r&&t(),o},reliableMarginRight:function(){var t,n=a.appendChild(G.createElement("div"));return n.style.cssText=a.style.cssText="-webkit-box-sizing:content-box;box-sizing:content-box;display:block;margin:0;border:0;padding:0",n.style.marginRight=n.style.width="0",a.style.width="1px",Ke.appendChild(s),t=!parseFloat(e.getComputedStyle(n).marginRight),Ke.removeChild(s),a.removeChild(n),t}}))}();var Ze=/^(none|table(?!-c[ea]).+)/,et={position:"absolute",visibility:"hidden",display:"block"},tt={letterSpacing:"0",fontWeight:"400"},nt=["Webkit","O","Moz","ms"],rt=G.createElement("div").style;oe.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=N(e,"opacity");return""===n?"1":n}}}},cssNumber:{animationIterationCount:!0,columnCount:!0,fillOpacity:!0,flexGrow:!0,flexShrink:!0,fontWeight:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,widows:!0,zIndex:!0,zoom:!0},cssProps:{"float":"cssFloat"},style:function(e,t,n,r){if(e&&3!==e.nodeType&&8!==e.nodeType&&e.style){var i,o,s,a=oe.camelCase(t),u=e.style;return t=oe.cssProps[a]||(oe.cssProps[a]=D(a)||a),s=oe.cssHooks[t]||oe.cssHooks[a],void 0===n?s&&"get"in s&&void 0!==(i=s.get(e,!1,r))?i:u[t]:(o=typeof n,"string"===o&&(i=Ae.exec(n))&&i[1]&&(n=l(e,t,i),o="number"),null!=n&&n===n&&("number"===o&&(n+=i&&i[3]||(oe.cssNumber[a]?"":"px")),re.clearCloneStyle||""!==n||0!==t.indexOf("background")||(u[t]="inherit"),s&&"set"in s&&void 0===(n=s.set(e,n,r))||(u[t]=n)),void 0)}},css:function(e,t,n,r){var i,o,s,a=oe.camelCase(t);return t=oe.cssProps[a]||(oe.cssProps[a]=D(a)||a),s=oe.cssHooks[t]||oe.cssHooks[a],s&&"get"in s&&(i=s.get(e,!0,n)),void 0===i&&(i=N(e,t,r)),"normal"===i&&t in tt&&(i=tt[t]),""===n||n?(o=parseFloat(i),n===!0||isFinite(o)?o||0:i):i}}),oe.each(["height","width"],function(e,t){oe.cssHooks[t]={get:function(e,n,r){return n?Ze.test(oe.css(e,"display"))&&0===e.offsetWidth?Je(e,et,function(){return L(e,t,r)}):L(e,t,r):void 0},set:function(e,n,r){var i,o=r&&Qe(e),s=r&&A(e,t,r,"border-box"===oe.css(e,"boxSizing",!1,o),o);return s&&(i=Ae.exec(n))&&"px"!==(i[3]||"px")&&(e.style[t]=n,n=oe.css(e,t)),j(e,n,s)}}}),oe.cssHooks.marginLeft=S(re.reliableMarginLeft,function(e,t){return t?(parseFloat(N(e,"marginLeft"))||e.getBoundingClientRect().left-Je(e,{marginLeft:0},function(){return e.getBoundingClientRect().left}))+"px":void 0}),oe.cssHooks.marginRight=S(re.reliableMarginRight,function(e,t){return t?Je(e,{display:"inline-block"},N,[e,"marginRight"]):void 0}),oe.each({margin:"",padding:"",border:"Width"},function(e,t){oe.cssHooks[e+t]={expand:function(n){for(var r=0,i={},o="string"==typeof n?n.split(" "):[n];4>r;r++)i[e+Le[r]+t]=o[r]||o[r-2]||o[0];return i}},Ye.test(e)||(oe.cssHooks[e+t].set=j)}),oe.fn.extend({css:function(e,t){return Ce(this,function(e,t,n){var r,i,o={},s=0;if(oe.isArray(t)){for(r=Qe(e),i=t.length;i>s;s++)o[t[s]]=oe.css(e,t[s],!1,r);return o}return void 0!==n?oe.style(e,t,n):oe.css(e,t)},e,t,arguments.length>1)},show:function(){return q(this,!0)},hide:function(){return q(this)},toggle:function(e){return"boolean"==typeof e?e?this.show():this.hide():this.each(function(){qe(this)?oe(this).show():oe(this).hide()})}}),oe.Tween=H,H.prototype={constructor:H,init:function(e,t,n,r,i,o){this.elem=e,this.prop=n,this.easing=i||oe.easing._default,this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=o||(oe.cssNumber[n]?"":"px")},cur:function(){var e=H.propHooks[this.prop];return e&&e.get?e.get(this):H.propHooks._default.get(this)},run:function(e){var t,n=H.propHooks[this.prop];return this.options.duration?this.pos=t=oe.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):this.pos=t=e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):H.propHooks._default.set(this),this}},H.prototype.init.prototype=H.prototype,H.propHooks={_default:{get:function(e){var t;return 1!==e.elem.nodeType||null!=e.elem[e.prop]&&null==e.elem.style[e.prop]?e.elem[e.prop]:(t=oe.css(e.elem,e.prop,""),t&&"auto"!==t?t:0)},set:function(e){oe.fx.step[e.prop]?oe.fx.step[e.prop](e):1!==e.elem.nodeType||null==e.elem.style[oe.cssProps[e.prop]]&&!oe.cssHooks[e.prop]?e.elem[e.prop]=e.now:oe.style(e.elem,e.prop,e.now+e.unit)}}},H.propHooks.scrollTop=H.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},oe.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2},_default:"swing"},oe.fx=H.prototype.init,oe.fx.step={};var it,ot,st=/^(?:toggle|show|hide)$/,at=/queueHooks$/;oe.Animation=oe.extend(W,{tweeners:{"*":[function(e,t){var n=this.createTween(e,t);return l(n.elem,e,Ae.exec(t),n),n}]},tweener:function(e,t){oe.isFunction(e)?(t=e,e=["*"]):e=e.match(we);for(var n,r=0,i=e.length;i>r;r++)n=e[r],W.tweeners[n]=W.tweeners[n]||[],W.tweeners[n].unshift(t)},prefilters:[R],prefilter:function(e,t){t?W.prefilters.unshift(e):W.prefilters.push(e)}}),oe.speed=function(e,t,n){var r=e&&"object"==typeof e?oe.extend({},e):{complete:n||!n&&t||oe.isFunction(e)&&e,duration:e,easing:n&&t||t&&!oe.isFunction(t)&&t};return r.duration=oe.fx.off?0:"number"==typeof r.duration?r.duration:r.duration in oe.fx.speeds?oe.fx.speeds[r.duration]:oe.fx.speeds._default,(null==r.queue||r.queue===!0)&&(r.queue="fx"),r.old=r.complete,r.complete=function(){oe.isFunction(r.old)&&r.old.call(this),r.queue&&oe.dequeue(this,r.queue)},r},oe.fn.extend({fadeTo:function(e,t,n,r){return this.filter(qe).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=oe.isEmptyObject(e),o=oe.speed(t,n,r),s=function(){var t=W(this,oe.extend({},e),o);(i||Ee.get(this,"finish"))&&t.stop(!0)};return s.finish=s,i||o.queue===!1?this.each(s):this.queue(o.queue,s)},stop:function(e,t,n){var r=function(e){var t=e.stop;delete e.stop,t(n)};return"string"!=typeof e&&(n=t,t=e,e=void 0),t&&e!==!1&&this.queue(e||"fx",[]),this.each(function(){var t=!0,i=null!=e&&e+"queueHooks",o=oe.timers,s=Ee.get(this);if(i)s[i]&&s[i].stop&&r(s[i]);else for(i in s)s[i]&&s[i].stop&&at.test(i)&&r(s[i]);for(i=o.length;i--;)o[i].elem!==this||null!=e&&o[i].queue!==e||(o[i].anim.stop(n),t=!1,o.splice(i,1));(t||!n)&&oe.dequeue(this,e)})},finish:function(e){return e!==!1&&(e=e||"fx"),this.each(function(){var t,n=Ee.get(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=oe.timers,s=r?r.length:0;for(n.finish=!0,oe.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;s>t;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}}),oe.each(["toggle","show","hide"],function(e,t){var n=oe.fn[t];oe.fn[t]=function(e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(F(t,!0),e,r,i)}}),oe.each({slideDown:F("show"),slideUp:F("hide"),slideToggle:F("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){oe.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),oe.timers=[],oe.fx.tick=function(){var e,t=0,n=oe.timers;for(it=oe.now();t<n.length;t++)e=n[t],e()||n[t]!==e||n.splice(t--,1);n.length||oe.fx.stop(),it=void 0},oe.fx.timer=function(e){oe.timers.push(e),
-e()?oe.fx.start():oe.timers.pop()},oe.fx.interval=13,oe.fx.start=function(){ot||(ot=e.setInterval(oe.fx.tick,oe.fx.interval))},oe.fx.stop=function(){e.clearInterval(ot),ot=null},oe.fx.speeds={slow:600,fast:200,_default:400},oe.fn.delay=function(t,n){return t=oe.fx?oe.fx.speeds[t]||t:t,n=n||"fx",this.queue(n,function(n,r){var i=e.setTimeout(n,t);r.stop=function(){e.clearTimeout(i)}})},function(){var e=G.createElement("input"),t=G.createElement("select"),n=t.appendChild(G.createElement("option"));e.type="checkbox",re.checkOn=""!==e.value,re.optSelected=n.selected,t.disabled=!0,re.optDisabled=!n.disabled,e=G.createElement("input"),e.value="t",e.type="radio",re.radioValue="t"===e.value}();var ut,lt=oe.expr.attrHandle;oe.fn.extend({attr:function(e,t){return Ce(this,oe.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){oe.removeAttr(this,e)})}}),oe.extend({attr:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return"undefined"==typeof e.getAttribute?oe.prop(e,t,n):(1===o&&oe.isXMLDoc(e)||(t=t.toLowerCase(),i=oe.attrHooks[t]||(oe.expr.match.bool.test(t)?ut:void 0)),void 0!==n?null===n?void oe.removeAttr(e,t):i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:(e.setAttribute(t,n+""),n):i&&"get"in i&&null!==(r=i.get(e,t))?r:(r=oe.find.attr(e,t),null==r?void 0:r))},attrHooks:{type:{set:function(e,t){if(!re.radioValue&&"radio"===t&&oe.nodeName(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}}},removeAttr:function(e,t){var n,r,i=0,o=t&&t.match(we);if(o&&1===e.nodeType)for(;n=o[i++];)r=oe.propFix[n]||n,oe.expr.match.bool.test(n)&&(e[r]=!1),e.removeAttribute(n)}}),ut={set:function(e,t,n){return t===!1?oe.removeAttr(e,n):e.setAttribute(n,n),n}},oe.each(oe.expr.match.bool.source.match(/\w+/g),function(e,t){var n=lt[t]||oe.find.attr;lt[t]=function(e,t,r){var i,o;return r||(o=lt[t],lt[t]=i,i=null!=n(e,t,r)?t.toLowerCase():null,lt[t]=o),i}});var ct=/^(?:input|select|textarea|button)$/i,ft=/^(?:a|area)$/i;oe.fn.extend({prop:function(e,t){return Ce(this,oe.prop,e,t,arguments.length>1)},removeProp:function(e){return this.each(function(){delete this[oe.propFix[e]||e]})}}),oe.extend({prop:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return 1===o&&oe.isXMLDoc(e)||(t=oe.propFix[t]||t,i=oe.propHooks[t]),void 0!==n?i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){var t=oe.find.attr(e,"tabindex");return t?parseInt(t,10):ct.test(e.nodeName)||ft.test(e.nodeName)&&e.href?0:-1}}},propFix:{"for":"htmlFor","class":"className"}}),re.optSelected||(oe.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null}}),oe.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){oe.propFix[this.toLowerCase()]=this});var pt=/[\t\r\n\f]/g;oe.fn.extend({addClass:function(e){var t,n,r,i,o,s,a,u=0;if(oe.isFunction(e))return this.each(function(t){oe(this).addClass(e.call(this,t,I(this)))});if("string"==typeof e&&e)for(t=e.match(we)||[];n=this[u++];)if(i=I(n),r=1===n.nodeType&&(" "+i+" ").replace(pt," ")){for(s=0;o=t[s++];)r.indexOf(" "+o+" ")<0&&(r+=o+" ");a=oe.trim(r),i!==a&&n.setAttribute("class",a)}return this},removeClass:function(e){var t,n,r,i,o,s,a,u=0;if(oe.isFunction(e))return this.each(function(t){oe(this).removeClass(e.call(this,t,I(this)))});if(!arguments.length)return this.attr("class","");if("string"==typeof e&&e)for(t=e.match(we)||[];n=this[u++];)if(i=I(n),r=1===n.nodeType&&(" "+i+" ").replace(pt," ")){for(s=0;o=t[s++];)for(;r.indexOf(" "+o+" ")>-1;)r=r.replace(" "+o+" "," ");a=oe.trim(r),i!==a&&n.setAttribute("class",a)}return this},toggleClass:function(e,t){var n=typeof e;return"boolean"==typeof t&&"string"===n?t?this.addClass(e):this.removeClass(e):oe.isFunction(e)?this.each(function(n){oe(this).toggleClass(e.call(this,n,I(this),t),t)}):this.each(function(){var t,r,i,o;if("string"===n)for(r=0,i=oe(this),o=e.match(we)||[];t=o[r++];)i.hasClass(t)?i.removeClass(t):i.addClass(t);else(void 0===e||"boolean"===n)&&(t=I(this),t&&Ee.set(this,"__className__",t),this.setAttribute&&this.setAttribute("class",t||e===!1?"":Ee.get(this,"__className__")||""))})},hasClass:function(e){var t,n,r=0;for(t=" "+e+" ";n=this[r++];)if(1===n.nodeType&&(" "+I(n)+" ").replace(pt," ").indexOf(t)>-1)return!0;return!1}});var dt=/\r/g;oe.fn.extend({val:function(e){var t,n,r,i=this[0];{if(arguments.length)return r=oe.isFunction(e),this.each(function(n){var i;1===this.nodeType&&(i=r?e.call(this,n,oe(this).val()):e,null==i?i="":"number"==typeof i?i+="":oe.isArray(i)&&(i=oe.map(i,function(e){return null==e?"":e+""})),t=oe.valHooks[this.type]||oe.valHooks[this.nodeName.toLowerCase()],t&&"set"in t&&void 0!==t.set(this,i,"value")||(this.value=i))});if(i)return t=oe.valHooks[i.type]||oe.valHooks[i.nodeName.toLowerCase()],t&&"get"in t&&void 0!==(n=t.get(i,"value"))?n:(n=i.value,"string"==typeof n?n.replace(dt,""):null==n?"":n)}}}),oe.extend({valHooks:{option:{get:function(e){return oe.trim(e.value)}},select:{get:function(e){for(var t,n,r=e.options,i=e.selectedIndex,o="select-one"===e.type||0>i,s=o?null:[],a=o?i+1:r.length,u=0>i?a:o?i:0;a>u;u++)if(n=r[u],(n.selected||u===i)&&(re.optDisabled?!n.disabled:null===n.getAttribute("disabled"))&&(!n.parentNode.disabled||!oe.nodeName(n.parentNode,"optgroup"))){if(t=oe(n).val(),o)return t;s.push(t)}return s},set:function(e,t){for(var n,r,i=e.options,o=oe.makeArray(t),s=i.length;s--;)r=i[s],(r.selected=oe.inArray(oe.valHooks.option.get(r),o)>-1)&&(n=!0);return n||(e.selectedIndex=-1),o}}}}),oe.each(["radio","checkbox"],function(){oe.valHooks[this]={set:function(e,t){return oe.isArray(t)?e.checked=oe.inArray(oe(e).val(),t)>-1:void 0}},re.checkOn||(oe.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var ht=/^(?:focusinfocus|focusoutblur)$/;oe.extend(oe.event,{trigger:function(t,n,r,i){var o,s,a,u,l,c,f,p=[r||G],d=ne.call(t,"type")?t.type:t,h=ne.call(t,"namespace")?t.namespace.split("."):[];if(s=a=r=r||G,3!==r.nodeType&&8!==r.nodeType&&!ht.test(d+oe.event.triggered)&&(d.indexOf(".")>-1&&(h=d.split("."),d=h.shift(),h.sort()),l=d.indexOf(":")<0&&"on"+d,t=t[oe.expando]?t:new oe.Event(d,"object"==typeof t&&t),t.isTrigger=i?2:3,t.namespace=h.join("."),t.rnamespace=t.namespace?new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,t.result=void 0,t.target||(t.target=r),n=null==n?[t]:oe.makeArray(n,[t]),f=oe.event.special[d]||{},i||!f.trigger||f.trigger.apply(r,n)!==!1)){if(!i&&!f.noBubble&&!oe.isWindow(r)){for(u=f.delegateType||d,ht.test(u+d)||(s=s.parentNode);s;s=s.parentNode)p.push(s),a=s;a===(r.ownerDocument||G)&&p.push(a.defaultView||a.parentWindow||e)}for(o=0;(s=p[o++])&&!t.isPropagationStopped();)t.type=o>1?u:f.bindType||d,c=(Ee.get(s,"events")||{})[t.type]&&Ee.get(s,"handle"),c&&c.apply(s,n),c=l&&s[l],c&&c.apply&&ke(s)&&(t.result=c.apply(s,n),t.result===!1&&t.preventDefault());return t.type=d,i||t.isDefaultPrevented()||f._default&&f._default.apply(p.pop(),n)!==!1||!ke(r)||l&&oe.isFunction(r[d])&&!oe.isWindow(r)&&(a=r[l],a&&(r[l]=null),oe.event.triggered=d,r[d](),oe.event.triggered=void 0,a&&(r[l]=a)),t.result}},simulate:function(e,t,n){var r=oe.extend(new oe.Event,n,{type:e,isSimulated:!0});oe.event.trigger(r,null,t),r.isDefaultPrevented()&&n.preventDefault()}}),oe.fn.extend({trigger:function(e,t){return this.each(function(){oe.event.trigger(e,t,this)})},triggerHandler:function(e,t){var n=this[0];return n?oe.event.trigger(e,t,n,!0):void 0}}),oe.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "),function(e,t){oe.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}}),oe.fn.extend({hover:function(e,t){return this.mouseenter(e).mouseleave(t||e)}}),re.focusin="onfocusin"in e,re.focusin||oe.each({focus:"focusin",blur:"focusout"},function(e,t){var n=function(e){oe.event.simulate(t,e.target,oe.event.fix(e))};oe.event.special[t]={setup:function(){var r=this.ownerDocument||this,i=Ee.access(r,t);i||r.addEventListener(e,n,!0),Ee.access(r,t,(i||0)+1)},teardown:function(){var r=this.ownerDocument||this,i=Ee.access(r,t)-1;i?Ee.access(r,t,i):(r.removeEventListener(e,n,!0),Ee.remove(r,t))}}});var gt=e.location,mt=oe.now(),vt=/\?/;oe.parseJSON=function(e){return JSON.parse(e+"")},oe.parseXML=function(t){var n;if(!t||"string"!=typeof t)return null;try{n=(new e.DOMParser).parseFromString(t,"text/xml")}catch(r){n=void 0}return(!n||n.getElementsByTagName("parsererror").length)&&oe.error("Invalid XML: "+t),n};var yt=/#.*$/,xt=/([?&])_=[^&]*/,bt=/^(.*?):[ \t]*([^\r\n]*)$/gm,wt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Tt=/^(?:GET|HEAD)$/,Ct=/^\/\//,kt={},Et={},Nt="*/".concat("*"),St=G.createElement("a");St.href=gt.href,oe.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:gt.href,type:"GET",isLocal:wt.test(gt.protocol),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":Nt,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/\bxml\b/,html:/\bhtml/,json:/\bjson\b/},responseFields:{xml:"responseXML",text:"responseText",json:"responseJSON"},converters:{"* text":String,"text html":!0,"text json":oe.parseJSON,"text xml":oe.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?_(_(e,oe.ajaxSettings),t):_(oe.ajaxSettings,e)},ajaxPrefilter:$(kt),ajaxTransport:$(Et),ajax:function(t,n){function r(t,n,r,a){var l,f,y,x,w,C=n;2!==b&&(b=2,u&&e.clearTimeout(u),i=void 0,s=a||"",T.readyState=t>0?4:0,l=t>=200&&300>t||304===t,r&&(x=X(p,T,r)),x=z(p,x,T,l),l?(p.ifModified&&(w=T.getResponseHeader("Last-Modified"),w&&(oe.lastModified[o]=w),w=T.getResponseHeader("etag"),w&&(oe.etag[o]=w)),204===t||"HEAD"===p.type?C="nocontent":304===t?C="notmodified":(C=x.state,f=x.data,y=x.error,l=!y)):(y=C,(t||!C)&&(C="error",0>t&&(t=0))),T.status=t,T.statusText=(n||C)+"",l?g.resolveWith(d,[f,C,T]):g.rejectWith(d,[T,C,y]),T.statusCode(v),v=void 0,c&&h.trigger(l?"ajaxSuccess":"ajaxError",[T,p,l?f:y]),m.fireWith(d,[T,C]),c&&(h.trigger("ajaxComplete",[T,p]),--oe.active||oe.event.trigger("ajaxStop")))}"object"==typeof t&&(n=t,t=void 0),n=n||{};var i,o,s,a,u,l,c,f,p=oe.ajaxSetup({},n),d=p.context||p,h=p.context&&(d.nodeType||d.jquery)?oe(d):oe.event,g=oe.Deferred(),m=oe.Callbacks("once memory"),v=p.statusCode||{},y={},x={},b=0,w="canceled",T={readyState:0,getResponseHeader:function(e){var t;if(2===b){if(!a)for(a={};t=bt.exec(s);)a[t[1].toLowerCase()]=t[2];t=a[e.toLowerCase()]}return null==t?null:t},getAllResponseHeaders:function(){return 2===b?s:null},setRequestHeader:function(e,t){var n=e.toLowerCase();return b||(e=x[n]=x[n]||e,y[e]=t),this},overrideMimeType:function(e){return b||(p.mimeType=e),this},statusCode:function(e){var t;if(e)if(2>b)for(t in e)v[t]=[v[t],e[t]];else T.always(e[T.status]);return this},abort:function(e){var t=e||w;return i&&i.abort(t),r(0,t),this}};if(g.promise(T).complete=m.add,T.success=T.done,T.error=T.fail,p.url=((t||p.url||gt.href)+"").replace(yt,"").replace(Ct,gt.protocol+"//"),p.type=n.method||n.type||p.method||p.type,p.dataTypes=oe.trim(p.dataType||"*").toLowerCase().match(we)||[""],null==p.crossDomain){l=G.createElement("a");try{l.href=p.url,l.href=l.href,p.crossDomain=St.protocol+"//"+St.host!=l.protocol+"//"+l.host}catch(C){p.crossDomain=!0}}if(p.data&&p.processData&&"string"!=typeof p.data&&(p.data=oe.param(p.data,p.traditional)),B(kt,p,n,T),2===b)return T;c=oe.event&&p.global,c&&0===oe.active++&&oe.event.trigger("ajaxStart"),p.type=p.type.toUpperCase(),p.hasContent=!Tt.test(p.type),o=p.url,p.hasContent||(p.data&&(o=p.url+=(vt.test(o)?"&":"?")+p.data,delete p.data),p.cache===!1&&(p.url=xt.test(o)?o.replace(xt,"$1_="+mt++):o+(vt.test(o)?"&":"?")+"_="+mt++)),p.ifModified&&(oe.lastModified[o]&&T.setRequestHeader("If-Modified-Since",oe.lastModified[o]),oe.etag[o]&&T.setRequestHeader("If-None-Match",oe.etag[o])),(p.data&&p.hasContent&&p.contentType!==!1||n.contentType)&&T.setRequestHeader("Content-Type",p.contentType),T.setRequestHeader("Accept",p.dataTypes[0]&&p.accepts[p.dataTypes[0]]?p.accepts[p.dataTypes[0]]+("*"!==p.dataTypes[0]?", "+Nt+"; q=0.01":""):p.accepts["*"]);for(f in p.headers)T.setRequestHeader(f,p.headers[f]);if(p.beforeSend&&(p.beforeSend.call(d,T,p)===!1||2===b))return T.abort();w="abort";for(f in{success:1,error:1,complete:1})T[f](p[f]);if(i=B(Et,p,n,T)){if(T.readyState=1,c&&h.trigger("ajaxSend",[T,p]),2===b)return T;p.async&&p.timeout>0&&(u=e.setTimeout(function(){T.abort("timeout")},p.timeout));try{b=1,i.send(y,r)}catch(C){if(!(2>b))throw C;r(-1,C)}}else r(-1,"No Transport");return T},getJSON:function(e,t,n){return oe.get(e,t,n,"json")},getScript:function(e,t){return oe.get(e,void 0,t,"script")}}),oe.each(["get","post"],function(e,t){oe[t]=function(e,n,r,i){return oe.isFunction(n)&&(i=i||r,r=n,n=void 0),oe.ajax(oe.extend({url:e,type:t,dataType:i,data:n,success:r},oe.isPlainObject(e)&&e))}}),oe._evalUrl=function(e){return oe.ajax({url:e,type:"GET",dataType:"script",async:!1,global:!1,"throws":!0})},oe.fn.extend({wrapAll:function(e){var t;return oe.isFunction(e)?this.each(function(t){oe(this).wrapAll(e.call(this,t))}):(this[0]&&(t=oe(e,this[0].ownerDocument).eq(0).clone(!0),this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){for(var e=this;e.firstElementChild;)e=e.firstElementChild;return e}).append(this)),this)},wrapInner:function(e){return oe.isFunction(e)?this.each(function(t){oe(this).wrapInner(e.call(this,t))}):this.each(function(){var t=oe(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=oe.isFunction(e);return this.each(function(n){oe(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(){return this.parent().each(function(){oe.nodeName(this,"body")||oe(this).replaceWith(this.childNodes)}).end()}}),oe.expr.filters.hidden=function(e){return!oe.expr.filters.visible(e)},oe.expr.filters.visible=function(e){return e.offsetWidth>0||e.offsetHeight>0||e.getClientRects().length>0};var Dt=/%20/g,jt=/\[\]$/,At=/\r?\n/g,Lt=/^(?:submit|button|image|reset|file)$/i,qt=/^(?:input|select|textarea|keygen)/i;oe.param=function(e,t){var n,r=[],i=function(e,t){t=oe.isFunction(t)?t():null==t?"":t,r[r.length]=encodeURIComponent(e)+"="+encodeURIComponent(t)};if(void 0===t&&(t=oe.ajaxSettings&&oe.ajaxSettings.traditional),oe.isArray(e)||e.jquery&&!oe.isPlainObject(e))oe.each(e,function(){i(this.name,this.value)});else for(n in e)U(n,e[n],t,i);return r.join("&").replace(Dt,"+")},oe.fn.extend({serialize:function(){return oe.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=oe.prop(this,"elements");return e?oe.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!oe(this).is(":disabled")&&qt.test(this.nodeName)&&!Lt.test(e)&&(this.checked||!He.test(e))}).map(function(e,t){var n=oe(this).val();return null==n?null:oe.isArray(n)?oe.map(n,function(e){return{name:t.name,value:e.replace(At,"\r\n")}}):{name:t.name,value:n.replace(At,"\r\n")}}).get()}}),oe.ajaxSettings.xhr=function(){try{return new e.XMLHttpRequest}catch(t){}};var Ht={0:200,1223:204},Ot=oe.ajaxSettings.xhr();re.cors=!!Ot&&"withCredentials"in Ot,re.ajax=Ot=!!Ot,oe.ajaxTransport(function(t){var n,r;return re.cors||Ot&&!t.crossDomain?{send:function(i,o){var s,a=t.xhr();if(a.open(t.type,t.url,t.async,t.username,t.password),t.xhrFields)for(s in t.xhrFields)a[s]=t.xhrFields[s];t.mimeType&&a.overrideMimeType&&a.overrideMimeType(t.mimeType),t.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest");for(s in i)a.setRequestHeader(s,i[s]);n=function(e){return function(){n&&(n=r=a.onload=a.onerror=a.onabort=a.onreadystatechange=null,"abort"===e?a.abort():"error"===e?"number"!=typeof a.status?o(0,"error"):o(a.status,a.statusText):o(Ht[a.status]||a.status,a.statusText,"text"!==(a.responseType||"text")||"string"!=typeof a.responseText?{binary:a.response}:{text:a.responseText},a.getAllResponseHeaders()))}},a.onload=n(),r=a.onerror=n("error"),void 0!==a.onabort?a.onabort=r:a.onreadystatechange=function(){4===a.readyState&&e.setTimeout(function(){n&&r()})},n=n("abort");try{a.send(t.hasContent&&t.data||null)}catch(u){if(n)throw u}},abort:function(){n&&n()}}:void 0}),oe.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/\b(?:java|ecma)script\b/},converters:{"text script":function(e){return oe.globalEval(e),e}}}),oe.ajaxPrefilter("script",function(e){void 0===e.cache&&(e.cache=!1),e.crossDomain&&(e.type="GET")}),oe.ajaxTransport("script",function(e){if(e.crossDomain){var t,n;return{send:function(r,i){t=oe("<script>").prop({charset:e.scriptCharset,src:e.url}).on("load error",n=function(e){t.remove(),n=null,e&&i("error"===e.type?404:200,e.type)}),G.head.appendChild(t[0])},abort:function(){n&&n()}}}});var Ft=[],Pt=/(=)\?(?=&|$)|\?\?/;oe.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=Ft.pop()||oe.expando+"_"+mt++;return this[e]=!0,e}}),oe.ajaxPrefilter("json jsonp",function(t,n,r){var i,o,s,a=t.jsonp!==!1&&(Pt.test(t.url)?"url":"string"==typeof t.data&&0===(t.contentType||"").indexOf("application/x-www-form-urlencoded")&&Pt.test(t.data)&&"data");return a||"jsonp"===t.dataTypes[0]?(i=t.jsonpCallback=oe.isFunction(t.jsonpCallback)?t.jsonpCallback():t.jsonpCallback,a?t[a]=t[a].replace(Pt,"$1"+i):t.jsonp!==!1&&(t.url+=(vt.test(t.url)?"&":"?")+t.jsonp+"="+i),t.converters["script json"]=function(){return s||oe.error(i+" was not called"),s[0]},t.dataTypes[0]="json",o=e[i],e[i]=function(){s=arguments},r.always(function(){void 0===o?oe(e).removeProp(i):e[i]=o,t[i]&&(t.jsonpCallback=n.jsonpCallback,Ft.push(i)),s&&oe.isFunction(o)&&o(s[0]),s=o=void 0}),"script"):void 0}),re.createHTMLDocument=function(){var e=G.implementation.createHTMLDocument("").body;return e.innerHTML="<form></form><form></form>",2===e.childNodes.length}(),oe.parseHTML=function(e,t,n){if(!e||"string"!=typeof e)return null;"boolean"==typeof t&&(n=t,t=!1),t=t||(re.createHTMLDocument?G.implementation.createHTMLDocument(""):G);var r=he.exec(e),i=!n&&[];return r?[t.createElement(r[1])]:(r=p([e],t,i),i&&i.length&&oe(i).remove(),oe.merge([],r.childNodes))};var Rt=oe.fn.load;oe.fn.load=function(e,t,n){if("string"!=typeof e&&Rt)return Rt.apply(this,arguments);var r,i,o,s=this,a=e.indexOf(" ");return a>-1&&(r=oe.trim(e.slice(a)),e=e.slice(0,a)),oe.isFunction(t)?(n=t,t=void 0):t&&"object"==typeof t&&(i="POST"),s.length>0&&oe.ajax({url:e,type:i||"GET",dataType:"html",data:t}).done(function(e){o=arguments,s.html(r?oe("<div>").append(oe.parseHTML(e)).find(r):e)}).always(n&&function(e,t){s.each(function(){n.apply(s,o||[e.responseText,t,e])})}),this},oe.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){oe.fn[t]=function(e){return this.on(t,e)}}),oe.expr.filters.animated=function(e){return oe.grep(oe.timers,function(t){return e===t.elem}).length},oe.offset={setOffset:function(e,t,n){var r,i,o,s,a,u,l,c=oe.css(e,"position"),f=oe(e),p={};"static"===c&&(e.style.position="relative"),a=f.offset(),o=oe.css(e,"top"),u=oe.css(e,"left"),l=("absolute"===c||"fixed"===c)&&(o+u).indexOf("auto")>-1,l?(r=f.position(),s=r.top,i=r.left):(s=parseFloat(o)||0,i=parseFloat(u)||0),oe.isFunction(t)&&(t=t.call(e,n,oe.extend({},a))),null!=t.top&&(p.top=t.top-a.top+s),null!=t.left&&(p.left=t.left-a.left+i),"using"in t?t.using.call(e,p):f.css(p)}},oe.fn.extend({offset:function(e){if(arguments.length)return void 0===e?this:this.each(function(t){oe.offset.setOffset(this,e,t)});var t,n,r=this[0],i={top:0,left:0},o=r&&r.ownerDocument;if(o)return t=o.documentElement,oe.contains(t,r)?(i=r.getBoundingClientRect(),n=V(o),{top:i.top+n.pageYOffset-t.clientTop,left:i.left+n.pageXOffset-t.clientLeft}):i},position:function(){if(this[0]){var e,t,n=this[0],r={top:0,left:0};return"fixed"===oe.css(n,"position")?t=n.getBoundingClientRect():(e=this.offsetParent(),t=this.offset(),oe.nodeName(e[0],"html")||(r=e.offset()),r.top+=oe.css(e[0],"borderTopWidth",!0)-e.scrollTop(),r.left+=oe.css(e[0],"borderLeftWidth",!0)-e.scrollLeft()),{top:t.top-r.top-oe.css(n,"marginTop",!0),left:t.left-r.left-oe.css(n,"marginLeft",!0)}}},offsetParent:function(){return this.map(function(){for(var e=this.offsetParent;e&&"static"===oe.css(e,"position");)e=e.offsetParent;return e||Ke})}}),oe.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,t){var n="pageYOffset"===t;oe.fn[e]=function(r){return Ce(this,function(e,r,i){var o=V(e);return void 0===i?o?o[t]:e[r]:void(o?o.scrollTo(n?o.pageXOffset:i,n?i:o.pageYOffset):e[r]=i)},e,r,arguments.length)}}),oe.each(["top","left"],function(e,t){oe.cssHooks[t]=S(re.pixelPosition,function(e,n){return n?(n=N(e,t),Ge.test(n)?oe(e).position()[t]+"px":n):void 0})}),oe.each({Height:"height",Width:"width"},function(e,t){oe.each({padding:"inner"+e,content:t,"":"outer"+e},function(n,r){oe.fn[r]=function(r,i){var o=arguments.length&&(n||"boolean"!=typeof r),s=n||(r===!0||i===!0?"margin":"border");return Ce(this,function(t,n,r){var i;return oe.isWindow(t)?t.document.documentElement["client"+e]:9===t.nodeType?(i=t.documentElement,Math.max(t.body["scroll"+e],i["scroll"+e],t.body["offset"+e],i["offset"+e],i["client"+e])):void 0===r?oe.css(t,n,s):oe.style(t,n,r,s)},t,o?r:void 0,o,null)}})}),oe.fn.extend({bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)},size:function(){return this.length}}),oe.fn.andSelf=oe.fn.addBack,"function"==typeof define&&define.amd&&define("jquery",[],function(){return oe});var Mt=e.jQuery,Wt=e.$;return oe.noConflict=function(t){return e.$===oe&&(e.$=Wt),t&&e.jQuery===oe&&(e.jQuery=Mt),oe},t||(e.jQuery=e.$=oe),oe});var app={name:"Web Audio API Show",version:"0.0.1",audioCtx:new(window.AudioContext||window.webkitAudioContext)};
+/**
+ * interact.js v1.2.6
+ *
+ * Copyright (c) 2012-2015 Taye Adeyemi <dev@taye.me>
+ * Open source under the MIT License.
+ * https://raw.github.com/taye/interact.js/master/LICENSE
+ */
+(function (realWindow) {
+    'use strict';
+
+    // return early if there's no window to work with (eg. Node.js)
+    if (!realWindow) { return; }
+
+    var // get wrapped window if using Shadow DOM polyfill
+        window = (function () {
+            // create a TextNode
+            var el = realWindow.document.createTextNode('');
+
+            // check if it's wrapped by a polyfill
+            if (el.ownerDocument !== realWindow.document
+                && typeof realWindow.wrap === 'function'
+                && realWindow.wrap(el) === el) {
+                // return wrapped window
+                return realWindow.wrap(realWindow);
+            }
+
+            // no Shadow DOM polyfil or native implementation
+            return realWindow;
+        }()),
+
+        document           = window.document,
+        DocumentFragment   = window.DocumentFragment   || blank,
+        SVGElement         = window.SVGElement         || blank,
+        SVGSVGElement      = window.SVGSVGElement      || blank,
+        SVGElementInstance = window.SVGElementInstance || blank,
+        HTMLElement        = window.HTMLElement        || window.Element,
+
+        PointerEvent = (window.PointerEvent || window.MSPointerEvent),
+        pEventTypes,
+
+        hypot = Math.hypot || function (x, y) { return Math.sqrt(x * x + y * y); },
+
+        tmpXY = {},     // reduce object creation in getXY()
+
+        documents       = [],   // all documents being listened to
+
+        interactables   = [],   // all set interactables
+        interactions    = [],   // all interactions
+
+        dynamicDrop     = false,
+
+        // {
+        //      type: {
+        //          selectors: ['selector', ...],
+        //          contexts : [document, ...],
+        //          listeners: [[listener, useCapture], ...]
+        //      }
+        //  }
+        delegatedEvents = {},
+
+        defaultOptions = {
+            base: {
+                accept        : null,
+                actionChecker : null,
+                styleCursor   : true,
+                preventDefault: 'auto',
+                origin        : { x: 0, y: 0 },
+                deltaSource   : 'page',
+                allowFrom     : null,
+                ignoreFrom    : null,
+                _context      : document,
+                dropChecker   : null
+            },
+
+            drag: {
+                enabled: false,
+                manualStart: true,
+                max: Infinity,
+                maxPerElement: 1,
+
+                snap: null,
+                restrict: null,
+                inertia: null,
+                autoScroll: null,
+
+                axis: 'xy'
+            },
+
+            drop: {
+                enabled: false,
+                accept: null,
+                overlap: 'pointer'
+            },
+
+            resize: {
+                enabled: false,
+                manualStart: false,
+                max: Infinity,
+                maxPerElement: 1,
+
+                snap: null,
+                restrict: null,
+                inertia: null,
+                autoScroll: null,
+
+                square: false,
+                preserveAspectRatio: false,
+                axis: 'xy',
+
+                // use default margin
+                margin: NaN,
+
+                // object with props left, right, top, bottom which are
+                // true/false values to resize when the pointer is over that edge,
+                // CSS selectors to match the handles for each direction
+                // or the Elements for each handle
+                edges: null,
+
+                // a value of 'none' will limit the resize rect to a minimum of 0x0
+                // 'negate' will alow the rect to have negative width/height
+                // 'reposition' will keep the width/height positive by swapping
+                // the top and bottom edges and/or swapping the left and right edges
+                invert: 'none'
+            },
+
+            gesture: {
+                manualStart: false,
+                enabled: false,
+                max: Infinity,
+                maxPerElement: 1,
+
+                restrict: null
+            },
+
+            perAction: {
+                manualStart: false,
+                max: Infinity,
+                maxPerElement: 1,
+
+                snap: {
+                    enabled     : false,
+                    endOnly     : false,
+                    range       : Infinity,
+                    targets     : null,
+                    offsets     : null,
+
+                    relativePoints: null
+                },
+
+                restrict: {
+                    enabled: false,
+                    endOnly: false
+                },
+
+                autoScroll: {
+                    enabled     : false,
+                    container   : null,     // the item that is scrolled (Window or HTMLElement)
+                    margin      : 60,
+                    speed       : 300       // the scroll speed in pixels per second
+                },
+
+                inertia: {
+                    enabled          : false,
+                    resistance       : 10,    // the lambda in exponential decay
+                    minSpeed         : 100,   // target speed must be above this for inertia to start
+                    endSpeed         : 10,    // the speed at which inertia is slow enough to stop
+                    allowResume      : true,  // allow resuming an action in inertia phase
+                    zeroResumeDelta  : true,  // if an action is resumed after launch, set dx/dy to 0
+                    smoothEndDuration: 300    // animate to snap/restrict endOnly if there's no inertia
+                }
+            },
+
+            _holdDuration: 600
+        },
+
+        // Things related to autoScroll
+        autoScroll = {
+            interaction: null,
+            i: null,    // the handle returned by window.setInterval
+            x: 0, y: 0, // Direction each pulse is to scroll in
+
+            // scroll the window by the values in scroll.x/y
+            scroll: function () {
+                var options = autoScroll.interaction.target.options[autoScroll.interaction.prepared.name].autoScroll,
+                    container = options.container || getWindow(autoScroll.interaction.element),
+                    now = new Date().getTime(),
+                    // change in time in seconds
+                    dtx = (now - autoScroll.prevTimeX) / 1000,
+                    dty = (now - autoScroll.prevTimeY) / 1000,
+                    vx, vy, sx, sy;
+
+                // displacement
+                if (options.velocity) {
+                  vx = options.velocity.x;
+                  vy = options.velocity.y;
+                }
+                else {
+                  vx = vy = options.speed
+                }
+ 
+                sx = vx * dtx;
+                sy = vy * dty;
+
+                if (sx >= 1 || sy >= 1) {
+                    if (isWindow(container)) {
+                        container.scrollBy(autoScroll.x * sx, autoScroll.y * sy);
+                    }
+                    else if (container) {
+                        container.scrollLeft += autoScroll.x * sx;
+                        container.scrollTop  += autoScroll.y * sy;
+                    }
+
+                    if (sx >=1) autoScroll.prevTimeX = now;
+                    if (sy >= 1) autoScroll.prevTimeY = now;
+                }
+
+                if (autoScroll.isScrolling) {
+                    cancelFrame(autoScroll.i);
+                    autoScroll.i = reqFrame(autoScroll.scroll);
+                }
+            },
+
+            isScrolling: false,
+            prevTimeX: 0,
+            prevTimeY: 0,
+
+            start: function (interaction) {
+                autoScroll.isScrolling = true;
+                cancelFrame(autoScroll.i);
+
+                autoScroll.interaction = interaction;
+                autoScroll.prevTimeX = new Date().getTime();
+                autoScroll.prevTimeY = new Date().getTime();
+                autoScroll.i = reqFrame(autoScroll.scroll);
+            },
+
+            stop: function () {
+                autoScroll.isScrolling = false;
+                cancelFrame(autoScroll.i);
+            }
+        },
+
+        // Does the browser support touch input?
+        supportsTouch = (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch),
+
+        // Does the browser support PointerEvents
+        supportsPointerEvent = !!PointerEvent,
+
+        // Less Precision with touch input
+        margin = supportsTouch || supportsPointerEvent? 20: 10,
+
+        pointerMoveTolerance = 1,
+
+        // for ignoring browser's simulated mouse events
+        prevTouchTime = 0,
+
+        // Allow this many interactions to happen simultaneously
+        maxInteractions = Infinity,
+
+        // Check if is IE9 or older
+        actionCursors = (document.all && !window.atob) ? {
+            drag    : 'move',
+            resizex : 'e-resize',
+            resizey : 's-resize',
+            resizexy: 'se-resize',
+
+            resizetop        : 'n-resize',
+            resizeleft       : 'w-resize',
+            resizebottom     : 's-resize',
+            resizeright      : 'e-resize',
+            resizetopleft    : 'se-resize',
+            resizebottomright: 'se-resize',
+            resizetopright   : 'ne-resize',
+            resizebottomleft : 'ne-resize',
+
+            gesture : ''
+        } : {
+            drag    : 'move',
+            resizex : 'ew-resize',
+            resizey : 'ns-resize',
+            resizexy: 'nwse-resize',
+
+            resizetop        : 'ns-resize',
+            resizeleft       : 'ew-resize',
+            resizebottom     : 'ns-resize',
+            resizeright      : 'ew-resize',
+            resizetopleft    : 'nwse-resize',
+            resizebottomright: 'nwse-resize',
+            resizetopright   : 'nesw-resize',
+            resizebottomleft : 'nesw-resize',
+
+            gesture : ''
+        },
+
+        actionIsEnabled = {
+            drag   : true,
+            resize : true,
+            gesture: true
+        },
+
+        // because Webkit and Opera still use 'mousewheel' event type
+        wheelEvent = 'onmousewheel' in document? 'mousewheel': 'wheel',
+
+        eventTypes = [
+            'dragstart',
+            'dragmove',
+            'draginertiastart',
+            'dragend',
+            'dragenter',
+            'dragleave',
+            'dropactivate',
+            'dropdeactivate',
+            'dropmove',
+            'drop',
+            'resizestart',
+            'resizemove',
+            'resizeinertiastart',
+            'resizeend',
+            'gesturestart',
+            'gesturemove',
+            'gestureinertiastart',
+            'gestureend',
+
+            'down',
+            'move',
+            'up',
+            'cancel',
+            'tap',
+            'doubletap',
+            'hold'
+        ],
+
+        globalEvents = {},
+
+        // Opera Mobile must be handled differently
+        isOperaMobile = navigator.appName == 'Opera' &&
+            supportsTouch &&
+            navigator.userAgent.match('Presto'),
+
+        // scrolling doesn't change the result of getClientRects on iOS 7
+        isIOS7 = (/iP(hone|od|ad)/.test(navigator.platform)
+                         && /OS 7[^\d]/.test(navigator.appVersion)),
+
+        // prefix matchesSelector
+        prefixedMatchesSelector = 'matches' in Element.prototype?
+                'matches': 'webkitMatchesSelector' in Element.prototype?
+                    'webkitMatchesSelector': 'mozMatchesSelector' in Element.prototype?
+                        'mozMatchesSelector': 'oMatchesSelector' in Element.prototype?
+                            'oMatchesSelector': 'msMatchesSelector',
+
+        // will be polyfill function if browser is IE8
+        ie8MatchesSelector,
+
+        // native requestAnimationFrame or polyfill
+        reqFrame = realWindow.requestAnimationFrame,
+        cancelFrame = realWindow.cancelAnimationFrame,
+
+        // Events wrapper
+        events = (function () {
+            var useAttachEvent = ('attachEvent' in window) && !('addEventListener' in window),
+                addEvent       = useAttachEvent?  'attachEvent': 'addEventListener',
+                removeEvent    = useAttachEvent?  'detachEvent': 'removeEventListener',
+                on             = useAttachEvent? 'on': '',
+
+                elements          = [],
+                targets           = [],
+                attachedListeners = [];
+
+            function add (element, type, listener, useCapture) {
+                var elementIndex = indexOf(elements, element),
+                    target = targets[elementIndex];
+
+                if (!target) {
+                    target = {
+                        events: {},
+                        typeCount: 0
+                    };
+
+                    elementIndex = elements.push(element) - 1;
+                    targets.push(target);
+
+                    attachedListeners.push((useAttachEvent ? {
+                            supplied: [],
+                            wrapped : [],
+                            useCount: []
+                        } : null));
+                }
+
+                if (!target.events[type]) {
+                    target.events[type] = [];
+                    target.typeCount++;
+                }
+
+                if (!contains(target.events[type], listener)) {
+                    var ret;
+
+                    if (useAttachEvent) {
+                        var listeners = attachedListeners[elementIndex],
+                            listenerIndex = indexOf(listeners.supplied, listener);
+
+                        var wrapped = listeners.wrapped[listenerIndex] || function (event) {
+                            if (!event.immediatePropagationStopped) {
+                                event.target = event.srcElement;
+                                event.currentTarget = element;
+
+                                event.preventDefault = event.preventDefault || preventDef;
+                                event.stopPropagation = event.stopPropagation || stopProp;
+                                event.stopImmediatePropagation = event.stopImmediatePropagation || stopImmProp;
+
+                                if (/mouse|click/.test(event.type)) {
+                                    event.pageX = event.clientX + getWindow(element).document.documentElement.scrollLeft;
+                                    event.pageY = event.clientY + getWindow(element).document.documentElement.scrollTop;
+                                }
+
+                                listener(event);
+                            }
+                        };
+
+                        ret = element[addEvent](on + type, wrapped, Boolean(useCapture));
+
+                        if (listenerIndex === -1) {
+                            listeners.supplied.push(listener);
+                            listeners.wrapped.push(wrapped);
+                            listeners.useCount.push(1);
+                        }
+                        else {
+                            listeners.useCount[listenerIndex]++;
+                        }
+                    }
+                    else {
+                        ret = element[addEvent](type, listener, useCapture || false);
+                    }
+                    target.events[type].push(listener);
+
+                    return ret;
+                }
+            }
+
+            function remove (element, type, listener, useCapture) {
+                var i,
+                    elementIndex = indexOf(elements, element),
+                    target = targets[elementIndex],
+                    listeners,
+                    listenerIndex,
+                    wrapped = listener;
+
+                if (!target || !target.events) {
+                    return;
+                }
+
+                if (useAttachEvent) {
+                    listeners = attachedListeners[elementIndex];
+                    listenerIndex = indexOf(listeners.supplied, listener);
+                    wrapped = listeners.wrapped[listenerIndex];
+                }
+
+                if (type === 'all') {
+                    for (type in target.events) {
+                        if (target.events.hasOwnProperty(type)) {
+                            remove(element, type, 'all');
+                        }
+                    }
+                    return;
+                }
+
+                if (target.events[type]) {
+                    var len = target.events[type].length;
+
+                    if (listener === 'all') {
+                        for (i = 0; i < len; i++) {
+                            remove(element, type, target.events[type][i], Boolean(useCapture));
+                        }
+                        return;
+                    } else {
+                        for (i = 0; i < len; i++) {
+                            if (target.events[type][i] === listener) {
+                                element[removeEvent](on + type, wrapped, useCapture || false);
+                                target.events[type].splice(i, 1);
+
+                                if (useAttachEvent && listeners) {
+                                    listeners.useCount[listenerIndex]--;
+                                    if (listeners.useCount[listenerIndex] === 0) {
+                                        listeners.supplied.splice(listenerIndex, 1);
+                                        listeners.wrapped.splice(listenerIndex, 1);
+                                        listeners.useCount.splice(listenerIndex, 1);
+                                    }
+                                }
+
+                                break;
+                            }
+                        }
+                    }
+
+                    if (target.events[type] && target.events[type].length === 0) {
+                        target.events[type] = null;
+                        target.typeCount--;
+                    }
+                }
+
+                if (!target.typeCount) {
+                    targets.splice(elementIndex, 1);
+                    elements.splice(elementIndex, 1);
+                    attachedListeners.splice(elementIndex, 1);
+                }
+            }
+
+            function preventDef () {
+                this.returnValue = false;
+            }
+
+            function stopProp () {
+                this.cancelBubble = true;
+            }
+
+            function stopImmProp () {
+                this.cancelBubble = true;
+                this.immediatePropagationStopped = true;
+            }
+
+            return {
+                add: add,
+                remove: remove,
+                useAttachEvent: useAttachEvent,
+
+                _elements: elements,
+                _targets: targets,
+                _attachedListeners: attachedListeners
+            };
+        }());
+
+    function blank () {}
+
+    function isElement (o) {
+        if (!o || (typeof o !== 'object')) { return false; }
+
+        var _window = getWindow(o) || window;
+
+        return (/object|function/.test(typeof _window.Element)
+            ? o instanceof _window.Element //DOM2
+            : o.nodeType === 1 && typeof o.nodeName === "string");
+    }
+    function isWindow (thing) { return thing === window || !!(thing && thing.Window) && (thing instanceof thing.Window); }
+    function isDocFrag (thing) { return !!thing && thing instanceof DocumentFragment; }
+    function isArray (thing) {
+        return isObject(thing)
+                && (typeof thing.length !== undefined)
+                && isFunction(thing.splice);
+    }
+    function isObject   (thing) { return !!thing && (typeof thing === 'object'); }
+    function isFunction (thing) { return typeof thing === 'function'; }
+    function isNumber   (thing) { return typeof thing === 'number'  ; }
+    function isBool     (thing) { return typeof thing === 'boolean' ; }
+    function isString   (thing) { return typeof thing === 'string'  ; }
+
+    function trySelector (value) {
+        if (!isString(value)) { return false; }
+
+        // an exception will be raised if it is invalid
+        document.querySelector(value);
+        return true;
+    }
+
+    function extend (dest, source) {
+        for (var prop in source) {
+            dest[prop] = source[prop];
+        }
+        return dest;
+    }
+
+    var prefixedPropREs = {
+      webkit: /(Movement[XY]|Radius[XY]|RotationAngle|Force)$/
+    };
+
+    function pointerExtend (dest, source) {
+        for (var prop in source) {
+          var deprecated = false;
+
+          // skip deprecated prefixed properties
+          for (var vendor in prefixedPropREs) {
+            if (prop.indexOf(vendor) === 0 && prefixedPropREs[vendor].test(prop)) {
+              deprecated = true;
+              break;
+            }
+          }
+
+          if (!deprecated) {
+            dest[prop] = source[prop];
+          }
+        }
+        return dest;
+    }
+
+    function copyCoords (dest, src) {
+        dest.page = dest.page || {};
+        dest.page.x = src.page.x;
+        dest.page.y = src.page.y;
+
+        dest.client = dest.client || {};
+        dest.client.x = src.client.x;
+        dest.client.y = src.client.y;
+
+        dest.timeStamp = src.timeStamp;
+    }
+
+    function setEventXY (targetObj, pointers, interaction) {
+        var pointer = (pointers.length > 1
+                       ? pointerAverage(pointers)
+                       : pointers[0]);
+
+        getPageXY(pointer, tmpXY, interaction);
+        targetObj.page.x = tmpXY.x;
+        targetObj.page.y = tmpXY.y;
+
+        getClientXY(pointer, tmpXY, interaction);
+        targetObj.client.x = tmpXY.x;
+        targetObj.client.y = tmpXY.y;
+
+        targetObj.timeStamp = new Date().getTime();
+    }
+
+    function setEventDeltas (targetObj, prev, cur) {
+        targetObj.page.x     = cur.page.x      - prev.page.x;
+        targetObj.page.y     = cur.page.y      - prev.page.y;
+        targetObj.client.x   = cur.client.x    - prev.client.x;
+        targetObj.client.y   = cur.client.y    - prev.client.y;
+        targetObj.timeStamp = new Date().getTime() - prev.timeStamp;
+
+        // set pointer velocity
+        var dt = Math.max(targetObj.timeStamp / 1000, 0.001);
+        targetObj.page.speed   = hypot(targetObj.page.x, targetObj.page.y) / dt;
+        targetObj.page.vx      = targetObj.page.x / dt;
+        targetObj.page.vy      = targetObj.page.y / dt;
+
+        targetObj.client.speed = hypot(targetObj.client.x, targetObj.page.y) / dt;
+        targetObj.client.vx    = targetObj.client.x / dt;
+        targetObj.client.vy    = targetObj.client.y / dt;
+    }
+
+    function isNativePointer (pointer) {
+        return (pointer instanceof window.Event
+            || (supportsTouch && window.Touch && pointer instanceof window.Touch));
+    }
+
+    // Get specified X/Y coords for mouse or event.touches[0]
+    function getXY (type, pointer, xy) {
+        xy = xy || {};
+        type = type || 'page';
+
+        xy.x = pointer[type + 'X'];
+        xy.y = pointer[type + 'Y'];
+
+        return xy;
+    }
+
+    function getPageXY (pointer, page) {
+        page = page || {};
+
+        // Opera Mobile handles the viewport and scrolling oddly
+        if (isOperaMobile && isNativePointer(pointer)) {
+            getXY('screen', pointer, page);
+
+            page.x += window.scrollX;
+            page.y += window.scrollY;
+        }
+        else {
+            getXY('page', pointer, page);
+        }
+
+        return page;
+    }
+
+    function getClientXY (pointer, client) {
+        client = client || {};
+
+        if (isOperaMobile && isNativePointer(pointer)) {
+            // Opera Mobile handles the viewport and scrolling oddly
+            getXY('screen', pointer, client);
+        }
+        else {
+          getXY('client', pointer, client);
+        }
+
+        return client;
+    }
+
+    function getScrollXY (win) {
+        win = win || window;
+        return {
+            x: win.scrollX || win.document.documentElement.scrollLeft,
+            y: win.scrollY || win.document.documentElement.scrollTop
+        };
+    }
+
+    function getPointerId (pointer) {
+        return isNumber(pointer.pointerId)? pointer.pointerId : pointer.identifier;
+    }
+
+    function getActualElement (element) {
+        return (element instanceof SVGElementInstance
+            ? element.correspondingUseElement
+            : element);
+    }
+
+    function getWindow (node) {
+        if (isWindow(node)) {
+            return node;
+        }
+
+        var rootNode = (node.ownerDocument || node);
+
+        return rootNode.defaultView || rootNode.parentWindow || window;
+    }
+
+    function getElementClientRect (element) {
+        var clientRect = (element instanceof SVGElement
+                            ? element.getBoundingClientRect()
+                            : element.getClientRects()[0]);
+
+        return clientRect && {
+            left  : clientRect.left,
+            right : clientRect.right,
+            top   : clientRect.top,
+            bottom: clientRect.bottom,
+            width : clientRect.width || clientRect.right - clientRect.left,
+            height: clientRect.height || clientRect.bottom - clientRect.top
+        };
+    }
+
+    function getElementRect (element) {
+        var clientRect = getElementClientRect(element);
+
+        if (!isIOS7 && clientRect) {
+            var scroll = getScrollXY(getWindow(element));
+
+            clientRect.left   += scroll.x;
+            clientRect.right  += scroll.x;
+            clientRect.top    += scroll.y;
+            clientRect.bottom += scroll.y;
+        }
+
+        return clientRect;
+    }
+
+    function getTouchPair (event) {
+        var touches = [];
+
+        // array of touches is supplied
+        if (isArray(event)) {
+            touches[0] = event[0];
+            touches[1] = event[1];
+        }
+        // an event
+        else {
+            if (event.type === 'touchend') {
+                if (event.touches.length === 1) {
+                    touches[0] = event.touches[0];
+                    touches[1] = event.changedTouches[0];
+                }
+                else if (event.touches.length === 0) {
+                    touches[0] = event.changedTouches[0];
+                    touches[1] = event.changedTouches[1];
+                }
+            }
+            else {
+                touches[0] = event.touches[0];
+                touches[1] = event.touches[1];
+            }
+        }
+
+        return touches;
+    }
+
+    function pointerAverage (pointers) {
+        var average = {
+            pageX  : 0,
+            pageY  : 0,
+            clientX: 0,
+            clientY: 0,
+            screenX: 0,
+            screenY: 0
+        };
+        var prop;
+
+        for (var i = 0; i < pointers.length; i++) {
+            for (prop in average) {
+                average[prop] += pointers[i][prop];
+            }
+        }
+        for (prop in average) {
+            average[prop] /= pointers.length;
+        }
+
+        return average;
+    }
+
+    function touchBBox (event) {
+        if (!event.length && !(event.touches && event.touches.length > 1)) {
+            return;
+        }
+
+        var touches = getTouchPair(event),
+            minX = Math.min(touches[0].pageX, touches[1].pageX),
+            minY = Math.min(touches[0].pageY, touches[1].pageY),
+            maxX = Math.max(touches[0].pageX, touches[1].pageX),
+            maxY = Math.max(touches[0].pageY, touches[1].pageY);
+
+        return {
+            x: minX,
+            y: minY,
+            left: minX,
+            top: minY,
+            width: maxX - minX,
+            height: maxY - minY
+        };
+    }
+
+    function touchDistance (event, deltaSource) {
+        deltaSource = deltaSource || defaultOptions.deltaSource;
+
+        var sourceX = deltaSource + 'X',
+            sourceY = deltaSource + 'Y',
+            touches = getTouchPair(event);
+
+
+        var dx = touches[0][sourceX] - touches[1][sourceX],
+            dy = touches[0][sourceY] - touches[1][sourceY];
+
+        return hypot(dx, dy);
+    }
+
+    function touchAngle (event, prevAngle, deltaSource) {
+        deltaSource = deltaSource || defaultOptions.deltaSource;
+
+        var sourceX = deltaSource + 'X',
+            sourceY = deltaSource + 'Y',
+            touches = getTouchPair(event),
+            dx = touches[0][sourceX] - touches[1][sourceX],
+            dy = touches[0][sourceY] - touches[1][sourceY],
+            angle = 180 * Math.atan(dy / dx) / Math.PI;
+
+        if (isNumber(prevAngle)) {
+            var dr = angle - prevAngle,
+                drClamped = dr % 360;
+
+            if (drClamped > 315) {
+                angle -= 360 + (angle / 360)|0 * 360;
+            }
+            else if (drClamped > 135) {
+                angle -= 180 + (angle / 360)|0 * 360;
+            }
+            else if (drClamped < -315) {
+                angle += 360 + (angle / 360)|0 * 360;
+            }
+            else if (drClamped < -135) {
+                angle += 180 + (angle / 360)|0 * 360;
+            }
+        }
+
+        return  angle;
+    }
+
+    function getOriginXY (interactable, element) {
+        var origin = interactable
+                ? interactable.options.origin
+                : defaultOptions.origin;
+
+        if (origin === 'parent') {
+            origin = parentElement(element);
+        }
+        else if (origin === 'self') {
+            origin = interactable.getRect(element);
+        }
+        else if (trySelector(origin)) {
+            origin = closest(element, origin) || { x: 0, y: 0 };
+        }
+
+        if (isFunction(origin)) {
+            origin = origin(interactable && element);
+        }
+
+        if (isElement(origin))  {
+            origin = getElementRect(origin);
+        }
+
+        origin.x = ('x' in origin)? origin.x : origin.left;
+        origin.y = ('y' in origin)? origin.y : origin.top;
+
+        return origin;
+    }
+
+    // http://stackoverflow.com/a/5634528/2280888
+    function _getQBezierValue(t, p1, p2, p3) {
+        var iT = 1 - t;
+        return iT * iT * p1 + 2 * iT * t * p2 + t * t * p3;
+    }
+
+    function getQuadraticCurvePoint(startX, startY, cpX, cpY, endX, endY, position) {
+        return {
+            x:  _getQBezierValue(position, startX, cpX, endX),
+            y:  _getQBezierValue(position, startY, cpY, endY)
+        };
+    }
+
+    // http://gizma.com/easing/
+    function easeOutQuad (t, b, c, d) {
+        t /= d;
+        return -c * t*(t-2) + b;
+    }
+
+    function nodeContains (parent, child) {
+        while (child) {
+            if (child === parent) {
+                return true;
+            }
+
+            child = child.parentNode;
+        }
+
+        return false;
+    }
+
+    function closest (child, selector) {
+        var parent = parentElement(child);
+
+        while (isElement(parent)) {
+            if (matchesSelector(parent, selector)) { return parent; }
+
+            parent = parentElement(parent);
+        }
+
+        return null;
+    }
+
+    function parentElement (node) {
+        var parent = node.parentNode;
+
+        if (isDocFrag(parent)) {
+            // skip past #shado-root fragments
+            while ((parent = parent.host) && isDocFrag(parent)) {}
+
+            return parent;
+        }
+
+        return parent;
+    }
+
+    function inContext (interactable, element) {
+        return interactable._context === element.ownerDocument
+                || nodeContains(interactable._context, element);
+    }
+
+    function testIgnore (interactable, interactableElement, element) {
+        var ignoreFrom = interactable.options.ignoreFrom;
+
+        if (!ignoreFrom || !isElement(element)) { return false; }
+
+        if (isString(ignoreFrom)) {
+            return matchesUpTo(element, ignoreFrom, interactableElement);
+        }
+        else if (isElement(ignoreFrom)) {
+            return nodeContains(ignoreFrom, element);
+        }
+
+        return false;
+    }
+
+    function testAllow (interactable, interactableElement, element) {
+        var allowFrom = interactable.options.allowFrom;
+
+        if (!allowFrom) { return true; }
+
+        if (!isElement(element)) { return false; }
+
+        if (isString(allowFrom)) {
+            return matchesUpTo(element, allowFrom, interactableElement);
+        }
+        else if (isElement(allowFrom)) {
+            return nodeContains(allowFrom, element);
+        }
+
+        return false;
+    }
+
+    function checkAxis (axis, interactable) {
+        if (!interactable) { return false; }
+
+        var thisAxis = interactable.options.drag.axis;
+
+        return (axis === 'xy' || thisAxis === 'xy' || thisAxis === axis);
+    }
+
+    function checkSnap (interactable, action) {
+        var options = interactable.options;
+
+        if (/^resize/.test(action)) {
+            action = 'resize';
+        }
+
+        return options[action].snap && options[action].snap.enabled;
+    }
+
+    function checkRestrict (interactable, action) {
+        var options = interactable.options;
+
+        if (/^resize/.test(action)) {
+            action = 'resize';
+        }
+
+        return  options[action].restrict && options[action].restrict.enabled;
+    }
+
+    function checkAutoScroll (interactable, action) {
+        var options = interactable.options;
+
+        if (/^resize/.test(action)) {
+            action = 'resize';
+        }
+
+        return  options[action].autoScroll && options[action].autoScroll.enabled;
+    }
+
+    function withinInteractionLimit (interactable, element, action) {
+        var options = interactable.options,
+            maxActions = options[action.name].max,
+            maxPerElement = options[action.name].maxPerElement,
+            activeInteractions = 0,
+            targetCount = 0,
+            targetElementCount = 0;
+
+        for (var i = 0, len = interactions.length; i < len; i++) {
+            var interaction = interactions[i],
+                otherAction = interaction.prepared.name,
+                active = interaction.interacting();
+
+            if (!active) { continue; }
+
+            activeInteractions++;
+
+            if (activeInteractions >= maxInteractions) {
+                return false;
+            }
+
+            if (interaction.target !== interactable) { continue; }
+
+            targetCount += (otherAction === action.name)|0;
+
+            if (targetCount >= maxActions) {
+                return false;
+            }
+
+            if (interaction.element === element) {
+                targetElementCount++;
+
+                if (otherAction !== action.name || targetElementCount >= maxPerElement) {
+                    return false;
+                }
+            }
+        }
+
+        return maxInteractions > 0;
+    }
+
+    // Test for the element that's "above" all other qualifiers
+    function indexOfDeepestElement (elements) {
+        var dropzone,
+            deepestZone = elements[0],
+            index = deepestZone? 0: -1,
+            parent,
+            deepestZoneParents = [],
+            dropzoneParents = [],
+            child,
+            i,
+            n;
+
+        for (i = 1; i < elements.length; i++) {
+            dropzone = elements[i];
+
+            // an element might belong to multiple selector dropzones
+            if (!dropzone || dropzone === deepestZone) {
+                continue;
+            }
+
+            if (!deepestZone) {
+                deepestZone = dropzone;
+                index = i;
+                continue;
+            }
+
+            // check if the deepest or current are document.documentElement or document.rootElement
+            // - if the current dropzone is, do nothing and continue
+            if (dropzone.parentNode === dropzone.ownerDocument) {
+                continue;
+            }
+            // - if deepest is, update with the current dropzone and continue to next
+            else if (deepestZone.parentNode === dropzone.ownerDocument) {
+                deepestZone = dropzone;
+                index = i;
+                continue;
+            }
+
+            if (!deepestZoneParents.length) {
+                parent = deepestZone;
+                while (parent.parentNode && parent.parentNode !== parent.ownerDocument) {
+                    deepestZoneParents.unshift(parent);
+                    parent = parent.parentNode;
+                }
+            }
+
+            // if this element is an svg element and the current deepest is
+            // an HTMLElement
+            if (deepestZone instanceof HTMLElement
+                && dropzone instanceof SVGElement
+                && !(dropzone instanceof SVGSVGElement)) {
+
+                if (dropzone === deepestZone.parentNode) {
+                    continue;
+                }
+
+                parent = dropzone.ownerSVGElement;
+            }
+            else {
+                parent = dropzone;
+            }
+
+            dropzoneParents = [];
+
+            while (parent.parentNode !== parent.ownerDocument) {
+                dropzoneParents.unshift(parent);
+                parent = parent.parentNode;
+            }
+
+            n = 0;
+
+            // get (position of last common ancestor) + 1
+            while (dropzoneParents[n] && dropzoneParents[n] === deepestZoneParents[n]) {
+                n++;
+            }
+
+            var parents = [
+                dropzoneParents[n - 1],
+                dropzoneParents[n],
+                deepestZoneParents[n]
+            ];
+
+            child = parents[0].lastChild;
+
+            while (child) {
+                if (child === parents[1]) {
+                    deepestZone = dropzone;
+                    index = i;
+                    deepestZoneParents = [];
+
+                    break;
+                }
+                else if (child === parents[2]) {
+                    break;
+                }
+
+                child = child.previousSibling;
+            }
+        }
+
+        return index;
+    }
+
+    function Interaction () {
+        this.target          = null; // current interactable being interacted with
+        this.element         = null; // the target element of the interactable
+        this.dropTarget      = null; // the dropzone a drag target might be dropped into
+        this.dropElement     = null; // the element at the time of checking
+        this.prevDropTarget  = null; // the dropzone that was recently dragged away from
+        this.prevDropElement = null; // the element at the time of checking
+
+        this.prepared        = {     // action that's ready to be fired on next move event
+            name : null,
+            axis : null,
+            edges: null
+        };
+
+        this.matches         = [];   // all selectors that are matched by target element
+        this.matchElements   = [];   // corresponding elements
+
+        this.inertiaStatus = {
+            active       : false,
+            smoothEnd    : false,
+            ending       : false,
+
+            startEvent: null,
+            upCoords: {},
+
+            xe: 0, ye: 0,
+            sx: 0, sy: 0,
+
+            t0: 0,
+            vx0: 0, vys: 0,
+            duration: 0,
+
+            resumeDx: 0,
+            resumeDy: 0,
+
+            lambda_v0: 0,
+            one_ve_v0: 0,
+            i  : null
+        };
+
+        if (isFunction(Function.prototype.bind)) {
+            this.boundInertiaFrame = this.inertiaFrame.bind(this);
+            this.boundSmoothEndFrame = this.smoothEndFrame.bind(this);
+        }
+        else {
+            var that = this;
+
+            this.boundInertiaFrame = function () { return that.inertiaFrame(); };
+            this.boundSmoothEndFrame = function () { return that.smoothEndFrame(); };
+        }
+
+        this.activeDrops = {
+            dropzones: [],      // the dropzones that are mentioned below
+            elements : [],      // elements of dropzones that accept the target draggable
+            rects    : []       // the rects of the elements mentioned above
+        };
+
+        // keep track of added pointers
+        this.pointers    = [];
+        this.pointerIds  = [];
+        this.downTargets = [];
+        this.downTimes   = [];
+        this.holdTimers  = [];
+
+        // Previous native pointer move event coordinates
+        this.prevCoords = {
+            page     : { x: 0, y: 0 },
+            client   : { x: 0, y: 0 },
+            timeStamp: 0
+        };
+        // current native pointer move event coordinates
+        this.curCoords = {
+            page     : { x: 0, y: 0 },
+            client   : { x: 0, y: 0 },
+            timeStamp: 0
+        };
+
+        // Starting InteractEvent pointer coordinates
+        this.startCoords = {
+            page     : { x: 0, y: 0 },
+            client   : { x: 0, y: 0 },
+            timeStamp: 0
+        };
+
+        // Change in coordinates and time of the pointer
+        this.pointerDelta = {
+            page     : { x: 0, y: 0, vx: 0, vy: 0, speed: 0 },
+            client   : { x: 0, y: 0, vx: 0, vy: 0, speed: 0 },
+            timeStamp: 0
+        };
+
+        this.downEvent   = null;    // pointerdown/mousedown/touchstart event
+        this.downPointer = {};
+
+        this._eventTarget    = null;
+        this._curEventTarget = null;
+
+        this.prevEvent = null;      // previous action event
+        this.tapTime   = 0;         // time of the most recent tap event
+        this.prevTap   = null;
+
+        this.startOffset    = { left: 0, right: 0, top: 0, bottom: 0 };
+        this.restrictOffset = { left: 0, right: 0, top: 0, bottom: 0 };
+        this.snapOffsets    = [];
+
+        this.gesture = {
+            start: { x: 0, y: 0 },
+
+            startDistance: 0,   // distance between two touches of touchStart
+            prevDistance : 0,
+            distance     : 0,
+
+            scale: 1,           // gesture.distance / gesture.startDistance
+
+            startAngle: 0,      // angle of line joining two touches
+            prevAngle : 0       // angle of the previous gesture event
+        };
+
+        this.snapStatus = {
+            x       : 0, y       : 0,
+            dx      : 0, dy      : 0,
+            realX   : 0, realY   : 0,
+            snappedX: 0, snappedY: 0,
+            targets : [],
+            locked  : false,
+            changed : false
+        };
+
+        this.restrictStatus = {
+            dx         : 0, dy         : 0,
+            restrictedX: 0, restrictedY: 0,
+            snap       : null,
+            restricted : false,
+            changed    : false
+        };
+
+        this.restrictStatus.snap = this.snapStatus;
+
+        this.pointerIsDown   = false;
+        this.pointerWasMoved = false;
+        this.gesturing       = false;
+        this.dragging        = false;
+        this.resizing        = false;
+        this.resizeAxes      = 'xy';
+
+        this.mouse = false;
+
+        interactions.push(this);
+    }
+
+    Interaction.prototype = {
+        getPageXY  : function (pointer, xy) { return   getPageXY(pointer, xy, this); },
+        getClientXY: function (pointer, xy) { return getClientXY(pointer, xy, this); },
+        setEventXY : function (target, ptr) { return  setEventXY(target, ptr, this); },
+
+        pointerOver: function (pointer, event, eventTarget) {
+            if (this.prepared.name || !this.mouse) { return; }
+
+            var curMatches = [],
+                curMatchElements = [],
+                prevTargetElement = this.element;
+
+            this.addPointer(pointer);
+
+            if (this.target
+                && (testIgnore(this.target, this.element, eventTarget)
+                    || !testAllow(this.target, this.element, eventTarget))) {
+                // if the eventTarget should be ignored or shouldn't be allowed
+                // clear the previous target
+                this.target = null;
+                this.element = null;
+                this.matches = [];
+                this.matchElements = [];
+            }
+
+            var elementInteractable = interactables.get(eventTarget),
+                elementAction = (elementInteractable
+                                 && !testIgnore(elementInteractable, eventTarget, eventTarget)
+                                 && testAllow(elementInteractable, eventTarget, eventTarget)
+                                 && validateAction(
+                                     elementInteractable.getAction(pointer, event, this, eventTarget),
+                                     elementInteractable));
+
+            if (elementAction && !withinInteractionLimit(elementInteractable, eventTarget, elementAction)) {
+                 elementAction = null;
+            }
+
+            function pushCurMatches (interactable, selector) {
+                if (interactable
+                    && inContext(interactable, eventTarget)
+                    && !testIgnore(interactable, eventTarget, eventTarget)
+                    && testAllow(interactable, eventTarget, eventTarget)
+                    && matchesSelector(eventTarget, selector)) {
+
+                    curMatches.push(interactable);
+                    curMatchElements.push(eventTarget);
+                }
+            }
+
+            if (elementAction) {
+                this.target = elementInteractable;
+                this.element = eventTarget;
+                this.matches = [];
+                this.matchElements = [];
+            }
+            else {
+                interactables.forEachSelector(pushCurMatches);
+
+                if (this.validateSelector(pointer, event, curMatches, curMatchElements)) {
+                    this.matches = curMatches;
+                    this.matchElements = curMatchElements;
+
+                    this.pointerHover(pointer, event, this.matches, this.matchElements);
+                    events.add(eventTarget,
+                                        PointerEvent? pEventTypes.move : 'mousemove',
+                                        listeners.pointerHover);
+                }
+                else if (this.target) {
+                    if (nodeContains(prevTargetElement, eventTarget)) {
+                        this.pointerHover(pointer, event, this.matches, this.matchElements);
+                        events.add(this.element,
+                                            PointerEvent? pEventTypes.move : 'mousemove',
+                                            listeners.pointerHover);
+                    }
+                    else {
+                        this.target = null;
+                        this.element = null;
+                        this.matches = [];
+                        this.matchElements = [];
+                    }
+                }
+            }
+        },
+
+        // Check what action would be performed on pointerMove target if a mouse
+        // button were pressed and change the cursor accordingly
+        pointerHover: function (pointer, event, eventTarget, curEventTarget, matches, matchElements) {
+            var target = this.target;
+
+            if (!this.prepared.name && this.mouse) {
+
+                var action;
+
+                // update pointer coords for defaultActionChecker to use
+                this.setEventXY(this.curCoords, [pointer]);
+
+                if (matches) {
+                    action = this.validateSelector(pointer, event, matches, matchElements);
+                }
+                else if (target) {
+                    action = validateAction(target.getAction(this.pointers[0], event, this, this.element), this.target);
+                }
+
+                if (target && target.options.styleCursor) {
+                    if (action) {
+                        target._doc.documentElement.style.cursor = getActionCursor(action);
+                    }
+                    else {
+                        target._doc.documentElement.style.cursor = '';
+                    }
+                }
+            }
+            else if (this.prepared.name) {
+                this.checkAndPreventDefault(event, target, this.element);
+            }
+        },
+
+        pointerOut: function (pointer, event, eventTarget) {
+            if (this.prepared.name) { return; }
+
+            // Remove temporary event listeners for selector Interactables
+            if (!interactables.get(eventTarget)) {
+                events.remove(eventTarget,
+                                       PointerEvent? pEventTypes.move : 'mousemove',
+                                       listeners.pointerHover);
+            }
+
+            if (this.target && this.target.options.styleCursor && !this.interacting()) {
+                this.target._doc.documentElement.style.cursor = '';
+            }
+        },
+
+        selectorDown: function (pointer, event, eventTarget, curEventTarget) {
+            var that = this,
+                // copy event to be used in timeout for IE8
+                eventCopy = events.useAttachEvent? extend({}, event) : event,
+                element = eventTarget,
+                pointerIndex = this.addPointer(pointer),
+                action;
+
+            this.holdTimers[pointerIndex] = setTimeout(function () {
+                that.pointerHold(events.useAttachEvent? eventCopy : pointer, eventCopy, eventTarget, curEventTarget);
+            }, defaultOptions._holdDuration);
+
+            this.pointerIsDown = true;
+
+            // Check if the down event hits the current inertia target
+            if (this.inertiaStatus.active && this.target.selector) {
+                // climb up the DOM tree from the event target
+                while (isElement(element)) {
+
+                    // if this element is the current inertia target element
+                    if (element === this.element
+                        // and the prospective action is the same as the ongoing one
+                        && validateAction(this.target.getAction(pointer, event, this, this.element), this.target).name === this.prepared.name) {
+
+                        // stop inertia so that the next move will be a normal one
+                        cancelFrame(this.inertiaStatus.i);
+                        this.inertiaStatus.active = false;
+
+                        this.collectEventTargets(pointer, event, eventTarget, 'down');
+                        return;
+                    }
+                    element = parentElement(element);
+                }
+            }
+
+            // do nothing if interacting
+            if (this.interacting()) {
+                this.collectEventTargets(pointer, event, eventTarget, 'down');
+                return;
+            }
+
+            function pushMatches (interactable, selector, context) {
+                var elements = ie8MatchesSelector
+                    ? context.querySelectorAll(selector)
+                    : undefined;
+
+                if (inContext(interactable, element)
+                    && !testIgnore(interactable, element, eventTarget)
+                    && testAllow(interactable, element, eventTarget)
+                    && matchesSelector(element, selector, elements)) {
+
+                    that.matches.push(interactable);
+                    that.matchElements.push(element);
+                }
+            }
+
+            // update pointer coords for defaultActionChecker to use
+            this.setEventXY(this.curCoords, [pointer]);
+            this.downEvent = event;
+
+            while (isElement(element) && !action) {
+                this.matches = [];
+                this.matchElements = [];
+
+                interactables.forEachSelector(pushMatches);
+
+                action = this.validateSelector(pointer, event, this.matches, this.matchElements);
+                element = parentElement(element);
+            }
+
+            if (action) {
+                this.prepared.name  = action.name;
+                this.prepared.axis  = action.axis;
+                this.prepared.edges = action.edges;
+
+                this.collectEventTargets(pointer, event, eventTarget, 'down');
+
+                return this.pointerDown(pointer, event, eventTarget, curEventTarget, action);
+            }
+            else {
+                // do these now since pointerDown isn't being called from here
+                this.downTimes[pointerIndex] = new Date().getTime();
+                this.downTargets[pointerIndex] = eventTarget;
+                pointerExtend(this.downPointer, pointer);
+
+                copyCoords(this.prevCoords, this.curCoords);
+                this.pointerWasMoved = false;
+            }
+
+            this.collectEventTargets(pointer, event, eventTarget, 'down');
+        },
+
+        // Determine action to be performed on next pointerMove and add appropriate
+        // style and event Listeners
+        pointerDown: function (pointer, event, eventTarget, curEventTarget, forceAction) {
+            if (!forceAction && !this.inertiaStatus.active && this.pointerWasMoved && this.prepared.name) {
+                this.checkAndPreventDefault(event, this.target, this.element);
+
+                return;
+            }
+
+            this.pointerIsDown = true;
+            this.downEvent = event;
+
+            var pointerIndex = this.addPointer(pointer),
+                action;
+
+            // If it is the second touch of a multi-touch gesture, keep the
+            // target the same and get a new action if a target was set by the
+            // first touch
+            if (this.pointerIds.length > 1 && this.target._element === this.element) {
+                var newAction = validateAction(forceAction || this.target.getAction(pointer, event, this, this.element), this.target);
+
+                if (withinInteractionLimit(this.target, this.element, newAction)) {
+                    action = newAction;
+                }
+
+                this.prepared.name = null;
+            }
+            // Otherwise, set the target if there is no action prepared
+            else if (!this.prepared.name) {
+                var interactable = interactables.get(curEventTarget);
+
+                if (interactable
+                    && !testIgnore(interactable, curEventTarget, eventTarget)
+                    && testAllow(interactable, curEventTarget, eventTarget)
+                    && (action = validateAction(forceAction || interactable.getAction(pointer, event, this, curEventTarget), interactable, eventTarget))
+                    && withinInteractionLimit(interactable, curEventTarget, action)) {
+                    this.target = interactable;
+                    this.element = curEventTarget;
+                }
+            }
+
+            var target = this.target,
+                options = target && target.options;
+
+            if (target && (forceAction || !this.prepared.name)) {
+                action = action || validateAction(forceAction || target.getAction(pointer, event, this, curEventTarget), target, this.element);
+
+                this.setEventXY(this.startCoords, this.pointers);
+
+                if (!action) { return; }
+
+                if (options.styleCursor) {
+                    target._doc.documentElement.style.cursor = getActionCursor(action);
+                }
+
+                this.resizeAxes = action.name === 'resize'? action.axis : null;
+
+                if (action === 'gesture' && this.pointerIds.length < 2) {
+                    action = null;
+                }
+
+                this.prepared.name  = action.name;
+                this.prepared.axis  = action.axis;
+                this.prepared.edges = action.edges;
+
+                this.snapStatus.snappedX = this.snapStatus.snappedY =
+                    this.restrictStatus.restrictedX = this.restrictStatus.restrictedY = NaN;
+
+                this.downTimes[pointerIndex] = new Date().getTime();
+                this.downTargets[pointerIndex] = eventTarget;
+                pointerExtend(this.downPointer, pointer);
+
+                copyCoords(this.prevCoords, this.startCoords);
+                this.pointerWasMoved = false;
+
+                this.checkAndPreventDefault(event, target, this.element);
+            }
+            // if inertia is active try to resume action
+            else if (this.inertiaStatus.active
+                && curEventTarget === this.element
+                && validateAction(target.getAction(pointer, event, this, this.element), target).name === this.prepared.name) {
+
+                cancelFrame(this.inertiaStatus.i);
+                this.inertiaStatus.active = false;
+
+                this.checkAndPreventDefault(event, target, this.element);
+            }
+        },
+
+        setModifications: function (coords, preEnd) {
+            var target         = this.target,
+                shouldMove     = true,
+                shouldSnap     = checkSnap(target, this.prepared.name)     && (!target.options[this.prepared.name].snap.endOnly     || preEnd),
+                shouldRestrict = checkRestrict(target, this.prepared.name) && (!target.options[this.prepared.name].restrict.endOnly || preEnd);
+
+            if (shouldSnap    ) { this.setSnapping   (coords); } else { this.snapStatus    .locked     = false; }
+            if (shouldRestrict) { this.setRestriction(coords); } else { this.restrictStatus.restricted = false; }
+
+            if (shouldSnap && this.snapStatus.locked && !this.snapStatus.changed) {
+                shouldMove = shouldRestrict && this.restrictStatus.restricted && this.restrictStatus.changed;
+            }
+            else if (shouldRestrict && this.restrictStatus.restricted && !this.restrictStatus.changed) {
+                shouldMove = false;
+            }
+
+            return shouldMove;
+        },
+
+        setStartOffsets: function (action, interactable, element) {
+            var rect = interactable.getRect(element),
+                origin = getOriginXY(interactable, element),
+                snap = interactable.options[this.prepared.name].snap,
+                restrict = interactable.options[this.prepared.name].restrict,
+                width, height;
+
+            if (rect) {
+                this.startOffset.left = this.startCoords.page.x - rect.left;
+                this.startOffset.top  = this.startCoords.page.y - rect.top;
+
+                this.startOffset.right  = rect.right  - this.startCoords.page.x;
+                this.startOffset.bottom = rect.bottom - this.startCoords.page.y;
+
+                if ('width' in rect) { width = rect.width; }
+                else { width = rect.right - rect.left; }
+                if ('height' in rect) { height = rect.height; }
+                else { height = rect.bottom - rect.top; }
+            }
+            else {
+                this.startOffset.left = this.startOffset.top = this.startOffset.right = this.startOffset.bottom = 0;
+            }
+
+            this.snapOffsets.splice(0);
+
+            var snapOffset = snap && snap.offset === 'startCoords'
+                                ? {
+                                    x: this.startCoords.page.x - origin.x,
+                                    y: this.startCoords.page.y - origin.y
+                                }
+                                : snap && snap.offset || { x: 0, y: 0 };
+
+            if (rect && snap && snap.relativePoints && snap.relativePoints.length) {
+                for (var i = 0; i < snap.relativePoints.length; i++) {
+                    this.snapOffsets.push({
+                        x: this.startOffset.left - (width  * snap.relativePoints[i].x) + snapOffset.x,
+                        y: this.startOffset.top  - (height * snap.relativePoints[i].y) + snapOffset.y
+                    });
+                }
+            }
+            else {
+                this.snapOffsets.push(snapOffset);
+            }
+
+            if (rect && restrict.elementRect) {
+                this.restrictOffset.left = this.startOffset.left - (width  * restrict.elementRect.left);
+                this.restrictOffset.top  = this.startOffset.top  - (height * restrict.elementRect.top);
+
+                this.restrictOffset.right  = this.startOffset.right  - (width  * (1 - restrict.elementRect.right));
+                this.restrictOffset.bottom = this.startOffset.bottom - (height * (1 - restrict.elementRect.bottom));
+            }
+            else {
+                this.restrictOffset.left = this.restrictOffset.top = this.restrictOffset.right = this.restrictOffset.bottom = 0;
+            }
+        },
+
+        /*\
+         * Interaction.start
+         [ method ]
+         *
+         * Start an action with the given Interactable and Element as tartgets. The
+         * action must be enabled for the target Interactable and an appropriate number
+         * of pointers must be held down – 1 for drag/resize, 2 for gesture.
+         *
+         * Use it with `interactable.<action>able({ manualStart: false })` to always
+         * [start actions manually](https://github.com/taye/interact.js/issues/114)
+         *
+         - action       (object)  The action to be performed - drag, resize, etc.
+         - interactable (Interactable) The Interactable to target
+         - element      (Element) The DOM Element to target
+         = (object) interact
+         **
+         | interact(target)
+         |   .draggable({
+         |     // disable the default drag start by down->move
+         |     manualStart: true
+         |   })
+         |   // start dragging after the user holds the pointer down
+         |   .on('hold', function (event) {
+         |     var interaction = event.interaction;
+         |
+         |     if (!interaction.interacting()) {
+         |       interaction.start({ name: 'drag' },
+         |                         event.interactable,
+         |                         event.currentTarget);
+         |     }
+         | });
+        \*/
+        start: function (action, interactable, element) {
+            if (this.interacting()
+                || !this.pointerIsDown
+                || this.pointerIds.length < (action.name === 'gesture'? 2 : 1)) {
+                return;
+            }
+
+            // if this interaction had been removed after stopping
+            // add it back
+            if (indexOf(interactions, this) === -1) {
+                interactions.push(this);
+            }
+
+            // set the startCoords if there was no prepared action
+            if (!this.prepared.name) {
+                this.setEventXY(this.startCoords);
+            }
+
+            this.prepared.name  = action.name;
+            this.prepared.axis  = action.axis;
+            this.prepared.edges = action.edges;
+            this.target         = interactable;
+            this.element        = element;
+
+            this.setStartOffsets(action.name, interactable, element);
+            this.setModifications(this.startCoords.page);
+
+            this.prevEvent = this[this.prepared.name + 'Start'](this.downEvent);
+        },
+
+        pointerMove: function (pointer, event, eventTarget, curEventTarget, preEnd) {
+            if (this.inertiaStatus.active) {
+                var pageUp   = this.inertiaStatus.upCoords.page;
+                var clientUp = this.inertiaStatus.upCoords.client;
+
+                var inertiaPosition = {
+                    pageX  : pageUp.x   + this.inertiaStatus.sx,
+                    pageY  : pageUp.y   + this.inertiaStatus.sy,
+                    clientX: clientUp.x + this.inertiaStatus.sx,
+                    clientY: clientUp.y + this.inertiaStatus.sy
+                };
+
+                this.setEventXY(this.curCoords, [inertiaPosition]);
+            }
+            else {
+                this.recordPointer(pointer);
+                this.setEventXY(this.curCoords, this.pointers);
+            }
+
+            var duplicateMove = (this.curCoords.page.x === this.prevCoords.page.x
+                                 && this.curCoords.page.y === this.prevCoords.page.y
+                                 && this.curCoords.client.x === this.prevCoords.client.x
+                                 && this.curCoords.client.y === this.prevCoords.client.y);
+
+            var dx, dy,
+                pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+            // register movement greater than pointerMoveTolerance
+            if (this.pointerIsDown && !this.pointerWasMoved) {
+                dx = this.curCoords.client.x - this.startCoords.client.x;
+                dy = this.curCoords.client.y - this.startCoords.client.y;
+
+                this.pointerWasMoved = hypot(dx, dy) > pointerMoveTolerance;
+            }
+
+            if (!duplicateMove && (!this.pointerIsDown || this.pointerWasMoved)) {
+                if (this.pointerIsDown) {
+                    clearTimeout(this.holdTimers[pointerIndex]);
+                }
+
+                this.collectEventTargets(pointer, event, eventTarget, 'move');
+            }
+
+            if (!this.pointerIsDown) { return; }
+
+            if (duplicateMove && this.pointerWasMoved && !preEnd) {
+                this.checkAndPreventDefault(event, this.target, this.element);
+                return;
+            }
+
+            // set pointer coordinate, time changes and speeds
+            setEventDeltas(this.pointerDelta, this.prevCoords, this.curCoords);
+
+            if (!this.prepared.name) { return; }
+
+            if (this.pointerWasMoved
+                // ignore movement while inertia is active
+                && (!this.inertiaStatus.active || (pointer instanceof InteractEvent && /inertiastart/.test(pointer.type)))) {
+
+                // if just starting an action, calculate the pointer speed now
+                if (!this.interacting()) {
+                    setEventDeltas(this.pointerDelta, this.prevCoords, this.curCoords);
+
+                    // check if a drag is in the correct axis
+                    if (this.prepared.name === 'drag') {
+                        var absX = Math.abs(dx),
+                            absY = Math.abs(dy),
+                            targetAxis = this.target.options.drag.axis,
+                            axis = (absX > absY ? 'x' : absX < absY ? 'y' : 'xy');
+
+                        // if the movement isn't in the axis of the interactable
+                        if (axis !== 'xy' && targetAxis !== 'xy' && targetAxis !== axis) {
+                            // cancel the prepared action
+                            this.prepared.name = null;
+
+                            // then try to get a drag from another ineractable
+
+                            var element = eventTarget;
+
+                            // check element interactables
+                            while (isElement(element)) {
+                                var elementInteractable = interactables.get(element);
+
+                                if (elementInteractable
+                                    && elementInteractable !== this.target
+                                    && !elementInteractable.options.drag.manualStart
+                                    && elementInteractable.getAction(this.downPointer, this.downEvent, this, element).name === 'drag'
+                                    && checkAxis(axis, elementInteractable)) {
+
+                                    this.prepared.name = 'drag';
+                                    this.target = elementInteractable;
+                                    this.element = element;
+                                    break;
+                                }
+
+                                element = parentElement(element);
+                            }
+
+                            // if there's no drag from element interactables,
+                            // check the selector interactables
+                            if (!this.prepared.name) {
+                                var thisInteraction = this;
+
+                                var getDraggable = function (interactable, selector, context) {
+                                    var elements = ie8MatchesSelector
+                                        ? context.querySelectorAll(selector)
+                                        : undefined;
+
+                                    if (interactable === thisInteraction.target) { return; }
+
+                                    if (inContext(interactable, eventTarget)
+                                        && !interactable.options.drag.manualStart
+                                        && !testIgnore(interactable, element, eventTarget)
+                                        && testAllow(interactable, element, eventTarget)
+                                        && matchesSelector(element, selector, elements)
+                                        && interactable.getAction(thisInteraction.downPointer, thisInteraction.downEvent, thisInteraction, element).name === 'drag'
+                                        && checkAxis(axis, interactable)
+                                        && withinInteractionLimit(interactable, element, 'drag')) {
+
+                                        return interactable;
+                                    }
+                                };
+
+                                element = eventTarget;
+
+                                while (isElement(element)) {
+                                    var selectorInteractable = interactables.forEachSelector(getDraggable);
+
+                                    if (selectorInteractable) {
+                                        this.prepared.name = 'drag';
+                                        this.target = selectorInteractable;
+                                        this.element = element;
+                                        break;
+                                    }
+
+                                    element = parentElement(element);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                var starting = !!this.prepared.name && !this.interacting();
+
+                if (starting
+                    && (this.target.options[this.prepared.name].manualStart
+                        || !withinInteractionLimit(this.target, this.element, this.prepared))) {
+                    this.stop(event);
+                    return;
+                }
+
+                if (this.prepared.name && this.target) {
+                    if (starting) {
+                        this.start(this.prepared, this.target, this.element);
+                    }
+
+                    var shouldMove = this.setModifications(this.curCoords.page, preEnd);
+
+                    // move if snapping or restriction doesn't prevent it
+                    if (shouldMove || starting) {
+                        this.prevEvent = this[this.prepared.name + 'Move'](event);
+                    }
+
+                    this.checkAndPreventDefault(event, this.target, this.element);
+                }
+            }
+
+            copyCoords(this.prevCoords, this.curCoords);
+
+            if (this.dragging || this.resizing) {
+                this.autoScrollMove(pointer);
+            }
+        },
+
+        dragStart: function (event) {
+            var dragEvent = new InteractEvent(this, event, 'drag', 'start', this.element);
+
+            this.dragging = true;
+            this.target.fire(dragEvent);
+
+            // reset active dropzones
+            this.activeDrops.dropzones = [];
+            this.activeDrops.elements  = [];
+            this.activeDrops.rects     = [];
+
+            if (!this.dynamicDrop) {
+                this.setActiveDrops(this.element);
+            }
+
+            var dropEvents = this.getDropEvents(event, dragEvent);
+
+            if (dropEvents.activate) {
+                this.fireActiveDrops(dropEvents.activate);
+            }
+
+            return dragEvent;
+        },
+
+        dragMove: function (event) {
+            var target = this.target,
+                dragEvent  = new InteractEvent(this, event, 'drag', 'move', this.element),
+                draggableElement = this.element,
+                drop = this.getDrop(dragEvent, event, draggableElement);
+
+            this.dropTarget = drop.dropzone;
+            this.dropElement = drop.element;
+
+            var dropEvents = this.getDropEvents(event, dragEvent);
+
+            target.fire(dragEvent);
+
+            if (dropEvents.leave) { this.prevDropTarget.fire(dropEvents.leave); }
+            if (dropEvents.enter) {     this.dropTarget.fire(dropEvents.enter); }
+            if (dropEvents.move ) {     this.dropTarget.fire(dropEvents.move ); }
+
+            this.prevDropTarget  = this.dropTarget;
+            this.prevDropElement = this.dropElement;
+
+            return dragEvent;
+        },
+
+        resizeStart: function (event) {
+            var resizeEvent = new InteractEvent(this, event, 'resize', 'start', this.element);
+
+            if (this.prepared.edges) {
+                var startRect = this.target.getRect(this.element);
+
+                /*
+                 * When using the `resizable.square` or `resizable.preserveAspectRatio` options, resizing from one edge
+                 * will affect another. E.g. with `resizable.square`, resizing to make the right edge larger will make
+                 * the bottom edge larger by the same amount. We call these 'linked' edges. Any linked edges will depend
+                 * on the active edges and the edge being interacted with.
+                 */
+                if (this.target.options.resize.square || this.target.options.resize.preserveAspectRatio) {
+                    var linkedEdges = extend({}, this.prepared.edges);
+
+                    linkedEdges.top    = linkedEdges.top    || (linkedEdges.left   && !linkedEdges.bottom);
+                    linkedEdges.left   = linkedEdges.left   || (linkedEdges.top    && !linkedEdges.right );
+                    linkedEdges.bottom = linkedEdges.bottom || (linkedEdges.right  && !linkedEdges.top   );
+                    linkedEdges.right  = linkedEdges.right  || (linkedEdges.bottom && !linkedEdges.left  );
+
+                    this.prepared._linkedEdges = linkedEdges;
+                }
+                else {
+                    this.prepared._linkedEdges = null;
+                }
+
+                // if using `resizable.preserveAspectRatio` option, record aspect ratio at the start of the resize
+                if (this.target.options.resize.preserveAspectRatio) {
+                    this.resizeStartAspectRatio = startRect.width / startRect.height;
+                }
+
+                this.resizeRects = {
+                    start     : startRect,
+                    current   : extend({}, startRect),
+                    restricted: extend({}, startRect),
+                    previous  : extend({}, startRect),
+                    delta     : {
+                        left: 0, right : 0, width : 0,
+                        top : 0, bottom: 0, height: 0
+                    }
+                };
+
+                resizeEvent.rect = this.resizeRects.restricted;
+                resizeEvent.deltaRect = this.resizeRects.delta;
+            }
+
+            this.target.fire(resizeEvent);
+
+            this.resizing = true;
+
+            return resizeEvent;
+        },
+
+        resizeMove: function (event) {
+            var resizeEvent = new InteractEvent(this, event, 'resize', 'move', this.element);
+
+            var edges = this.prepared.edges,
+                invert = this.target.options.resize.invert,
+                invertible = invert === 'reposition' || invert === 'negate';
+
+            if (edges) {
+                var dx = resizeEvent.dx,
+                    dy = resizeEvent.dy,
+
+                    start      = this.resizeRects.start,
+                    current    = this.resizeRects.current,
+                    restricted = this.resizeRects.restricted,
+                    delta      = this.resizeRects.delta,
+                    previous   = extend(this.resizeRects.previous, restricted),
+
+                    originalEdges = edges;
+
+                // `resize.preserveAspectRatio` takes precedence over `resize.square`
+                if (this.target.options.resize.preserveAspectRatio) {
+                    var resizeStartAspectRatio = this.resizeStartAspectRatio;
+
+                    edges = this.prepared._linkedEdges;
+
+                    if ((originalEdges.left && originalEdges.bottom)
+                        || (originalEdges.right && originalEdges.top)) {
+                        dy = -dx / resizeStartAspectRatio;
+                    }
+                    else if (originalEdges.left || originalEdges.right) { dy = dx / resizeStartAspectRatio; }
+                    else if (originalEdges.top || originalEdges.bottom) { dx = dy * resizeStartAspectRatio; }
+                }
+                else if (this.target.options.resize.square) {
+                    edges = this.prepared._linkedEdges;
+
+                    if ((originalEdges.left && originalEdges.bottom)
+                        || (originalEdges.right && originalEdges.top)) {
+                        dy = -dx;
+                    }
+                    else if (originalEdges.left || originalEdges.right) { dy = dx; }
+                    else if (originalEdges.top || originalEdges.bottom) { dx = dy; }
+                }
+
+                // update the 'current' rect without modifications
+                if (edges.top   ) { current.top    += dy; }
+                if (edges.bottom) { current.bottom += dy; }
+                if (edges.left  ) { current.left   += dx; }
+                if (edges.right ) { current.right  += dx; }
+
+                if (invertible) {
+                    // if invertible, copy the current rect
+                    extend(restricted, current);
+
+                    if (invert === 'reposition') {
+                        // swap edge values if necessary to keep width/height positive
+                        var swap;
+
+                        if (restricted.top > restricted.bottom) {
+                            swap = restricted.top;
+
+                            restricted.top = restricted.bottom;
+                            restricted.bottom = swap;
+                        }
+                        if (restricted.left > restricted.right) {
+                            swap = restricted.left;
+
+                            restricted.left = restricted.right;
+                            restricted.right = swap;
+                        }
+                    }
+                }
+                else {
+                    // if not invertible, restrict to minimum of 0x0 rect
+                    restricted.top    = Math.min(current.top, start.bottom);
+                    restricted.bottom = Math.max(current.bottom, start.top);
+                    restricted.left   = Math.min(current.left, start.right);
+                    restricted.right  = Math.max(current.right, start.left);
+                }
+
+                restricted.width  = restricted.right  - restricted.left;
+                restricted.height = restricted.bottom - restricted.top ;
+
+                for (var edge in restricted) {
+                    delta[edge] = restricted[edge] - previous[edge];
+                }
+
+                resizeEvent.edges = this.prepared.edges;
+                resizeEvent.rect = restricted;
+                resizeEvent.deltaRect = delta;
+            }
+
+            this.target.fire(resizeEvent);
+
+            return resizeEvent;
+        },
+
+        gestureStart: function (event) {
+            var gestureEvent = new InteractEvent(this, event, 'gesture', 'start', this.element);
+
+            gestureEvent.ds = 0;
+
+            this.gesture.startDistance = this.gesture.prevDistance = gestureEvent.distance;
+            this.gesture.startAngle = this.gesture.prevAngle = gestureEvent.angle;
+            this.gesture.scale = 1;
+
+            this.gesturing = true;
+
+            this.target.fire(gestureEvent);
+
+            return gestureEvent;
+        },
+
+        gestureMove: function (event) {
+            if (!this.pointerIds.length) {
+                return this.prevEvent;
+            }
+
+            var gestureEvent;
+
+            gestureEvent = new InteractEvent(this, event, 'gesture', 'move', this.element);
+            gestureEvent.ds = gestureEvent.scale - this.gesture.scale;
+
+            this.target.fire(gestureEvent);
+
+            this.gesture.prevAngle = gestureEvent.angle;
+            this.gesture.prevDistance = gestureEvent.distance;
+
+            if (gestureEvent.scale !== Infinity &&
+                gestureEvent.scale !== null &&
+                gestureEvent.scale !== undefined  &&
+                !isNaN(gestureEvent.scale)) {
+
+                this.gesture.scale = gestureEvent.scale;
+            }
+
+            return gestureEvent;
+        },
+
+        pointerHold: function (pointer, event, eventTarget) {
+            this.collectEventTargets(pointer, event, eventTarget, 'hold');
+        },
+
+        pointerUp: function (pointer, event, eventTarget, curEventTarget) {
+            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+            clearTimeout(this.holdTimers[pointerIndex]);
+
+            this.collectEventTargets(pointer, event, eventTarget, 'up' );
+            this.collectEventTargets(pointer, event, eventTarget, 'tap');
+
+            this.pointerEnd(pointer, event, eventTarget, curEventTarget);
+
+            this.removePointer(pointer);
+        },
+
+        pointerCancel: function (pointer, event, eventTarget, curEventTarget) {
+            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+            clearTimeout(this.holdTimers[pointerIndex]);
+
+            this.collectEventTargets(pointer, event, eventTarget, 'cancel');
+            this.pointerEnd(pointer, event, eventTarget, curEventTarget);
+
+            this.removePointer(pointer);
+        },
+
+        // http://www.quirksmode.org/dom/events/click.html
+        // >Events leading to dblclick
+        //
+        // IE8 doesn't fire down event before dblclick.
+        // This workaround tries to fire a tap and doubletap after dblclick
+        ie8Dblclick: function (pointer, event, eventTarget) {
+            if (this.prevTap
+                && event.clientX === this.prevTap.clientX
+                && event.clientY === this.prevTap.clientY
+                && eventTarget   === this.prevTap.target) {
+
+                this.downTargets[0] = eventTarget;
+                this.downTimes[0] = new Date().getTime();
+                this.collectEventTargets(pointer, event, eventTarget, 'tap');
+            }
+        },
+
+        // End interact move events and stop auto-scroll unless inertia is enabled
+        pointerEnd: function (pointer, event, eventTarget, curEventTarget) {
+            var endEvent,
+                target = this.target,
+                options = target && target.options,
+                inertiaOptions = options && this.prepared.name && options[this.prepared.name].inertia,
+                inertiaStatus = this.inertiaStatus;
+
+            if (this.interacting()) {
+
+                if (inertiaStatus.active && !inertiaStatus.ending) { return; }
+
+                var pointerSpeed,
+                    now = new Date().getTime(),
+                    inertiaPossible = false,
+                    inertia = false,
+                    smoothEnd = false,
+                    endSnap = checkSnap(target, this.prepared.name) && options[this.prepared.name].snap.endOnly,
+                    endRestrict = checkRestrict(target, this.prepared.name) && options[this.prepared.name].restrict.endOnly,
+                    dx = 0,
+                    dy = 0,
+                    startEvent;
+
+                if (this.dragging) {
+                    if      (options.drag.axis === 'x' ) { pointerSpeed = Math.abs(this.pointerDelta.client.vx); }
+                    else if (options.drag.axis === 'y' ) { pointerSpeed = Math.abs(this.pointerDelta.client.vy); }
+                    else   /*options.drag.axis === 'xy'*/{ pointerSpeed = this.pointerDelta.client.speed; }
+                }
+                else {
+                    pointerSpeed = this.pointerDelta.client.speed;
+                }
+
+                // check if inertia should be started
+                inertiaPossible = (inertiaOptions && inertiaOptions.enabled
+                                   && this.prepared.name !== 'gesture'
+                                   && event !== inertiaStatus.startEvent);
+
+                inertia = (inertiaPossible
+                           && (now - this.curCoords.timeStamp) < 50
+                           && pointerSpeed > inertiaOptions.minSpeed
+                           && pointerSpeed > inertiaOptions.endSpeed);
+
+                if (inertiaPossible && !inertia && (endSnap || endRestrict)) {
+
+                    var snapRestrict = {};
+
+                    snapRestrict.snap = snapRestrict.restrict = snapRestrict;
+
+                    if (endSnap) {
+                        this.setSnapping(this.curCoords.page, snapRestrict);
+                        if (snapRestrict.locked) {
+                            dx += snapRestrict.dx;
+                            dy += snapRestrict.dy;
+                        }
+                    }
+
+                    if (endRestrict) {
+                        this.setRestriction(this.curCoords.page, snapRestrict);
+                        if (snapRestrict.restricted) {
+                            dx += snapRestrict.dx;
+                            dy += snapRestrict.dy;
+                        }
+                    }
+
+                    if (dx || dy) {
+                        smoothEnd = true;
+                    }
+                }
+
+                if (inertia || smoothEnd) {
+                    copyCoords(inertiaStatus.upCoords, this.curCoords);
+
+                    this.pointers[0] = inertiaStatus.startEvent = startEvent =
+                        new InteractEvent(this, event, this.prepared.name, 'inertiastart', this.element);
+
+                    inertiaStatus.t0 = now;
+
+                    target.fire(inertiaStatus.startEvent);
+
+                    if (inertia) {
+                        inertiaStatus.vx0 = this.pointerDelta.client.vx;
+                        inertiaStatus.vy0 = this.pointerDelta.client.vy;
+                        inertiaStatus.v0 = pointerSpeed;
+
+                        this.calcInertia(inertiaStatus);
+
+                        var page = extend({}, this.curCoords.page),
+                            origin = getOriginXY(target, this.element),
+                            statusObject;
+
+                        page.x = page.x + inertiaStatus.xe - origin.x;
+                        page.y = page.y + inertiaStatus.ye - origin.y;
+
+                        statusObject = {
+                            useStatusXY: true,
+                            x: page.x,
+                            y: page.y,
+                            dx: 0,
+                            dy: 0,
+                            snap: null
+                        };
+
+                        statusObject.snap = statusObject;
+
+                        dx = dy = 0;
+
+                        if (endSnap) {
+                            var snap = this.setSnapping(this.curCoords.page, statusObject);
+
+                            if (snap.locked) {
+                                dx += snap.dx;
+                                dy += snap.dy;
+                            }
+                        }
+
+                        if (endRestrict) {
+                            var restrict = this.setRestriction(this.curCoords.page, statusObject);
+
+                            if (restrict.restricted) {
+                                dx += restrict.dx;
+                                dy += restrict.dy;
+                            }
+                        }
+
+                        inertiaStatus.modifiedXe += dx;
+                        inertiaStatus.modifiedYe += dy;
+
+                        inertiaStatus.i = reqFrame(this.boundInertiaFrame);
+                    }
+                    else {
+                        inertiaStatus.smoothEnd = true;
+                        inertiaStatus.xe = dx;
+                        inertiaStatus.ye = dy;
+
+                        inertiaStatus.sx = inertiaStatus.sy = 0;
+
+                        inertiaStatus.i = reqFrame(this.boundSmoothEndFrame);
+                    }
+
+                    inertiaStatus.active = true;
+                    return;
+                }
+
+                if (endSnap || endRestrict) {
+                    // fire a move event at the snapped coordinates
+                    this.pointerMove(pointer, event, eventTarget, curEventTarget, true);
+                }
+            }
+
+            if (this.dragging) {
+                endEvent = new InteractEvent(this, event, 'drag', 'end', this.element);
+
+                var draggableElement = this.element,
+                    drop = this.getDrop(endEvent, event, draggableElement);
+
+                this.dropTarget = drop.dropzone;
+                this.dropElement = drop.element;
+
+                var dropEvents = this.getDropEvents(event, endEvent);
+
+                if (dropEvents.leave) { this.prevDropTarget.fire(dropEvents.leave); }
+                if (dropEvents.enter) {     this.dropTarget.fire(dropEvents.enter); }
+                if (dropEvents.drop ) {     this.dropTarget.fire(dropEvents.drop ); }
+                if (dropEvents.deactivate) {
+                    this.fireActiveDrops(dropEvents.deactivate);
+                }
+
+                target.fire(endEvent);
+            }
+            else if (this.resizing) {
+                endEvent = new InteractEvent(this, event, 'resize', 'end', this.element);
+                target.fire(endEvent);
+            }
+            else if (this.gesturing) {
+                endEvent = new InteractEvent(this, event, 'gesture', 'end', this.element);
+                target.fire(endEvent);
+            }
+
+            this.stop(event);
+        },
+
+        collectDrops: function (element) {
+            var drops = [],
+                elements = [],
+                i;
+
+            element = element || this.element;
+
+            // collect all dropzones and their elements which qualify for a drop
+            for (i = 0; i < interactables.length; i++) {
+                if (!interactables[i].options.drop.enabled) { continue; }
+
+                var current = interactables[i],
+                    accept = current.options.drop.accept;
+
+                // test the draggable element against the dropzone's accept setting
+                if ((isElement(accept) && accept !== element)
+                    || (isString(accept)
+                        && !matchesSelector(element, accept))) {
+
+                    continue;
+                }
+
+                // query for new elements if necessary
+                var dropElements = current.selector? current._context.querySelectorAll(current.selector) : [current._element];
+
+                for (var j = 0, len = dropElements.length; j < len; j++) {
+                    var currentElement = dropElements[j];
+
+                    if (currentElement === element) {
+                        continue;
+                    }
+
+                    drops.push(current);
+                    elements.push(currentElement);
+                }
+            }
+
+            return {
+                dropzones: drops,
+                elements: elements
+            };
+        },
+
+        fireActiveDrops: function (event) {
+            var i,
+                current,
+                currentElement,
+                prevElement;
+
+            // loop through all active dropzones and trigger event
+            for (i = 0; i < this.activeDrops.dropzones.length; i++) {
+                current = this.activeDrops.dropzones[i];
+                currentElement = this.activeDrops.elements [i];
+
+                // prevent trigger of duplicate events on same element
+                if (currentElement !== prevElement) {
+                    // set current element as event target
+                    event.target = currentElement;
+                    current.fire(event);
+                }
+                prevElement = currentElement;
+            }
+        },
+
+        // Collect a new set of possible drops and save them in activeDrops.
+        // setActiveDrops should always be called when a drag has just started or a
+        // drag event happens while dynamicDrop is true
+        setActiveDrops: function (dragElement) {
+            // get dropzones and their elements that could receive the draggable
+            var possibleDrops = this.collectDrops(dragElement, true);
+
+            this.activeDrops.dropzones = possibleDrops.dropzones;
+            this.activeDrops.elements  = possibleDrops.elements;
+            this.activeDrops.rects     = [];
+
+            for (var i = 0; i < this.activeDrops.dropzones.length; i++) {
+                this.activeDrops.rects[i] = this.activeDrops.dropzones[i].getRect(this.activeDrops.elements[i]);
+            }
+        },
+
+        getDrop: function (dragEvent, event, dragElement) {
+            var validDrops = [];
+
+            if (dynamicDrop) {
+                this.setActiveDrops(dragElement);
+            }
+
+            // collect all dropzones and their elements which qualify for a drop
+            for (var j = 0; j < this.activeDrops.dropzones.length; j++) {
+                var current        = this.activeDrops.dropzones[j],
+                    currentElement = this.activeDrops.elements [j],
+                    rect           = this.activeDrops.rects    [j];
+
+                validDrops.push(current.dropCheck(dragEvent, event, this.target, dragElement, currentElement, rect)
+                                ? currentElement
+                                : null);
+            }
+
+            // get the most appropriate dropzone based on DOM depth and order
+            var dropIndex = indexOfDeepestElement(validDrops),
+                dropzone  = this.activeDrops.dropzones[dropIndex] || null,
+                element   = this.activeDrops.elements [dropIndex] || null;
+
+            return {
+                dropzone: dropzone,
+                element: element
+            };
+        },
+
+        getDropEvents: function (pointerEvent, dragEvent) {
+            var dropEvents = {
+                enter     : null,
+                leave     : null,
+                activate  : null,
+                deactivate: null,
+                move      : null,
+                drop      : null
+            };
+
+            if (this.dropElement !== this.prevDropElement) {
+                // if there was a prevDropTarget, create a dragleave event
+                if (this.prevDropTarget) {
+                    dropEvents.leave = {
+                        target       : this.prevDropElement,
+                        dropzone     : this.prevDropTarget,
+                        relatedTarget: dragEvent.target,
+                        draggable    : dragEvent.interactable,
+                        dragEvent    : dragEvent,
+                        interaction  : this,
+                        timeStamp    : dragEvent.timeStamp,
+                        type         : 'dragleave'
+                    };
+
+                    dragEvent.dragLeave = this.prevDropElement;
+                    dragEvent.prevDropzone = this.prevDropTarget;
+                }
+                // if the dropTarget is not null, create a dragenter event
+                if (this.dropTarget) {
+                    dropEvents.enter = {
+                        target       : this.dropElement,
+                        dropzone     : this.dropTarget,
+                        relatedTarget: dragEvent.target,
+                        draggable    : dragEvent.interactable,
+                        dragEvent    : dragEvent,
+                        interaction  : this,
+                        timeStamp    : dragEvent.timeStamp,
+                        type         : 'dragenter'
+                    };
+
+                    dragEvent.dragEnter = this.dropElement;
+                    dragEvent.dropzone = this.dropTarget;
+                }
+            }
+
+            if (dragEvent.type === 'dragend' && this.dropTarget) {
+                dropEvents.drop = {
+                    target       : this.dropElement,
+                    dropzone     : this.dropTarget,
+                    relatedTarget: dragEvent.target,
+                    draggable    : dragEvent.interactable,
+                    dragEvent    : dragEvent,
+                    interaction  : this,
+                    timeStamp    : dragEvent.timeStamp,
+                    type         : 'drop'
+                };
+
+                dragEvent.dropzone = this.dropTarget;
+            }
+            if (dragEvent.type === 'dragstart') {
+                dropEvents.activate = {
+                    target       : null,
+                    dropzone     : null,
+                    relatedTarget: dragEvent.target,
+                    draggable    : dragEvent.interactable,
+                    dragEvent    : dragEvent,
+                    interaction  : this,
+                    timeStamp    : dragEvent.timeStamp,
+                    type         : 'dropactivate'
+                };
+            }
+            if (dragEvent.type === 'dragend') {
+                dropEvents.deactivate = {
+                    target       : null,
+                    dropzone     : null,
+                    relatedTarget: dragEvent.target,
+                    draggable    : dragEvent.interactable,
+                    dragEvent    : dragEvent,
+                    interaction  : this,
+                    timeStamp    : dragEvent.timeStamp,
+                    type         : 'dropdeactivate'
+                };
+            }
+            if (dragEvent.type === 'dragmove' && this.dropTarget) {
+                dropEvents.move = {
+                    target       : this.dropElement,
+                    dropzone     : this.dropTarget,
+                    relatedTarget: dragEvent.target,
+                    draggable    : dragEvent.interactable,
+                    dragEvent    : dragEvent,
+                    interaction  : this,
+                    dragmove     : dragEvent,
+                    timeStamp    : dragEvent.timeStamp,
+                    type         : 'dropmove'
+                };
+                dragEvent.dropzone = this.dropTarget;
+            }
+
+            return dropEvents;
+        },
+
+        currentAction: function () {
+            return (this.dragging && 'drag') || (this.resizing && 'resize') || (this.gesturing && 'gesture') || null;
+        },
+
+        interacting: function () {
+            return this.dragging || this.resizing || this.gesturing;
+        },
+
+        clearTargets: function () {
+            this.target = this.element = null;
+
+            this.dropTarget = this.dropElement = this.prevDropTarget = this.prevDropElement = null;
+        },
+
+        stop: function (event) {
+            if (this.interacting()) {
+                autoScroll.stop();
+                this.matches = [];
+                this.matchElements = [];
+
+                var target = this.target;
+
+                if (target.options.styleCursor) {
+                    target._doc.documentElement.style.cursor = '';
+                }
+
+                // prevent Default only if were previously interacting
+                if (event && isFunction(event.preventDefault)) {
+                    this.checkAndPreventDefault(event, target, this.element);
+                }
+
+                if (this.dragging) {
+                    this.activeDrops.dropzones = this.activeDrops.elements = this.activeDrops.rects = null;
+                }
+            }
+
+            this.clearTargets();
+
+            this.pointerIsDown = this.snapStatus.locked = this.dragging = this.resizing = this.gesturing = false;
+            this.prepared.name = this.prevEvent = null;
+            this.inertiaStatus.resumeDx = this.inertiaStatus.resumeDy = 0;
+
+            // remove pointers if their ID isn't in this.pointerIds
+            for (var i = 0; i < this.pointers.length; i++) {
+                if (indexOf(this.pointerIds, getPointerId(this.pointers[i])) === -1) {
+                    this.pointers.splice(i, 1);
+                }
+            }
+        },
+
+        inertiaFrame: function () {
+            var inertiaStatus = this.inertiaStatus,
+                options = this.target.options[this.prepared.name].inertia,
+                lambda = options.resistance,
+                t = new Date().getTime() / 1000 - inertiaStatus.t0;
+
+            if (t < inertiaStatus.te) {
+
+                var progress =  1 - (Math.exp(-lambda * t) - inertiaStatus.lambda_v0) / inertiaStatus.one_ve_v0;
+
+                if (inertiaStatus.modifiedXe === inertiaStatus.xe && inertiaStatus.modifiedYe === inertiaStatus.ye) {
+                    inertiaStatus.sx = inertiaStatus.xe * progress;
+                    inertiaStatus.sy = inertiaStatus.ye * progress;
+                }
+                else {
+                    var quadPoint = getQuadraticCurvePoint(
+                            0, 0,
+                            inertiaStatus.xe, inertiaStatus.ye,
+                            inertiaStatus.modifiedXe, inertiaStatus.modifiedYe,
+                            progress);
+
+                    inertiaStatus.sx = quadPoint.x;
+                    inertiaStatus.sy = quadPoint.y;
+                }
+
+                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+                inertiaStatus.i = reqFrame(this.boundInertiaFrame);
+            }
+            else {
+                inertiaStatus.ending = true;
+
+                inertiaStatus.sx = inertiaStatus.modifiedXe;
+                inertiaStatus.sy = inertiaStatus.modifiedYe;
+
+                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+                this.pointerEnd(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+                inertiaStatus.active = inertiaStatus.ending = false;
+            }
+        },
+
+        smoothEndFrame: function () {
+            var inertiaStatus = this.inertiaStatus,
+                t = new Date().getTime() - inertiaStatus.t0,
+                duration = this.target.options[this.prepared.name].inertia.smoothEndDuration;
+
+            if (t < duration) {
+                inertiaStatus.sx = easeOutQuad(t, 0, inertiaStatus.xe, duration);
+                inertiaStatus.sy = easeOutQuad(t, 0, inertiaStatus.ye, duration);
+
+                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+                inertiaStatus.i = reqFrame(this.boundSmoothEndFrame);
+            }
+            else {
+                inertiaStatus.ending = true;
+
+                inertiaStatus.sx = inertiaStatus.xe;
+                inertiaStatus.sy = inertiaStatus.ye;
+
+                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+                this.pointerEnd(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+                inertiaStatus.smoothEnd =
+                  inertiaStatus.active = inertiaStatus.ending = false;
+            }
+        },
+
+        addPointer: function (pointer) {
+            var id = getPointerId(pointer),
+                index = this.mouse? 0 : indexOf(this.pointerIds, id);
+
+            if (index === -1) {
+                index = this.pointerIds.length;
+            }
+
+            this.pointerIds[index] = id;
+            this.pointers[index] = pointer;
+
+            return index;
+        },
+
+        removePointer: function (pointer) {
+            var id = getPointerId(pointer),
+                index = this.mouse? 0 : indexOf(this.pointerIds, id);
+
+            if (index === -1) { return; }
+
+            this.pointers   .splice(index, 1);
+            this.pointerIds .splice(index, 1);
+            this.downTargets.splice(index, 1);
+            this.downTimes  .splice(index, 1);
+            this.holdTimers .splice(index, 1);
+        },
+
+        recordPointer: function (pointer) {
+            var index = this.mouse? 0: indexOf(this.pointerIds, getPointerId(pointer));
+
+            if (index === -1) { return; }
+
+            this.pointers[index] = pointer;
+        },
+
+        collectEventTargets: function (pointer, event, eventTarget, eventType) {
+            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+            // do not fire a tap event if the pointer was moved before being lifted
+            if (eventType === 'tap' && (this.pointerWasMoved
+                // or if the pointerup target is different to the pointerdown target
+                || !(this.downTargets[pointerIndex] && this.downTargets[pointerIndex] === eventTarget))) {
+                return;
+            }
+
+            var targets = [],
+                elements = [],
+                element = eventTarget;
+
+            function collectSelectors (interactable, selector, context) {
+                var els = ie8MatchesSelector
+                        ? context.querySelectorAll(selector)
+                        : undefined;
+
+                if (interactable._iEvents[eventType]
+                    && isElement(element)
+                    && inContext(interactable, element)
+                    && !testIgnore(interactable, element, eventTarget)
+                    && testAllow(interactable, element, eventTarget)
+                    && matchesSelector(element, selector, els)) {
+
+                    targets.push(interactable);
+                    elements.push(element);
+                }
+            }
+
+            while (element) {
+                if (interact.isSet(element) && interact(element)._iEvents[eventType]) {
+                    targets.push(interact(element));
+                    elements.push(element);
+                }
+
+                interactables.forEachSelector(collectSelectors);
+
+                element = parentElement(element);
+            }
+
+            // create the tap event even if there are no listeners so that
+            // doubletap can still be created and fired
+            if (targets.length || eventType === 'tap') {
+                this.firePointers(pointer, event, eventTarget, targets, elements, eventType);
+            }
+        },
+
+        firePointers: function (pointer, event, eventTarget, targets, elements, eventType) {
+            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer)),
+                pointerEvent = {},
+                i,
+                // for tap events
+                interval, createNewDoubleTap;
+
+            // if it's a doubletap then the event properties would have been
+            // copied from the tap event and provided as the pointer argument
+            if (eventType === 'doubletap') {
+                pointerEvent = pointer;
+            }
+            else {
+                pointerExtend(pointerEvent, event);
+                if (event !== pointer) {
+                    pointerExtend(pointerEvent, pointer);
+                }
+
+                pointerEvent.preventDefault           = preventOriginalDefault;
+                pointerEvent.stopPropagation          = InteractEvent.prototype.stopPropagation;
+                pointerEvent.stopImmediatePropagation = InteractEvent.prototype.stopImmediatePropagation;
+                pointerEvent.interaction              = this;
+
+                pointerEvent.timeStamp       = new Date().getTime();
+                pointerEvent.originalEvent   = event;
+                pointerEvent.originalPointer = pointer;
+                pointerEvent.type            = eventType;
+                pointerEvent.pointerId       = getPointerId(pointer);
+                pointerEvent.pointerType     = this.mouse? 'mouse' : !supportsPointerEvent? 'touch'
+                                                    : isString(pointer.pointerType)
+                                                        ? pointer.pointerType
+                                                        : [,,'touch', 'pen', 'mouse'][pointer.pointerType];
+            }
+
+            if (eventType === 'tap') {
+                pointerEvent.dt = pointerEvent.timeStamp - this.downTimes[pointerIndex];
+
+                interval = pointerEvent.timeStamp - this.tapTime;
+                createNewDoubleTap = !!(this.prevTap && this.prevTap.type !== 'doubletap'
+                       && this.prevTap.target === pointerEvent.target
+                       && interval < 500);
+
+                pointerEvent.double = createNewDoubleTap;
+
+                this.tapTime = pointerEvent.timeStamp;
+            }
+
+            for (i = 0; i < targets.length; i++) {
+                pointerEvent.currentTarget = elements[i];
+                pointerEvent.interactable = targets[i];
+                targets[i].fire(pointerEvent);
+
+                if (pointerEvent.immediatePropagationStopped
+                    ||(pointerEvent.propagationStopped && elements[i + 1] !== pointerEvent.currentTarget)) {
+                    break;
+                }
+            }
+
+            if (createNewDoubleTap) {
+                var doubleTap = {};
+
+                extend(doubleTap, pointerEvent);
+
+                doubleTap.dt   = interval;
+                doubleTap.type = 'doubletap';
+
+                this.collectEventTargets(doubleTap, event, eventTarget, 'doubletap');
+
+                this.prevTap = doubleTap;
+            }
+            else if (eventType === 'tap') {
+                this.prevTap = pointerEvent;
+            }
+        },
+
+        validateSelector: function (pointer, event, matches, matchElements) {
+            for (var i = 0, len = matches.length; i < len; i++) {
+                var match = matches[i],
+                    matchElement = matchElements[i],
+                    action = validateAction(match.getAction(pointer, event, this, matchElement), match);
+
+                if (action && withinInteractionLimit(match, matchElement, action)) {
+                    this.target = match;
+                    this.element = matchElement;
+
+                    return action;
+                }
+            }
+        },
+
+        setSnapping: function (pageCoords, status) {
+            var snap = this.target.options[this.prepared.name].snap,
+                targets = [],
+                target,
+                page,
+                i;
+
+            status = status || this.snapStatus;
+
+            if (status.useStatusXY) {
+                page = { x: status.x, y: status.y };
+            }
+            else {
+                var origin = getOriginXY(this.target, this.element);
+
+                page = extend({}, pageCoords);
+
+                page.x -= origin.x;
+                page.y -= origin.y;
+            }
+
+            status.realX = page.x;
+            status.realY = page.y;
+
+            page.x = page.x - this.inertiaStatus.resumeDx;
+            page.y = page.y - this.inertiaStatus.resumeDy;
+
+            var len = snap.targets? snap.targets.length : 0;
+
+            for (var relIndex = 0; relIndex < this.snapOffsets.length; relIndex++) {
+                var relative = {
+                    x: page.x - this.snapOffsets[relIndex].x,
+                    y: page.y - this.snapOffsets[relIndex].y
+                };
+
+                for (i = 0; i < len; i++) {
+                    if (isFunction(snap.targets[i])) {
+                        target = snap.targets[i](relative.x, relative.y, this);
+                    }
+                    else {
+                        target = snap.targets[i];
+                    }
+
+                    if (!target) { continue; }
+
+                    targets.push({
+                        x: isNumber(target.x) ? (target.x + this.snapOffsets[relIndex].x) : relative.x,
+                        y: isNumber(target.y) ? (target.y + this.snapOffsets[relIndex].y) : relative.y,
+
+                        range: isNumber(target.range)? target.range: snap.range
+                    });
+                }
+            }
+
+            var closest = {
+                    target: null,
+                    inRange: false,
+                    distance: 0,
+                    range: 0,
+                    dx: 0,
+                    dy: 0
+                };
+
+            for (i = 0, len = targets.length; i < len; i++) {
+                target = targets[i];
+
+                var range = target.range,
+                    dx = target.x - page.x,
+                    dy = target.y - page.y,
+                    distance = hypot(dx, dy),
+                    inRange = distance <= range;
+
+                // Infinite targets count as being out of range
+                // compared to non infinite ones that are in range
+                if (range === Infinity && closest.inRange && closest.range !== Infinity) {
+                    inRange = false;
+                }
+
+                if (!closest.target || (inRange
+                    // is the closest target in range?
+                    ? (closest.inRange && range !== Infinity
+                        // the pointer is relatively deeper in this target
+                        ? distance / range < closest.distance / closest.range
+                        // this target has Infinite range and the closest doesn't
+                        : (range === Infinity && closest.range !== Infinity)
+                            // OR this target is closer that the previous closest
+                            || distance < closest.distance)
+                    // The other is not in range and the pointer is closer to this target
+                    : (!closest.inRange && distance < closest.distance))) {
+
+                    if (range === Infinity) {
+                        inRange = true;
+                    }
+
+                    closest.target = target;
+                    closest.distance = distance;
+                    closest.range = range;
+                    closest.inRange = inRange;
+                    closest.dx = dx;
+                    closest.dy = dy;
+
+                    status.range = range;
+                }
+            }
+
+            var snapChanged;
+
+            if (closest.target) {
+                snapChanged = (status.snappedX !== closest.target.x || status.snappedY !== closest.target.y);
+
+                status.snappedX = closest.target.x;
+                status.snappedY = closest.target.y;
+            }
+            else {
+                snapChanged = true;
+
+                status.snappedX = NaN;
+                status.snappedY = NaN;
+            }
+
+            status.dx = closest.dx;
+            status.dy = closest.dy;
+
+            status.changed = (snapChanged || (closest.inRange && !status.locked));
+            status.locked = closest.inRange;
+
+            return status;
+        },
+
+        setRestriction: function (pageCoords, status) {
+            var target = this.target,
+                restrict = target && target.options[this.prepared.name].restrict,
+                restriction = restrict && restrict.restriction,
+                page;
+
+            if (!restriction) {
+                return status;
+            }
+
+            status = status || this.restrictStatus;
+
+            page = status.useStatusXY
+                    ? page = { x: status.x, y: status.y }
+                    : page = extend({}, pageCoords);
+
+            if (status.snap && status.snap.locked) {
+                page.x += status.snap.dx || 0;
+                page.y += status.snap.dy || 0;
+            }
+
+            page.x -= this.inertiaStatus.resumeDx;
+            page.y -= this.inertiaStatus.resumeDy;
+
+            status.dx = 0;
+            status.dy = 0;
+            status.restricted = false;
+
+            var rect, restrictedX, restrictedY;
+
+            if (isString(restriction)) {
+                if (restriction === 'parent') {
+                    restriction = parentElement(this.element);
+                }
+                else if (restriction === 'self') {
+                    restriction = target.getRect(this.element);
+                }
+                else {
+                    restriction = closest(this.element, restriction);
+                }
+
+                if (!restriction) { return status; }
+            }
+
+            if (isFunction(restriction)) {
+                restriction = restriction(page.x, page.y, this.element);
+            }
+
+            if (isElement(restriction)) {
+                restriction = getElementRect(restriction);
+            }
+
+            rect = restriction;
+
+            if (!restriction) {
+                restrictedX = page.x;
+                restrictedY = page.y;
+            }
+            // object is assumed to have
+            // x, y, width, height or
+            // left, top, right, bottom
+            else if ('x' in restriction && 'y' in restriction) {
+                restrictedX = Math.max(Math.min(rect.x + rect.width  - this.restrictOffset.right , page.x), rect.x + this.restrictOffset.left);
+                restrictedY = Math.max(Math.min(rect.y + rect.height - this.restrictOffset.bottom, page.y), rect.y + this.restrictOffset.top );
+            }
+            else {
+                restrictedX = Math.max(Math.min(rect.right  - this.restrictOffset.right , page.x), rect.left + this.restrictOffset.left);
+                restrictedY = Math.max(Math.min(rect.bottom - this.restrictOffset.bottom, page.y), rect.top  + this.restrictOffset.top );
+            }
+
+            status.dx = restrictedX - page.x;
+            status.dy = restrictedY - page.y;
+
+            status.changed = status.restrictedX !== restrictedX || status.restrictedY !== restrictedY;
+            status.restricted = !!(status.dx || status.dy);
+
+            status.restrictedX = restrictedX;
+            status.restrictedY = restrictedY;
+
+            return status;
+        },
+
+        checkAndPreventDefault: function (event, interactable, element) {
+            if (!(interactable = interactable || this.target)) { return; }
+
+            var options = interactable.options,
+                prevent = options.preventDefault;
+
+            if (prevent === 'auto' && element && !/^(input|select|textarea)$/i.test(event.target.nodeName)) {
+                // do not preventDefault on pointerdown if the prepared action is a drag
+                // and dragging can only start from a certain direction - this allows
+                // a touch to pan the viewport if a drag isn't in the right direction
+                if (/down|start/i.test(event.type)
+                    && this.prepared.name === 'drag' && options.drag.axis !== 'xy') {
+
+                    return;
+                }
+
+                // with manualStart, only preventDefault while interacting
+                if (options[this.prepared.name] && options[this.prepared.name].manualStart
+                    && !this.interacting()) {
+                    return;
+                }
+
+                event.preventDefault();
+                return;
+            }
+
+            if (prevent === 'always') {
+                event.preventDefault();
+                return;
+            }
+        },
+
+        calcInertia: function (status) {
+            var inertiaOptions = this.target.options[this.prepared.name].inertia,
+                lambda = inertiaOptions.resistance,
+                inertiaDur = -Math.log(inertiaOptions.endSpeed / status.v0) / lambda;
+
+            status.x0 = this.prevEvent.pageX;
+            status.y0 = this.prevEvent.pageY;
+            status.t0 = status.startEvent.timeStamp / 1000;
+            status.sx = status.sy = 0;
+
+            status.modifiedXe = status.xe = (status.vx0 - inertiaDur) / lambda;
+            status.modifiedYe = status.ye = (status.vy0 - inertiaDur) / lambda;
+            status.te = inertiaDur;
+
+            status.lambda_v0 = lambda / status.v0;
+            status.one_ve_v0 = 1 - inertiaOptions.endSpeed / status.v0;
+        },
+
+        autoScrollMove: function (pointer) {
+            if (!(this.interacting()
+                && checkAutoScroll(this.target, this.prepared.name))) {
+                return;
+            }
+
+            if (this.inertiaStatus.active) {
+                autoScroll.x = autoScroll.y = 0;
+                return;
+            }
+
+            var top,
+                right,
+                bottom,
+                left,
+                options = this.target.options[this.prepared.name].autoScroll,
+                container = options.container || getWindow(this.element);
+
+            if (isWindow(container)) {
+                left   = pointer.clientX < autoScroll.margin;
+                top    = pointer.clientY < autoScroll.margin;
+                right  = pointer.clientX > container.innerWidth  - autoScroll.margin;
+                bottom = pointer.clientY > container.innerHeight - autoScroll.margin;
+            }
+            else {
+                var rect = getElementClientRect(container);
+
+                left   = pointer.clientX < rect.left   + autoScroll.margin;
+                top    = pointer.clientY < rect.top    + autoScroll.margin;
+                right  = pointer.clientX > rect.right  - autoScroll.margin;
+                bottom = pointer.clientY > rect.bottom - autoScroll.margin;
+            }
+
+            autoScroll.x = (right ? 1: left? -1: 0);
+            autoScroll.y = (bottom? 1:  top? -1: 0);
+
+            if (!autoScroll.isScrolling) {
+                // set the autoScroll properties to those of the target
+                autoScroll.margin = options.margin;
+                autoScroll.speed  = options.speed;
+
+                autoScroll.start(this);
+            }
+        },
+
+        _updateEventTargets: function (target, currentTarget) {
+            this._eventTarget    = target;
+            this._curEventTarget = currentTarget;
+        }
+
+    };
+
+    function getInteractionFromPointer (pointer, eventType, eventTarget) {
+        var i = 0, len = interactions.length,
+            mouseEvent = (/mouse/i.test(pointer.pointerType || eventType)
+                          // MSPointerEvent.MSPOINTER_TYPE_MOUSE
+                          || pointer.pointerType === 4),
+            interaction;
+
+        var id = getPointerId(pointer);
+
+        // try to resume inertia with a new pointer
+        if (/down|start/i.test(eventType)) {
+            for (i = 0; i < len; i++) {
+                interaction = interactions[i];
+
+                var element = eventTarget;
+
+                if (interaction.inertiaStatus.active && interaction.target.options[interaction.prepared.name].inertia.allowResume
+                    && (interaction.mouse === mouseEvent)) {
+                    while (element) {
+                        // if the element is the interaction element
+                        if (element === interaction.element) {
+                            return interaction;
+                        }
+                        element = parentElement(element);
+                    }
+                }
+            }
+        }
+
+        // if it's a mouse interaction
+        if (mouseEvent || !(supportsTouch || supportsPointerEvent)) {
+
+            // find a mouse interaction that's not in inertia phase
+            for (i = 0; i < len; i++) {
+                if (interactions[i].mouse && !interactions[i].inertiaStatus.active) {
+                    return interactions[i];
+                }
+            }
+
+            // find any interaction specifically for mouse.
+            // if the eventType is a mousedown, and inertia is active
+            // ignore the interaction
+            for (i = 0; i < len; i++) {
+                if (interactions[i].mouse && !(/down/.test(eventType) && interactions[i].inertiaStatus.active)) {
+                    return interaction;
+                }
+            }
+
+            // create a new interaction for mouse
+            interaction = new Interaction();
+            interaction.mouse = true;
+
+            return interaction;
+        }
+
+        // get interaction that has this pointer
+        for (i = 0; i < len; i++) {
+            if (contains(interactions[i].pointerIds, id)) {
+                return interactions[i];
+            }
+        }
+
+        // at this stage, a pointerUp should not return an interaction
+        if (/up|end|out/i.test(eventType)) {
+            return null;
+        }
+
+        // get first idle interaction
+        for (i = 0; i < len; i++) {
+            interaction = interactions[i];
+
+            if ((!interaction.prepared.name || (interaction.target.options.gesture.enabled))
+                && !interaction.interacting()
+                && !(!mouseEvent && interaction.mouse)) {
+
+                return interaction;
+            }
+        }
+
+        return new Interaction();
+    }
+
+    function doOnInteractions (method) {
+        return (function (event) {
+            var interaction,
+                eventTarget = getActualElement(event.path
+                                               ? event.path[0]
+                                               : event.target),
+                curEventTarget = getActualElement(event.currentTarget),
+                i;
+
+            if (supportsTouch && /touch/.test(event.type)) {
+                prevTouchTime = new Date().getTime();
+
+                for (i = 0; i < event.changedTouches.length; i++) {
+                    var pointer = event.changedTouches[i];
+
+                    interaction = getInteractionFromPointer(pointer, event.type, eventTarget);
+
+                    if (!interaction) { continue; }
+
+                    interaction._updateEventTargets(eventTarget, curEventTarget);
+
+                    interaction[method](pointer, event, eventTarget, curEventTarget);
+                }
+            }
+            else {
+                if (!supportsPointerEvent && /mouse/.test(event.type)) {
+                    // ignore mouse events while touch interactions are active
+                    for (i = 0; i < interactions.length; i++) {
+                        if (!interactions[i].mouse && interactions[i].pointerIsDown) {
+                            return;
+                        }
+                    }
+
+                    // try to ignore mouse events that are simulated by the browser
+                    // after a touch event
+                    if (new Date().getTime() - prevTouchTime < 500) {
+                        return;
+                    }
+                }
+
+                interaction = getInteractionFromPointer(event, event.type, eventTarget);
+
+                if (!interaction) { return; }
+
+                interaction._updateEventTargets(eventTarget, curEventTarget);
+
+                interaction[method](event, event, eventTarget, curEventTarget);
+            }
+        });
+    }
+
+    function InteractEvent (interaction, event, action, phase, element, related) {
+        var client,
+            page,
+            target      = interaction.target,
+            snapStatus  = interaction.snapStatus,
+            restrictStatus  = interaction.restrictStatus,
+            pointers    = interaction.pointers,
+            deltaSource = (target && target.options || defaultOptions).deltaSource,
+            sourceX     = deltaSource + 'X',
+            sourceY     = deltaSource + 'Y',
+            options     = target? target.options: defaultOptions,
+            origin      = getOriginXY(target, element),
+            starting    = phase === 'start',
+            ending      = phase === 'end',
+            coords      = starting? interaction.startCoords : interaction.curCoords;
+
+        element = element || interaction.element;
+
+        page   = extend({}, coords.page);
+        client = extend({}, coords.client);
+
+        page.x -= origin.x;
+        page.y -= origin.y;
+
+        client.x -= origin.x;
+        client.y -= origin.y;
+
+        var relativePoints = options[action].snap && options[action].snap.relativePoints ;
+
+        if (checkSnap(target, action) && !(starting && relativePoints && relativePoints.length)) {
+            this.snap = {
+                range  : snapStatus.range,
+                locked : snapStatus.locked,
+                x      : snapStatus.snappedX,
+                y      : snapStatus.snappedY,
+                realX  : snapStatus.realX,
+                realY  : snapStatus.realY,
+                dx     : snapStatus.dx,
+                dy     : snapStatus.dy
+            };
+
+            if (snapStatus.locked) {
+                page.x += snapStatus.dx;
+                page.y += snapStatus.dy;
+                client.x += snapStatus.dx;
+                client.y += snapStatus.dy;
+            }
+        }
+
+        if (checkRestrict(target, action) && !(starting && options[action].restrict.elementRect) && restrictStatus.restricted) {
+            page.x += restrictStatus.dx;
+            page.y += restrictStatus.dy;
+            client.x += restrictStatus.dx;
+            client.y += restrictStatus.dy;
+
+            this.restrict = {
+                dx: restrictStatus.dx,
+                dy: restrictStatus.dy
+            };
+        }
+
+        this.pageX     = page.x;
+        this.pageY     = page.y;
+        this.clientX   = client.x;
+        this.clientY   = client.y;
+
+        this.x0        = interaction.startCoords.page.x - origin.x;
+        this.y0        = interaction.startCoords.page.y - origin.y;
+        this.clientX0  = interaction.startCoords.client.x - origin.x;
+        this.clientY0  = interaction.startCoords.client.y - origin.y;
+        this.ctrlKey   = event.ctrlKey;
+        this.altKey    = event.altKey;
+        this.shiftKey  = event.shiftKey;
+        this.metaKey   = event.metaKey;
+        this.button    = event.button;
+        this.buttons   = event.buttons;
+        this.target    = element;
+        this.t0        = interaction.downTimes[0];
+        this.type      = action + (phase || '');
+
+        this.interaction = interaction;
+        this.interactable = target;
+
+        var inertiaStatus = interaction.inertiaStatus;
+
+        if (inertiaStatus.active) {
+            this.detail = 'inertia';
+        }
+
+        if (related) {
+            this.relatedTarget = related;
+        }
+
+        // end event dx, dy is difference between start and end points
+        if (ending) {
+            if (deltaSource === 'client') {
+                this.dx = client.x - interaction.startCoords.client.x;
+                this.dy = client.y - interaction.startCoords.client.y;
+            }
+            else {
+                this.dx = page.x - interaction.startCoords.page.x;
+                this.dy = page.y - interaction.startCoords.page.y;
+            }
+        }
+        else if (starting) {
+            this.dx = 0;
+            this.dy = 0;
+        }
+        // copy properties from previousmove if starting inertia
+        else if (phase === 'inertiastart') {
+            this.dx = interaction.prevEvent.dx;
+            this.dy = interaction.prevEvent.dy;
+        }
+        else {
+            if (deltaSource === 'client') {
+                this.dx = client.x - interaction.prevEvent.clientX;
+                this.dy = client.y - interaction.prevEvent.clientY;
+            }
+            else {
+                this.dx = page.x - interaction.prevEvent.pageX;
+                this.dy = page.y - interaction.prevEvent.pageY;
+            }
+        }
+        if (interaction.prevEvent && interaction.prevEvent.detail === 'inertia'
+            && !inertiaStatus.active
+            && options[action].inertia && options[action].inertia.zeroResumeDelta) {
+
+            inertiaStatus.resumeDx += this.dx;
+            inertiaStatus.resumeDy += this.dy;
+
+            this.dx = this.dy = 0;
+        }
+
+        if (action === 'resize' && interaction.resizeAxes) {
+            if (options.resize.square) {
+                if (interaction.resizeAxes === 'y') {
+                    this.dx = this.dy;
+                }
+                else {
+                    this.dy = this.dx;
+                }
+                this.axes = 'xy';
+            }
+            else {
+                this.axes = interaction.resizeAxes;
+
+                if (interaction.resizeAxes === 'x') {
+                    this.dy = 0;
+                }
+                else if (interaction.resizeAxes === 'y') {
+                    this.dx = 0;
+                }
+            }
+        }
+        else if (action === 'gesture') {
+            this.touches = [pointers[0], pointers[1]];
+
+            if (starting) {
+                this.distance = touchDistance(pointers, deltaSource);
+                this.box      = touchBBox(pointers);
+                this.scale    = 1;
+                this.ds       = 0;
+                this.angle    = touchAngle(pointers, undefined, deltaSource);
+                this.da       = 0;
+            }
+            else if (ending || event instanceof InteractEvent) {
+                this.distance = interaction.prevEvent.distance;
+                this.box      = interaction.prevEvent.box;
+                this.scale    = interaction.prevEvent.scale;
+                this.ds       = this.scale - 1;
+                this.angle    = interaction.prevEvent.angle;
+                this.da       = this.angle - interaction.gesture.startAngle;
+            }
+            else {
+                this.distance = touchDistance(pointers, deltaSource);
+                this.box      = touchBBox(pointers);
+                this.scale    = this.distance / interaction.gesture.startDistance;
+                this.angle    = touchAngle(pointers, interaction.gesture.prevAngle, deltaSource);
+
+                this.ds = this.scale - interaction.gesture.prevScale;
+                this.da = this.angle - interaction.gesture.prevAngle;
+            }
+        }
+
+        if (starting) {
+            this.timeStamp = interaction.downTimes[0];
+            this.dt        = 0;
+            this.duration  = 0;
+            this.speed     = 0;
+            this.velocityX = 0;
+            this.velocityY = 0;
+        }
+        else if (phase === 'inertiastart') {
+            this.timeStamp = interaction.prevEvent.timeStamp;
+            this.dt        = interaction.prevEvent.dt;
+            this.duration  = interaction.prevEvent.duration;
+            this.speed     = interaction.prevEvent.speed;
+            this.velocityX = interaction.prevEvent.velocityX;
+            this.velocityY = interaction.prevEvent.velocityY;
+        }
+        else {
+            this.timeStamp = new Date().getTime();
+            this.dt        = this.timeStamp - interaction.prevEvent.timeStamp;
+            this.duration  = this.timeStamp - interaction.downTimes[0];
+
+            if (event instanceof InteractEvent) {
+                var dx = this[sourceX] - interaction.prevEvent[sourceX],
+                    dy = this[sourceY] - interaction.prevEvent[sourceY],
+                    dt = this.dt / 1000;
+
+                this.speed = hypot(dx, dy) / dt;
+                this.velocityX = dx / dt;
+                this.velocityY = dy / dt;
+            }
+            // if normal move or end event, use previous user event coords
+            else {
+                // speed and velocity in pixels per second
+                this.speed = interaction.pointerDelta[deltaSource].speed;
+                this.velocityX = interaction.pointerDelta[deltaSource].vx;
+                this.velocityY = interaction.pointerDelta[deltaSource].vy;
+            }
+        }
+
+        if ((ending || phase === 'inertiastart')
+            && interaction.prevEvent.speed > 600 && this.timeStamp - interaction.prevEvent.timeStamp < 150) {
+
+            var angle = 180 * Math.atan2(interaction.prevEvent.velocityY, interaction.prevEvent.velocityX) / Math.PI,
+                overlap = 22.5;
+
+            if (angle < 0) {
+                angle += 360;
+            }
+
+            var left = 135 - overlap <= angle && angle < 225 + overlap,
+                up   = 225 - overlap <= angle && angle < 315 + overlap,
+
+                right = !left && (315 - overlap <= angle || angle <  45 + overlap),
+                down  = !up   &&   45 - overlap <= angle && angle < 135 + overlap;
+
+            this.swipe = {
+                up   : up,
+                down : down,
+                left : left,
+                right: right,
+                angle: angle,
+                speed: interaction.prevEvent.speed,
+                velocity: {
+                    x: interaction.prevEvent.velocityX,
+                    y: interaction.prevEvent.velocityY
+                }
+            };
+        }
+    }
+
+    InteractEvent.prototype = {
+        preventDefault: blank,
+        stopImmediatePropagation: function () {
+            this.immediatePropagationStopped = this.propagationStopped = true;
+        },
+        stopPropagation: function () {
+            this.propagationStopped = true;
+        }
+    };
+
+    function preventOriginalDefault () {
+        this.originalEvent.preventDefault();
+    }
+
+    function getActionCursor (action) {
+        var cursor = '';
+
+        if (action.name === 'drag') {
+            cursor =  actionCursors.drag;
+        }
+        if (action.name === 'resize') {
+            if (action.axis) {
+                cursor =  actionCursors[action.name + action.axis];
+            }
+            else if (action.edges) {
+                var cursorKey = 'resize',
+                    edgeNames = ['top', 'bottom', 'left', 'right'];
+
+                for (var i = 0; i < 4; i++) {
+                    if (action.edges[edgeNames[i]]) {
+                        cursorKey += edgeNames[i];
+                    }
+                }
+
+                cursor = actionCursors[cursorKey];
+            }
+        }
+
+        return cursor;
+    }
+
+    function checkResizeEdge (name, value, page, element, interactableElement, rect, margin) {
+        // false, '', undefined, null
+        if (!value) { return false; }
+
+        // true value, use pointer coords and element rect
+        if (value === true) {
+            // if dimensions are negative, "switch" edges
+            var width = isNumber(rect.width)? rect.width : rect.right - rect.left,
+                height = isNumber(rect.height)? rect.height : rect.bottom - rect.top;
+
+            if (width < 0) {
+                if      (name === 'left' ) { name = 'right'; }
+                else if (name === 'right') { name = 'left' ; }
+            }
+            if (height < 0) {
+                if      (name === 'top'   ) { name = 'bottom'; }
+                else if (name === 'bottom') { name = 'top'   ; }
+            }
+
+            if (name === 'left'  ) { return page.x < ((width  >= 0? rect.left: rect.right ) + margin); }
+            if (name === 'top'   ) { return page.y < ((height >= 0? rect.top : rect.bottom) + margin); }
+
+            if (name === 'right' ) { return page.x > ((width  >= 0? rect.right : rect.left) - margin); }
+            if (name === 'bottom') { return page.y > ((height >= 0? rect.bottom: rect.top ) - margin); }
+        }
+
+        // the remaining checks require an element
+        if (!isElement(element)) { return false; }
+
+        return isElement(value)
+                    // the value is an element to use as a resize handle
+                    ? value === element
+                    // otherwise check if element matches value as selector
+                    : matchesUpTo(element, value, interactableElement);
+    }
+
+    function defaultActionChecker (pointer, interaction, element) {
+        var rect = this.getRect(element),
+            shouldResize = false,
+            action = null,
+            resizeAxes = null,
+            resizeEdges,
+            page = extend({}, interaction.curCoords.page),
+            options = this.options;
+
+        if (!rect) { return null; }
+
+        if (actionIsEnabled.resize && options.resize.enabled) {
+            var resizeOptions = options.resize;
+
+            resizeEdges = {
+                left: false, right: false, top: false, bottom: false
+            };
+
+            // if using resize.edges
+            if (isObject(resizeOptions.edges)) {
+                for (var edge in resizeEdges) {
+                    resizeEdges[edge] = checkResizeEdge(edge,
+                                                        resizeOptions.edges[edge],
+                                                        page,
+                                                        interaction._eventTarget,
+                                                        element,
+                                                        rect,
+                                                        resizeOptions.margin || margin);
+                }
+
+                resizeEdges.left = resizeEdges.left && !resizeEdges.right;
+                resizeEdges.top  = resizeEdges.top  && !resizeEdges.bottom;
+
+                shouldResize = resizeEdges.left || resizeEdges.right || resizeEdges.top || resizeEdges.bottom;
+            }
+            else {
+                var right  = options.resize.axis !== 'y' && page.x > (rect.right  - margin),
+                    bottom = options.resize.axis !== 'x' && page.y > (rect.bottom - margin);
+
+                shouldResize = right || bottom;
+                resizeAxes = (right? 'x' : '') + (bottom? 'y' : '');
+            }
+        }
+
+        action = shouldResize
+            ? 'resize'
+            : actionIsEnabled.drag && options.drag.enabled
+                ? 'drag'
+                : null;
+
+        if (actionIsEnabled.gesture
+            && interaction.pointerIds.length >=2
+            && !(interaction.dragging || interaction.resizing)) {
+            action = 'gesture';
+        }
+
+        if (action) {
+            return {
+                name: action,
+                axis: resizeAxes,
+                edges: resizeEdges
+            };
+        }
+
+        return null;
+    }
+
+    // Check if action is enabled globally and the current target supports it
+    // If so, return the validated action. Otherwise, return null
+    function validateAction (action, interactable) {
+        if (!isObject(action)) { return null; }
+
+        var actionName = action.name,
+            options = interactable.options;
+
+        if ((  (actionName  === 'resize'   && options.resize.enabled )
+            || (actionName      === 'drag'     && options.drag.enabled  )
+            || (actionName      === 'gesture'  && options.gesture.enabled))
+            && actionIsEnabled[actionName]) {
+
+            if (actionName === 'resize' || actionName === 'resizeyx') {
+                actionName = 'resizexy';
+            }
+
+            return action;
+        }
+        return null;
+    }
+
+    var listeners = {},
+        interactionListeners = [
+            'dragStart', 'dragMove', 'resizeStart', 'resizeMove', 'gestureStart', 'gestureMove',
+            'pointerOver', 'pointerOut', 'pointerHover', 'selectorDown',
+            'pointerDown', 'pointerMove', 'pointerUp', 'pointerCancel', 'pointerEnd',
+            'addPointer', 'removePointer', 'recordPointer', 'autoScrollMove'
+        ];
+
+    for (var i = 0, len = interactionListeners.length; i < len; i++) {
+        var name = interactionListeners[i];
+
+        listeners[name] = doOnInteractions(name);
+    }
+
+    // bound to the interactable context when a DOM event
+    // listener is added to a selector interactable
+    function delegateListener (event, useCapture) {
+        var fakeEvent = {},
+            delegated = delegatedEvents[event.type],
+            eventTarget = getActualElement(event.path
+                                           ? event.path[0]
+                                           : event.target),
+            element = eventTarget;
+
+        useCapture = useCapture? true: false;
+
+        // duplicate the event so that currentTarget can be changed
+        for (var prop in event) {
+            fakeEvent[prop] = event[prop];
+        }
+
+        fakeEvent.originalEvent = event;
+        fakeEvent.preventDefault = preventOriginalDefault;
+
+        // climb up document tree looking for selector matches
+        while (isElement(element)) {
+            for (var i = 0; i < delegated.selectors.length; i++) {
+                var selector = delegated.selectors[i],
+                    context = delegated.contexts[i];
+
+                if (matchesSelector(element, selector)
+                    && nodeContains(context, eventTarget)
+                    && nodeContains(context, element)) {
+
+                    var listeners = delegated.listeners[i];
+
+                    fakeEvent.currentTarget = element;
+
+                    for (var j = 0; j < listeners.length; j++) {
+                        if (listeners[j][1] === useCapture) {
+                            listeners[j][0](fakeEvent);
+                        }
+                    }
+                }
+            }
+
+            element = parentElement(element);
+        }
+    }
+
+    function delegateUseCapture (event) {
+        return delegateListener.call(this, event, true);
+    }
+
+    interactables.indexOfElement = function indexOfElement (element, context) {
+        context = context || document;
+
+        for (var i = 0; i < this.length; i++) {
+            var interactable = this[i];
+
+            if ((interactable.selector === element
+                && (interactable._context === context))
+                || (!interactable.selector && interactable._element === element)) {
+
+                return i;
+            }
+        }
+        return -1;
+    };
+
+    interactables.get = function interactableGet (element, options) {
+        return this[this.indexOfElement(element, options && options.context)];
+    };
+
+    interactables.forEachSelector = function (callback) {
+        for (var i = 0; i < this.length; i++) {
+            var interactable = this[i];
+
+            if (!interactable.selector) {
+                continue;
+            }
+
+            var ret = callback(interactable, interactable.selector, interactable._context, i, this);
+
+            if (ret !== undefined) {
+                return ret;
+            }
+        }
+    };
+
+    /*\
+     * interact
+     [ method ]
+     *
+     * The methods of this variable can be used to set elements as
+     * interactables and also to change various default settings.
+     *
+     * Calling it as a function and passing an element or a valid CSS selector
+     * string returns an Interactable object which has various methods to
+     * configure it.
+     *
+     - element (Element | string) The HTML or SVG Element to interact with or CSS selector
+     = (object) An @Interactable
+     *
+     > Usage
+     | interact(document.getElementById('draggable')).draggable(true);
+     |
+     | var rectables = interact('rect');
+     | rectables
+     |     .gesturable(true)
+     |     .on('gesturemove', function (event) {
+     |         // something cool...
+     |     })
+     |     .autoScroll(true);
+    \*/
+    function interact (element, options) {
+        return interactables.get(element, options) || new Interactable(element, options);
+    }
+
+    /*\
+     * Interactable
+     [ property ]
+     **
+     * Object type returned by @interact
+    \*/
+    function Interactable (element, options) {
+        this._element = element;
+        this._iEvents = this._iEvents || {};
+
+        var _window;
+
+        if (trySelector(element)) {
+            this.selector = element;
+
+            var context = options && options.context;
+
+            _window = context? getWindow(context) : window;
+
+            if (context && (_window.Node
+                    ? context instanceof _window.Node
+                    : (isElement(context) || context === _window.document))) {
+
+                this._context = context;
+            }
+        }
+        else {
+            _window = getWindow(element);
+
+            if (isElement(element, _window)) {
+
+                if (PointerEvent) {
+                    events.add(this._element, pEventTypes.down, listeners.pointerDown );
+                    events.add(this._element, pEventTypes.move, listeners.pointerHover);
+                }
+                else {
+                    events.add(this._element, 'mousedown' , listeners.pointerDown );
+                    events.add(this._element, 'mousemove' , listeners.pointerHover);
+                    events.add(this._element, 'touchstart', listeners.pointerDown );
+                    events.add(this._element, 'touchmove' , listeners.pointerHover);
+                }
+            }
+        }
+
+        this._doc = _window.document;
+
+        if (!contains(documents, this._doc)) {
+            listenToDocument(this._doc);
+        }
+
+        interactables.push(this);
+
+        this.set(options);
+    }
+
+    Interactable.prototype = {
+        setOnEvents: function (action, phases) {
+            if (action === 'drop') {
+                if (isFunction(phases.ondrop)          ) { this.ondrop           = phases.ondrop          ; }
+                if (isFunction(phases.ondropactivate)  ) { this.ondropactivate   = phases.ondropactivate  ; }
+                if (isFunction(phases.ondropdeactivate)) { this.ondropdeactivate = phases.ondropdeactivate; }
+                if (isFunction(phases.ondragenter)     ) { this.ondragenter      = phases.ondragenter     ; }
+                if (isFunction(phases.ondragleave)     ) { this.ondragleave      = phases.ondragleave     ; }
+                if (isFunction(phases.ondropmove)      ) { this.ondropmove       = phases.ondropmove      ; }
+            }
+            else {
+                action = 'on' + action;
+
+                if (isFunction(phases.onstart)       ) { this[action + 'start'         ] = phases.onstart         ; }
+                if (isFunction(phases.onmove)        ) { this[action + 'move'          ] = phases.onmove          ; }
+                if (isFunction(phases.onend)         ) { this[action + 'end'           ] = phases.onend           ; }
+                if (isFunction(phases.oninertiastart)) { this[action + 'inertiastart'  ] = phases.oninertiastart  ; }
+            }
+
+            return this;
+        },
+
+        /*\
+         * Interactable.draggable
+         [ method ]
+         *
+         * Gets or sets whether drag actions can be performed on the
+         * Interactable
+         *
+         = (boolean) Indicates if this can be the target of drag events
+         | var isDraggable = interact('ul li').draggable();
+         * or
+         - options (boolean | object) #optional true/false or An object with event listeners to be fired on drag events (object makes the Interactable draggable)
+         = (object) This Interactable
+         | interact(element).draggable({
+         |     onstart: function (event) {},
+         |     onmove : function (event) {},
+         |     onend  : function (event) {},
+         |
+         |     // the axis in which the first movement must be
+         |     // for the drag sequence to start
+         |     // 'xy' by default - any direction
+         |     axis: 'x' || 'y' || 'xy',
+         |
+         |     // max number of drags that can happen concurrently
+         |     // with elements of this Interactable. Infinity by default
+         |     max: Infinity,
+         |
+         |     // max number of drags that can target the same element+Interactable
+         |     // 1 by default
+         |     maxPerElement: 2
+         | });
+        \*/
+        draggable: function (options) {
+            if (isObject(options)) {
+                this.options.drag.enabled = options.enabled === false? false: true;
+                this.setPerAction('drag', options);
+                this.setOnEvents('drag', options);
+
+                if (/^x$|^y$|^xy$/.test(options.axis)) {
+                    this.options.drag.axis = options.axis;
+                }
+                else if (options.axis === null) {
+                    delete this.options.drag.axis;
+                }
+
+                return this;
+            }
+
+            if (isBool(options)) {
+                this.options.drag.enabled = options;
+
+                return this;
+            }
+
+            return this.options.drag;
+        },
+
+        setPerAction: function (action, options) {
+            // for all the default per-action options
+            for (var option in options) {
+                // if this option exists for this action
+                if (option in defaultOptions[action]) {
+                    // if the option in the options arg is an object value
+                    if (isObject(options[option])) {
+                        // duplicate the object
+                        this.options[action][option] = extend(this.options[action][option] || {}, options[option]);
+
+                        if (isObject(defaultOptions.perAction[option]) && 'enabled' in defaultOptions.perAction[option]) {
+                            this.options[action][option].enabled = options[option].enabled === false? false : true;
+                        }
+                    }
+                    else if (isBool(options[option]) && isObject(defaultOptions.perAction[option])) {
+                        this.options[action][option].enabled = options[option];
+                    }
+                    else if (options[option] !== undefined) {
+                        // or if it's not undefined, do a plain assignment
+                        this.options[action][option] = options[option];
+                    }
+                }
+            }
+        },
+
+        /*\
+         * Interactable.dropzone
+         [ method ]
+         *
+         * Returns or sets whether elements can be dropped onto this
+         * Interactable to trigger drop events
+         *
+         * Dropzones can receive the following events:
+         *  - `dropactivate` and `dropdeactivate` when an acceptable drag starts and ends
+         *  - `dragenter` and `dragleave` when a draggable enters and leaves the dropzone
+         *  - `dragmove` when a draggable that has entered the dropzone is moved
+         *  - `drop` when a draggable is dropped into this dropzone
+         *
+         *  Use the `accept` option to allow only elements that match the given CSS selector or element.
+         *
+         *  Use the `overlap` option to set how drops are checked for. The allowed values are:
+         *   - `'pointer'`, the pointer must be over the dropzone (default)
+         *   - `'center'`, the draggable element's center must be over the dropzone
+         *   - a number from 0-1 which is the `(intersection area) / (draggable area)`.
+         *       e.g. `0.5` for drop to happen when half of the area of the
+         *       draggable is over the dropzone
+         *
+         - options (boolean | object | null) #optional The new value to be set.
+         | interact('.drop').dropzone({
+         |   accept: '.can-drop' || document.getElementById('single-drop'),
+         |   overlap: 'pointer' || 'center' || zeroToOne
+         | }
+         = (boolean | object) The current setting or this Interactable
+        \*/
+        dropzone: function (options) {
+            if (isObject(options)) {
+                this.options.drop.enabled = options.enabled === false? false: true;
+                this.setOnEvents('drop', options);
+
+                if (/^(pointer|center)$/.test(options.overlap)) {
+                    this.options.drop.overlap = options.overlap;
+                }
+                else if (isNumber(options.overlap)) {
+                    this.options.drop.overlap = Math.max(Math.min(1, options.overlap), 0);
+                }
+                if ('accept' in options) {
+                  this.options.drop.accept = options.accept;
+                }
+                if ('checker' in options) {
+                  this.options.drop.checker = options.checker;
+                }
+
+                return this;
+            }
+
+            if (isBool(options)) {
+                this.options.drop.enabled = options;
+
+                return this;
+            }
+
+            return this.options.drop;
+        },
+
+        dropCheck: function (dragEvent, event, draggable, draggableElement, dropElement, rect) {
+            var dropped = false;
+
+            // if the dropzone has no rect (eg. display: none)
+            // call the custom dropChecker or just return false
+            if (!(rect = rect || this.getRect(dropElement))) {
+                return (this.options.drop.checker
+                    ? this.options.drop.checker(dragEvent, event, dropped, this, dropElement, draggable, draggableElement)
+                    : false);
+            }
+
+            var dropOverlap = this.options.drop.overlap;
+
+            if (dropOverlap === 'pointer') {
+                var page = getPageXY(dragEvent),
+                    origin = getOriginXY(draggable, draggableElement),
+                    horizontal,
+                    vertical;
+
+                page.x += origin.x;
+                page.y += origin.y;
+
+                horizontal = (page.x > rect.left) && (page.x < rect.right);
+                vertical   = (page.y > rect.top ) && (page.y < rect.bottom);
+
+                dropped = horizontal && vertical;
+            }
+
+            var dragRect = draggable.getRect(draggableElement);
+
+            if (dropOverlap === 'center') {
+                var cx = dragRect.left + dragRect.width  / 2,
+                    cy = dragRect.top  + dragRect.height / 2;
+
+                dropped = cx >= rect.left && cx <= rect.right && cy >= rect.top && cy <= rect.bottom;
+            }
+
+            if (isNumber(dropOverlap)) {
+                var overlapArea  = (Math.max(0, Math.min(rect.right , dragRect.right ) - Math.max(rect.left, dragRect.left))
+                                  * Math.max(0, Math.min(rect.bottom, dragRect.bottom) - Math.max(rect.top , dragRect.top ))),
+                    overlapRatio = overlapArea / (dragRect.width * dragRect.height);
+
+                dropped = overlapRatio >= dropOverlap;
+            }
+
+            if (this.options.drop.checker) {
+                dropped = this.options.drop.checker(dragEvent, event, dropped, this, dropElement, draggable, draggableElement);
+            }
+
+            return dropped;
+        },
+
+        /*\
+         * Interactable.dropChecker
+         [ method ]
+         *
+         * DEPRECATED. Use interactable.dropzone({ checker: function... }) instead.
+         *
+         * Gets or sets the function used to check if a dragged element is
+         * over this Interactable.
+         *
+         - checker (function) #optional The function that will be called when checking for a drop
+         = (Function | Interactable) The checker function or this Interactable
+         *
+         * The checker function takes the following arguments:
+         *
+         - dragEvent (InteractEvent) The related dragmove or dragend event
+         - event (TouchEvent | PointerEvent | MouseEvent) The user move/up/end Event related to the dragEvent
+         - dropped (boolean) The value from the default drop checker
+         - dropzone (Interactable) The dropzone interactable
+         - dropElement (Element) The dropzone element
+         - draggable (Interactable) The Interactable being dragged
+         - draggableElement (Element) The actual element that's being dragged
+         *
+         > Usage:
+         | interact(target)
+         | .dropChecker(function(dragEvent,         // related dragmove or dragend event
+         |                       event,             // TouchEvent/PointerEvent/MouseEvent
+         |                       dropped,           // bool result of the default checker
+         |                       dropzone,          // dropzone Interactable
+         |                       dropElement,       // dropzone elemnt
+         |                       draggable,         // draggable Interactable
+         |                       draggableElement) {// draggable element
+         |
+         |   return dropped && event.target.hasAttribute('allow-drop');
+         | }
+        \*/
+        dropChecker: function (checker) {
+            if (isFunction(checker)) {
+                this.options.drop.checker = checker;
+
+                return this;
+            }
+            if (checker === null) {
+                delete this.options.getRect;
+
+                return this;
+            }
+
+            return this.options.drop.checker;
+        },
+
+        /*\
+         * Interactable.accept
+         [ method ]
+         *
+         * Deprecated. add an `accept` property to the options object passed to
+         * @Interactable.dropzone instead.
+         *
+         * Gets or sets the Element or CSS selector match that this
+         * Interactable accepts if it is a dropzone.
+         *
+         - newValue (Element | string | null) #optional
+         * If it is an Element, then only that element can be dropped into this dropzone.
+         * If it is a string, the element being dragged must match it as a selector.
+         * If it is null, the accept options is cleared - it accepts any element.
+         *
+         = (string | Element | null | Interactable) The current accept option if given `undefined` or this Interactable
+        \*/
+        accept: function (newValue) {
+            if (isElement(newValue)) {
+                this.options.drop.accept = newValue;
+
+                return this;
+            }
+
+            // test if it is a valid CSS selector
+            if (trySelector(newValue)) {
+                this.options.drop.accept = newValue;
+
+                return this;
+            }
+
+            if (newValue === null) {
+                delete this.options.drop.accept;
+
+                return this;
+            }
+
+            return this.options.drop.accept;
+        },
+
+        /*\
+         * Interactable.resizable
+         [ method ]
+         *
+         * Gets or sets whether resize actions can be performed on the
+         * Interactable
+         *
+         = (boolean) Indicates if this can be the target of resize elements
+         | var isResizeable = interact('input[type=text]').resizable();
+         * or
+         - options (boolean | object) #optional true/false or An object with event listeners to be fired on resize events (object makes the Interactable resizable)
+         = (object) This Interactable
+         | interact(element).resizable({
+         |     onstart: function (event) {},
+         |     onmove : function (event) {},
+         |     onend  : function (event) {},
+         |
+         |     edges: {
+         |       top   : true,       // Use pointer coords to check for resize.
+         |       left  : false,      // Disable resizing from left edge.
+         |       bottom: '.resize-s',// Resize if pointer target matches selector
+         |       right : handleEl    // Resize if pointer target is the given Element
+         |     },
+         |
+         |     // Width and height can be adjusted independently. When `true`, width and
+         |     // height are adjusted at a 1:1 ratio.
+         |     square: false,
+         |
+         |     // Width and height can be adjusted independently. When `true`, width and
+         |     // height maintain the aspect ratio they had when resizing started.
+         |     preserveAspectRatio: false,
+         |
+         |     // a value of 'none' will limit the resize rect to a minimum of 0x0
+         |     // 'negate' will allow the rect to have negative width/height
+         |     // 'reposition' will keep the width/height positive by swapping
+         |     // the top and bottom edges and/or swapping the left and right edges
+         |     invert: 'none' || 'negate' || 'reposition'
+         |
+         |     // limit multiple resizes.
+         |     // See the explanation in the @Interactable.draggable example
+         |     max: Infinity,
+         |     maxPerElement: 1,
+         | });
+        \*/
+        resizable: function (options) {
+            if (isObject(options)) {
+                this.options.resize.enabled = options.enabled === false? false: true;
+                this.setPerAction('resize', options);
+                this.setOnEvents('resize', options);
+
+                if (/^x$|^y$|^xy$/.test(options.axis)) {
+                    this.options.resize.axis = options.axis;
+                }
+                else if (options.axis === null) {
+                    this.options.resize.axis = defaultOptions.resize.axis;
+                }
+
+                if (isBool(options.preserveAspectRatio)) {
+                    this.options.resize.preserveAspectRatio = options.preserveAspectRatio;
+                }
+                else if (isBool(options.square)) {
+                    this.options.resize.square = options.square;
+                }
+
+                return this;
+            }
+            if (isBool(options)) {
+                this.options.resize.enabled = options;
+
+                return this;
+            }
+            return this.options.resize;
+        },
+
+        /*\
+         * Interactable.squareResize
+         [ method ]
+         *
+         * Deprecated. Add a `square: true || false` property to @Interactable.resizable instead
+         *
+         * Gets or sets whether resizing is forced 1:1 aspect
+         *
+         = (boolean) Current setting
+         *
+         * or
+         *
+         - newValue (boolean) #optional
+         = (object) this Interactable
+        \*/
+        squareResize: function (newValue) {
+            if (isBool(newValue)) {
+                this.options.resize.square = newValue;
+
+                return this;
+            }
+
+            if (newValue === null) {
+                delete this.options.resize.square;
+
+                return this;
+            }
+
+            return this.options.resize.square;
+        },
+
+        /*\
+         * Interactable.gesturable
+         [ method ]
+         *
+         * Gets or sets whether multitouch gestures can be performed on the
+         * Interactable's element
+         *
+         = (boolean) Indicates if this can be the target of gesture events
+         | var isGestureable = interact(element).gesturable();
+         * or
+         - options (boolean | object) #optional true/false or An object with event listeners to be fired on gesture events (makes the Interactable gesturable)
+         = (object) this Interactable
+         | interact(element).gesturable({
+         |     onstart: function (event) {},
+         |     onmove : function (event) {},
+         |     onend  : function (event) {},
+         |
+         |     // limit multiple gestures.
+         |     // See the explanation in @Interactable.draggable example
+         |     max: Infinity,
+         |     maxPerElement: 1,
+         | });
+        \*/
+        gesturable: function (options) {
+            if (isObject(options)) {
+                this.options.gesture.enabled = options.enabled === false? false: true;
+                this.setPerAction('gesture', options);
+                this.setOnEvents('gesture', options);
+
+                return this;
+            }
+
+            if (isBool(options)) {
+                this.options.gesture.enabled = options;
+
+                return this;
+            }
+
+            return this.options.gesture;
+        },
+
+        /*\
+         * Interactable.autoScroll
+         [ method ]
+         **
+         * Deprecated. Add an `autoscroll` property to the options object
+         * passed to @Interactable.draggable or @Interactable.resizable instead.
+         *
+         * Returns or sets whether dragging and resizing near the edges of the
+         * window/container trigger autoScroll for this Interactable
+         *
+         = (object) Object with autoScroll properties
+         *
+         * or
+         *
+         - options (object | boolean) #optional
+         * options can be:
+         * - an object with margin, distance and interval properties,
+         * - true or false to enable or disable autoScroll or
+         = (Interactable) this Interactable
+        \*/
+        autoScroll: function (options) {
+            if (isObject(options)) {
+                options = extend({ actions: ['drag', 'resize']}, options);
+            }
+            else if (isBool(options)) {
+                options = { actions: ['drag', 'resize'], enabled: options };
+            }
+
+            return this.setOptions('autoScroll', options);
+        },
+
+        /*\
+         * Interactable.snap
+         [ method ]
+         **
+         * Deprecated. Add a `snap` property to the options object passed
+         * to @Interactable.draggable or @Interactable.resizable instead.
+         *
+         * Returns or sets if and how action coordinates are snapped. By
+         * default, snapping is relative to the pointer coordinates. You can
+         * change this by setting the
+         * [`elementOrigin`](https://github.com/taye/interact.js/pull/72).
+         **
+         = (boolean | object) `false` if snap is disabled; object with snap properties if snap is enabled
+         **
+         * or
+         **
+         - options (object | boolean | null) #optional
+         = (Interactable) this Interactable
+         > Usage
+         | interact(document.querySelector('#thing')).snap({
+         |     targets: [
+         |         // snap to this specific point
+         |         {
+         |             x: 100,
+         |             y: 100,
+         |             range: 25
+         |         },
+         |         // give this function the x and y page coords and snap to the object returned
+         |         function (x, y) {
+         |             return {
+         |                 x: x,
+         |                 y: (75 + 50 * Math.sin(x * 0.04)),
+         |                 range: 40
+         |             };
+         |         },
+         |         // create a function that snaps to a grid
+         |         interact.createSnapGrid({
+         |             x: 50,
+         |             y: 50,
+         |             range: 10,              // optional
+         |             offset: { x: 5, y: 10 } // optional
+         |         })
+         |     ],
+         |     // do not snap during normal movement.
+         |     // Instead, trigger only one snapped move event
+         |     // immediately before the end event.
+         |     endOnly: true,
+         |
+         |     relativePoints: [
+         |         { x: 0, y: 0 },  // snap relative to the top left of the element
+         |         { x: 1, y: 1 },  // and also to the bottom right
+         |     ],  
+         |
+         |     // offset the snap target coordinates
+         |     // can be an object with x/y or 'startCoords'
+         |     offset: { x: 50, y: 50 }
+         |   }
+         | });
+        \*/
+        snap: function (options) {
+            var ret = this.setOptions('snap', options);
+
+            if (ret === this) { return this; }
+
+            return ret.drag;
+        },
+
+        setOptions: function (option, options) {
+            var actions = options && isArray(options.actions)
+                    ? options.actions
+                    : ['drag'];
+
+            var i;
+
+            if (isObject(options) || isBool(options)) {
+                for (i = 0; i < actions.length; i++) {
+                    var action = /resize/.test(actions[i])? 'resize' : actions[i];
+
+                    if (!isObject(this.options[action])) { continue; }
+
+                    var thisOption = this.options[action][option];
+
+                    if (isObject(options)) {
+                        extend(thisOption, options);
+                        thisOption.enabled = options.enabled === false? false: true;
+
+                        if (option === 'snap') {
+                            if (thisOption.mode === 'grid') {
+                                thisOption.targets = [
+                                    interact.createSnapGrid(extend({
+                                        offset: thisOption.gridOffset || { x: 0, y: 0 }
+                                    }, thisOption.grid || {}))
+                                ];
+                            }
+                            else if (thisOption.mode === 'anchor') {
+                                thisOption.targets = thisOption.anchors;
+                            }
+                            else if (thisOption.mode === 'path') {
+                                thisOption.targets = thisOption.paths;
+                            }
+
+                            if ('elementOrigin' in options) {
+                                thisOption.relativePoints = [options.elementOrigin];
+                            }
+                        }
+                    }
+                    else if (isBool(options)) {
+                        thisOption.enabled = options;
+                    }
+                }
+
+                return this;
+            }
+
+            var ret = {},
+                allActions = ['drag', 'resize', 'gesture'];
+
+            for (i = 0; i < allActions.length; i++) {
+                if (option in defaultOptions[allActions[i]]) {
+                    ret[allActions[i]] = this.options[allActions[i]][option];
+                }
+            }
+
+            return ret;
+        },
+
+
+        /*\
+         * Interactable.inertia
+         [ method ]
+         **
+         * Deprecated. Add an `inertia` property to the options object passed
+         * to @Interactable.draggable or @Interactable.resizable instead.
+         *
+         * Returns or sets if and how events continue to run after the pointer is released
+         **
+         = (boolean | object) `false` if inertia is disabled; `object` with inertia properties if inertia is enabled
+         **
+         * or
+         **
+         - options (object | boolean | null) #optional
+         = (Interactable) this Interactable
+         > Usage
+         | // enable and use default settings
+         | interact(element).inertia(true);
+         |
+         | // enable and use custom settings
+         | interact(element).inertia({
+         |     // value greater than 0
+         |     // high values slow the object down more quickly
+         |     resistance     : 16,
+         |
+         |     // the minimum launch speed (pixels per second) that results in inertia start
+         |     minSpeed       : 200,
+         |
+         |     // inertia will stop when the object slows down to this speed
+         |     endSpeed       : 20,
+         |
+         |     // boolean; should actions be resumed when the pointer goes down during inertia
+         |     allowResume    : true,
+         |
+         |     // boolean; should the jump when resuming from inertia be ignored in event.dx/dy
+         |     zeroResumeDelta: false,
+         |
+         |     // if snap/restrict are set to be endOnly and inertia is enabled, releasing
+         |     // the pointer without triggering inertia will animate from the release
+         |     // point to the snaped/restricted point in the given amount of time (ms)
+         |     smoothEndDuration: 300,
+         |
+         |     // an array of action types that can have inertia (no gesture)
+         |     actions        : ['drag', 'resize']
+         | });
+         |
+         | // reset custom settings and use all defaults
+         | interact(element).inertia(null);
+        \*/
+        inertia: function (options) {
+            var ret = this.setOptions('inertia', options);
+
+            if (ret === this) { return this; }
+
+            return ret.drag;
+        },
+
+        getAction: function (pointer, event, interaction, element) {
+            var action = this.defaultActionChecker(pointer, interaction, element);
+
+            if (this.options.actionChecker) {
+                return this.options.actionChecker(pointer, event, action, this, element, interaction);
+            }
+
+            return action;
+        },
+
+        defaultActionChecker: defaultActionChecker,
+
+        /*\
+         * Interactable.actionChecker
+         [ method ]
+         *
+         * Gets or sets the function used to check action to be performed on
+         * pointerDown
+         *
+         - checker (function | null) #optional A function which takes a pointer event, defaultAction string, interactable, element and interaction as parameters and returns an object with name property 'drag' 'resize' or 'gesture' and optionally an `edges` object with boolean 'top', 'left', 'bottom' and right props.
+         = (Function | Interactable) The checker function or this Interactable
+         *
+         | interact('.resize-drag')
+         |   .resizable(true)
+         |   .draggable(true)
+         |   .actionChecker(function (pointer, event, action, interactable, element, interaction) {
+         |
+         |   if (interact.matchesSelector(event.target, '.drag-handle') {
+         |     // force drag with handle target
+         |     action.name = drag;
+         |   }
+         |   else {
+         |     // resize from the top and right edges
+         |     action.name  = 'resize';
+         |     action.edges = { top: true, right: true };
+         |   }
+         |
+         |   return action;
+         | });
+        \*/
+        actionChecker: function (checker) {
+            if (isFunction(checker)) {
+                this.options.actionChecker = checker;
+
+                return this;
+            }
+
+            if (checker === null) {
+                delete this.options.actionChecker;
+
+                return this;
+            }
+
+            return this.options.actionChecker;
+        },
+
+        /*\
+         * Interactable.getRect
+         [ method ]
+         *
+         * The default function to get an Interactables bounding rect. Can be
+         * overridden using @Interactable.rectChecker.
+         *
+         - element (Element) #optional The element to measure.
+         = (object) The object's bounding rectangle.
+         o {
+         o     top   : 0,
+         o     left  : 0,
+         o     bottom: 0,
+         o     right : 0,
+         o     width : 0,
+         o     height: 0
+         o }
+        \*/
+        getRect: function rectCheck (element) {
+            element = element || this._element;
+
+            if (this.selector && !(isElement(element))) {
+                element = this._context.querySelector(this.selector);
+            }
+
+            return getElementRect(element);
+        },
+
+        /*\
+         * Interactable.rectChecker
+         [ method ]
+         *
+         * Returns or sets the function used to calculate the interactable's
+         * element's rectangle
+         *
+         - checker (function) #optional A function which returns this Interactable's bounding rectangle. See @Interactable.getRect
+         = (function | object) The checker function or this Interactable
+        \*/
+        rectChecker: function (checker) {
+            if (isFunction(checker)) {
+                this.getRect = checker;
+
+                return this;
+            }
+
+            if (checker === null) {
+                delete this.options.getRect;
+
+                return this;
+            }
+
+            return this.getRect;
+        },
+
+        /*\
+         * Interactable.styleCursor
+         [ method ]
+         *
+         * Returns or sets whether the action that would be performed when the
+         * mouse on the element are checked on `mousemove` so that the cursor
+         * may be styled appropriately
+         *
+         - newValue (boolean) #optional
+         = (boolean | Interactable) The current setting or this Interactable
+        \*/
+        styleCursor: function (newValue) {
+            if (isBool(newValue)) {
+                this.options.styleCursor = newValue;
+
+                return this;
+            }
+
+            if (newValue === null) {
+                delete this.options.styleCursor;
+
+                return this;
+            }
+
+            return this.options.styleCursor;
+        },
+
+        /*\
+         * Interactable.preventDefault
+         [ method ]
+         *
+         * Returns or sets whether to prevent the browser's default behaviour
+         * in response to pointer events. Can be set to:
+         *  - `'always'` to always prevent
+         *  - `'never'` to never prevent
+         *  - `'auto'` to let interact.js try to determine what would be best
+         *
+         - newValue (string) #optional `true`, `false` or `'auto'`
+         = (string | Interactable) The current setting or this Interactable
+        \*/
+        preventDefault: function (newValue) {
+            if (/^(always|never|auto)$/.test(newValue)) {
+                this.options.preventDefault = newValue;
+                return this;
+            }
+
+            if (isBool(newValue)) {
+                this.options.preventDefault = newValue? 'always' : 'never';
+                return this;
+            }
+
+            return this.options.preventDefault;
+        },
+
+        /*\
+         * Interactable.origin
+         [ method ]
+         *
+         * Gets or sets the origin of the Interactable's element.  The x and y
+         * of the origin will be subtracted from action event coordinates.
+         *
+         - origin (object | string) #optional An object eg. { x: 0, y: 0 } or string 'parent', 'self' or any CSS selector
+         * OR
+         - origin (Element) #optional An HTML or SVG Element whose rect will be used
+         **
+         = (object) The current origin or this Interactable
+        \*/
+        origin: function (newValue) {
+            if (trySelector(newValue)) {
+                this.options.origin = newValue;
+                return this;
+            }
+            else if (isObject(newValue)) {
+                this.options.origin = newValue;
+                return this;
+            }
+
+            return this.options.origin;
+        },
+
+        /*\
+         * Interactable.deltaSource
+         [ method ]
+         *
+         * Returns or sets the mouse coordinate types used to calculate the
+         * movement of the pointer.
+         *
+         - newValue (string) #optional Use 'client' if you will be scrolling while interacting; Use 'page' if you want autoScroll to work
+         = (string | object) The current deltaSource or this Interactable
+        \*/
+        deltaSource: function (newValue) {
+            if (newValue === 'page' || newValue === 'client') {
+                this.options.deltaSource = newValue;
+
+                return this;
+            }
+
+            return this.options.deltaSource;
+        },
+
+        /*\
+         * Interactable.restrict
+         [ method ]
+         **
+         * Deprecated. Add a `restrict` property to the options object passed to
+         * @Interactable.draggable, @Interactable.resizable or @Interactable.gesturable instead.
+         *
+         * Returns or sets the rectangles within which actions on this
+         * interactable (after snap calculations) are restricted. By default,
+         * restricting is relative to the pointer coordinates. You can change
+         * this by setting the
+         * [`elementRect`](https://github.com/taye/interact.js/pull/72).
+         **
+         - options (object) #optional an object with keys drag, resize, and/or gesture whose values are rects, Elements, CSS selectors, or 'parent' or 'self'
+         = (object) The current restrictions object or this Interactable
+         **
+         | interact(element).restrict({
+         |     // the rect will be `interact.getElementRect(element.parentNode)`
+         |     drag: element.parentNode,
+         |
+         |     // x and y are relative to the the interactable's origin
+         |     resize: { x: 100, y: 100, width: 200, height: 200 }
+         | })
+         |
+         | interact('.draggable').restrict({
+         |     // the rect will be the selected element's parent
+         |     drag: 'parent',
+         |
+         |     // do not restrict during normal movement.
+         |     // Instead, trigger only one restricted move event
+         |     // immediately before the end event.
+         |     endOnly: true,
+         |
+         |     // https://github.com/taye/interact.js/pull/72#issue-41813493
+         |     elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+         | });
+        \*/
+        restrict: function (options) {
+            if (!isObject(options)) {
+                return this.setOptions('restrict', options);
+            }
+
+            var actions = ['drag', 'resize', 'gesture'],
+                ret;
+
+            for (var i = 0; i < actions.length; i++) {
+                var action = actions[i];
+
+                if (action in options) {
+                    var perAction = extend({
+                            actions: [action],
+                            restriction: options[action]
+                        }, options);
+
+                    ret = this.setOptions('restrict', perAction);
+                }
+            }
+
+            return ret;
+        },
+
+        /*\
+         * Interactable.context
+         [ method ]
+         *
+         * Gets the selector context Node of the Interactable. The default is `window.document`.
+         *
+         = (Node) The context Node of this Interactable
+         **
+        \*/
+        context: function () {
+            return this._context;
+        },
+
+        _context: document,
+
+        /*\
+         * Interactable.ignoreFrom
+         [ method ]
+         *
+         * If the target of the `mousedown`, `pointerdown` or `touchstart`
+         * event or any of it's parents match the given CSS selector or
+         * Element, no drag/resize/gesture is started.
+         *
+         - newValue (string | Element | null) #optional a CSS selector string, an Element or `null` to not ignore any elements
+         = (string | Element | object) The current ignoreFrom value or this Interactable
+         **
+         | interact(element, { ignoreFrom: document.getElementById('no-action') });
+         | // or
+         | interact(element).ignoreFrom('input, textarea, a');
+        \*/
+        ignoreFrom: function (newValue) {
+            if (trySelector(newValue)) {            // CSS selector to match event.target
+                this.options.ignoreFrom = newValue;
+                return this;
+            }
+
+            if (isElement(newValue)) {              // specific element
+                this.options.ignoreFrom = newValue;
+                return this;
+            }
+
+            return this.options.ignoreFrom;
+        },
+
+        /*\
+         * Interactable.allowFrom
+         [ method ]
+         *
+         * A drag/resize/gesture is started only If the target of the
+         * `mousedown`, `pointerdown` or `touchstart` event or any of it's
+         * parents match the given CSS selector or Element.
+         *
+         - newValue (string | Element | null) #optional a CSS selector string, an Element or `null` to allow from any element
+         = (string | Element | object) The current allowFrom value or this Interactable
+         **
+         | interact(element, { allowFrom: document.getElementById('drag-handle') });
+         | // or
+         | interact(element).allowFrom('.handle');
+        \*/
+        allowFrom: function (newValue) {
+            if (trySelector(newValue)) {            // CSS selector to match event.target
+                this.options.allowFrom = newValue;
+                return this;
+            }
+
+            if (isElement(newValue)) {              // specific element
+                this.options.allowFrom = newValue;
+                return this;
+            }
+
+            return this.options.allowFrom;
+        },
+
+        /*\
+         * Interactable.element
+         [ method ]
+         *
+         * If this is not a selector Interactable, it returns the element this
+         * interactable represents
+         *
+         = (Element) HTML / SVG Element
+        \*/
+        element: function () {
+            return this._element;
+        },
+
+        /*\
+         * Interactable.fire
+         [ method ]
+         *
+         * Calls listeners for the given InteractEvent type bound globally
+         * and directly to this Interactable
+         *
+         - iEvent (InteractEvent) The InteractEvent object to be fired on this Interactable
+         = (Interactable) this Interactable
+        \*/
+        fire: function (iEvent) {
+            if (!(iEvent && iEvent.type) || !contains(eventTypes, iEvent.type)) {
+                return this;
+            }
+
+            var listeners,
+                i,
+                len,
+                onEvent = 'on' + iEvent.type,
+                funcName = '';
+
+            // Interactable#on() listeners
+            if (iEvent.type in this._iEvents) {
+                listeners = this._iEvents[iEvent.type];
+
+                for (i = 0, len = listeners.length; i < len && !iEvent.immediatePropagationStopped; i++) {
+                    funcName = listeners[i].name;
+                    listeners[i](iEvent);
+                }
+            }
+
+            // interactable.onevent listener
+            if (isFunction(this[onEvent])) {
+                funcName = this[onEvent].name;
+                this[onEvent](iEvent);
+            }
+
+            // interact.on() listeners
+            if (iEvent.type in globalEvents && (listeners = globalEvents[iEvent.type]))  {
+
+                for (i = 0, len = listeners.length; i < len && !iEvent.immediatePropagationStopped; i++) {
+                    funcName = listeners[i].name;
+                    listeners[i](iEvent);
+                }
+            }
+
+            return this;
+        },
+
+        /*\
+         * Interactable.on
+         [ method ]
+         *
+         * Binds a listener for an InteractEvent or DOM event.
+         *
+         - eventType  (string | array | object) The types of events to listen for
+         - listener   (function) The function to be called on the given event(s)
+         - useCapture (boolean) #optional useCapture flag for addEventListener
+         = (object) This Interactable
+        \*/
+        on: function (eventType, listener, useCapture) {
+            var i;
+
+            if (isString(eventType) && eventType.search(' ') !== -1) {
+                eventType = eventType.trim().split(/ +/);
+            }
+
+            if (isArray(eventType)) {
+                for (i = 0; i < eventType.length; i++) {
+                    this.on(eventType[i], listener, useCapture);
+                }
+
+                return this;
+            }
+
+            if (isObject(eventType)) {
+                for (var prop in eventType) {
+                    this.on(prop, eventType[prop], listener);
+                }
+
+                return this;
+            }
+
+            if (eventType === 'wheel') {
+                eventType = wheelEvent;
+            }
+
+            // convert to boolean
+            useCapture = useCapture? true: false;
+
+            if (contains(eventTypes, eventType)) {
+                // if this type of event was never bound to this Interactable
+                if (!(eventType in this._iEvents)) {
+                    this._iEvents[eventType] = [listener];
+                }
+                else {
+                    this._iEvents[eventType].push(listener);
+                }
+            }
+            // delegated event for selector
+            else if (this.selector) {
+                if (!delegatedEvents[eventType]) {
+                    delegatedEvents[eventType] = {
+                        selectors: [],
+                        contexts : [],
+                        listeners: []
+                    };
+
+                    // add delegate listener functions
+                    for (i = 0; i < documents.length; i++) {
+                        events.add(documents[i], eventType, delegateListener);
+                        events.add(documents[i], eventType, delegateUseCapture, true);
+                    }
+                }
+
+                var delegated = delegatedEvents[eventType],
+                    index;
+
+                for (index = delegated.selectors.length - 1; index >= 0; index--) {
+                    if (delegated.selectors[index] === this.selector
+                        && delegated.contexts[index] === this._context) {
+                        break;
+                    }
+                }
+
+                if (index === -1) {
+                    index = delegated.selectors.length;
+
+                    delegated.selectors.push(this.selector);
+                    delegated.contexts .push(this._context);
+                    delegated.listeners.push([]);
+                }
+
+                // keep listener and useCapture flag
+                delegated.listeners[index].push([listener, useCapture]);
+            }
+            else {
+                events.add(this._element, eventType, listener, useCapture);
+            }
+
+            return this;
+        },
+
+        /*\
+         * Interactable.off
+         [ method ]
+         *
+         * Removes an InteractEvent or DOM event listener
+         *
+         - eventType  (string | array | object) The types of events that were listened for
+         - listener   (function) The listener function to be removed
+         - useCapture (boolean) #optional useCapture flag for removeEventListener
+         = (object) This Interactable
+        \*/
+        off: function (eventType, listener, useCapture) {
+            var i;
+
+            if (isString(eventType) && eventType.search(' ') !== -1) {
+                eventType = eventType.trim().split(/ +/);
+            }
+
+            if (isArray(eventType)) {
+                for (i = 0; i < eventType.length; i++) {
+                    this.off(eventType[i], listener, useCapture);
+                }
+
+                return this;
+            }
+
+            if (isObject(eventType)) {
+                for (var prop in eventType) {
+                    this.off(prop, eventType[prop], listener);
+                }
+
+                return this;
+            }
+
+            var eventList,
+                index = -1;
+
+            // convert to boolean
+            useCapture = useCapture? true: false;
+
+            if (eventType === 'wheel') {
+                eventType = wheelEvent;
+            }
+
+            // if it is an action event type
+            if (contains(eventTypes, eventType)) {
+                eventList = this._iEvents[eventType];
+
+                if (eventList && (index = indexOf(eventList, listener)) !== -1) {
+                    this._iEvents[eventType].splice(index, 1);
+                }
+            }
+            // delegated event
+            else if (this.selector) {
+                var delegated = delegatedEvents[eventType],
+                    matchFound = false;
+
+                if (!delegated) { return this; }
+
+                // count from last index of delegated to 0
+                for (index = delegated.selectors.length - 1; index >= 0; index--) {
+                    // look for matching selector and context Node
+                    if (delegated.selectors[index] === this.selector
+                        && delegated.contexts[index] === this._context) {
+
+                        var listeners = delegated.listeners[index];
+
+                        // each item of the listeners array is an array: [function, useCaptureFlag]
+                        for (i = listeners.length - 1; i >= 0; i--) {
+                            var fn = listeners[i][0],
+                                useCap = listeners[i][1];
+
+                            // check if the listener functions and useCapture flags match
+                            if (fn === listener && useCap === useCapture) {
+                                // remove the listener from the array of listeners
+                                listeners.splice(i, 1);
+
+                                // if all listeners for this interactable have been removed
+                                // remove the interactable from the delegated arrays
+                                if (!listeners.length) {
+                                    delegated.selectors.splice(index, 1);
+                                    delegated.contexts .splice(index, 1);
+                                    delegated.listeners.splice(index, 1);
+
+                                    // remove delegate function from context
+                                    events.remove(this._context, eventType, delegateListener);
+                                    events.remove(this._context, eventType, delegateUseCapture, true);
+
+                                    // remove the arrays if they are empty
+                                    if (!delegated.selectors.length) {
+                                        delegatedEvents[eventType] = null;
+                                    }
+                                }
+
+                                // only remove one listener
+                                matchFound = true;
+                                break;
+                            }
+                        }
+
+                        if (matchFound) { break; }
+                    }
+                }
+            }
+            // remove listener from this Interatable's element
+            else {
+                events.remove(this._element, eventType, listener, useCapture);
+            }
+
+            return this;
+        },
+
+        /*\
+         * Interactable.set
+         [ method ]
+         *
+         * Reset the options of this Interactable
+         - options (object) The new settings to apply
+         = (object) This Interactable
+        \*/
+        set: function (options) {
+            if (!isObject(options)) {
+                options = {};
+            }
+
+            this.options = extend({}, defaultOptions.base);
+
+            var i,
+                actions = ['drag', 'drop', 'resize', 'gesture'],
+                methods = ['draggable', 'dropzone', 'resizable', 'gesturable'],
+                perActions = extend(extend({}, defaultOptions.perAction), options[action] || {});
+
+            for (i = 0; i < actions.length; i++) {
+                var action = actions[i];
+
+                this.options[action] = extend({}, defaultOptions[action]);
+
+                this.setPerAction(action, perActions);
+
+                this[methods[i]](options[action]);
+            }
+
+            var settings = [
+                    'accept', 'actionChecker', 'allowFrom', 'deltaSource',
+                    'dropChecker', 'ignoreFrom', 'origin', 'preventDefault',
+                    'rectChecker', 'styleCursor'
+                ];
+
+            for (i = 0, len = settings.length; i < len; i++) {
+                var setting = settings[i];
+
+                this.options[setting] = defaultOptions.base[setting];
+
+                if (setting in options) {
+                    this[setting](options[setting]);
+                }
+            }
+
+            return this;
+        },
+
+        /*\
+         * Interactable.unset
+         [ method ]
+         *
+         * Remove this interactable from the list of interactables and remove
+         * it's drag, drop, resize and gesture capabilities
+         *
+         = (object) @interact
+        \*/
+        unset: function () {
+            events.remove(this._element, 'all');
+
+            if (!isString(this.selector)) {
+                events.remove(this, 'all');
+                if (this.options.styleCursor) {
+                    this._element.style.cursor = '';
+                }
+            }
+            else {
+                // remove delegated events
+                for (var type in delegatedEvents) {
+                    var delegated = delegatedEvents[type];
+
+                    for (var i = 0; i < delegated.selectors.length; i++) {
+                        if (delegated.selectors[i] === this.selector
+                            && delegated.contexts[i] === this._context) {
+
+                            delegated.selectors.splice(i, 1);
+                            delegated.contexts .splice(i, 1);
+                            delegated.listeners.splice(i, 1);
+
+                            // remove the arrays if they are empty
+                            if (!delegated.selectors.length) {
+                                delegatedEvents[type] = null;
+                            }
+                        }
+
+                        events.remove(this._context, type, delegateListener);
+                        events.remove(this._context, type, delegateUseCapture, true);
+
+                        break;
+                    }
+                }
+            }
+
+            this.dropzone(false);
+
+            interactables.splice(indexOf(interactables, this), 1);
+
+            return interact;
+        }
+    };
+
+    function warnOnce (method, message) {
+        var warned = false;
+
+        return function () {
+            if (!warned) {
+                window.console.warn(message);
+                warned = true;
+            }
+
+            return method.apply(this, arguments);
+        };
+    }
+
+    Interactable.prototype.snap = warnOnce(Interactable.prototype.snap,
+         'Interactable#snap is deprecated. See the new documentation for snapping at http://interactjs.io/docs/snapping');
+    Interactable.prototype.restrict = warnOnce(Interactable.prototype.restrict,
+         'Interactable#restrict is deprecated. See the new documentation for resticting at http://interactjs.io/docs/restriction');
+    Interactable.prototype.inertia = warnOnce(Interactable.prototype.inertia,
+         'Interactable#inertia is deprecated. See the new documentation for inertia at http://interactjs.io/docs/inertia');
+    Interactable.prototype.autoScroll = warnOnce(Interactable.prototype.autoScroll,
+         'Interactable#autoScroll is deprecated. See the new documentation for autoScroll at http://interactjs.io/docs/#autoscroll');
+    Interactable.prototype.squareResize = warnOnce(Interactable.prototype.squareResize,
+         'Interactable#squareResize is deprecated. See http://interactjs.io/docs/#resize-square');
+
+    Interactable.prototype.accept = warnOnce(Interactable.prototype.accept,
+         'Interactable#accept is deprecated. use Interactable#dropzone({ accept: target }) instead');
+    Interactable.prototype.dropChecker = warnOnce(Interactable.prototype.dropChecker,
+         'Interactable#dropChecker is deprecated. use Interactable#dropzone({ dropChecker: checkerFunction }) instead');
+    Interactable.prototype.context = warnOnce(Interactable.prototype.context,
+         'Interactable#context as a method is deprecated. It will soon be a DOM Node instead');
+
+    /*\
+     * interact.isSet
+     [ method ]
+     *
+     * Check if an element has been set
+     - element (Element) The Element being searched for
+     = (boolean) Indicates if the element or CSS selector was previously passed to interact
+    \*/
+    interact.isSet = function(element, options) {
+        return interactables.indexOfElement(element, options && options.context) !== -1;
+    };
+
+    /*\
+     * interact.on
+     [ method ]
+     *
+     * Adds a global listener for an InteractEvent or adds a DOM event to
+     * `document`
+     *
+     - type       (string | array | object) The types of events to listen for
+     - listener   (function) The function to be called on the given event(s)
+     - useCapture (boolean) #optional useCapture flag for addEventListener
+     = (object) interact
+    \*/
+    interact.on = function (type, listener, useCapture) {
+        if (isString(type) && type.search(' ') !== -1) {
+            type = type.trim().split(/ +/);
+        }
+
+        if (isArray(type)) {
+            for (var i = 0; i < type.length; i++) {
+                interact.on(type[i], listener, useCapture);
+            }
+
+            return interact;
+        }
+
+        if (isObject(type)) {
+            for (var prop in type) {
+                interact.on(prop, type[prop], listener);
+            }
+
+            return interact;
+        }
+
+        // if it is an InteractEvent type, add listener to globalEvents
+        if (contains(eventTypes, type)) {
+            // if this type of event was never bound
+            if (!globalEvents[type]) {
+                globalEvents[type] = [listener];
+            }
+            else {
+                globalEvents[type].push(listener);
+            }
+        }
+        // If non InteractEvent type, addEventListener to document
+        else {
+            events.add(document, type, listener, useCapture);
+        }
+
+        return interact;
+    };
+
+    /*\
+     * interact.off
+     [ method ]
+     *
+     * Removes a global InteractEvent listener or DOM event from `document`
+     *
+     - type       (string | array | object) The types of events that were listened for
+     - listener   (function) The listener function to be removed
+     - useCapture (boolean) #optional useCapture flag for removeEventListener
+     = (object) interact
+     \*/
+    interact.off = function (type, listener, useCapture) {
+        if (isString(type) && type.search(' ') !== -1) {
+            type = type.trim().split(/ +/);
+        }
+
+        if (isArray(type)) {
+            for (var i = 0; i < type.length; i++) {
+                interact.off(type[i], listener, useCapture);
+            }
+
+            return interact;
+        }
+
+        if (isObject(type)) {
+            for (var prop in type) {
+                interact.off(prop, type[prop], listener);
+            }
+
+            return interact;
+        }
+
+        if (!contains(eventTypes, type)) {
+            events.remove(document, type, listener, useCapture);
+        }
+        else {
+            var index;
+
+            if (type in globalEvents
+                && (index = indexOf(globalEvents[type], listener)) !== -1) {
+                globalEvents[type].splice(index, 1);
+            }
+        }
+
+        return interact;
+    };
+
+    /*\
+     * interact.enableDragging
+     [ method ]
+     *
+     * Deprecated.
+     *
+     * Returns or sets whether dragging is enabled for any Interactables
+     *
+     - newValue (boolean) #optional `true` to allow the action; `false` to disable action for all Interactables
+     = (boolean | object) The current setting or interact
+    \*/
+    interact.enableDragging = warnOnce(function (newValue) {
+        if (newValue !== null && newValue !== undefined) {
+            actionIsEnabled.drag = newValue;
+
+            return interact;
+        }
+        return actionIsEnabled.drag;
+    }, 'interact.enableDragging is deprecated and will soon be removed.');
+
+    /*\
+     * interact.enableResizing
+     [ method ]
+     *
+     * Deprecated.
+     *
+     * Returns or sets whether resizing is enabled for any Interactables
+     *
+     - newValue (boolean) #optional `true` to allow the action; `false` to disable action for all Interactables
+     = (boolean | object) The current setting or interact
+    \*/
+    interact.enableResizing = warnOnce(function (newValue) {
+        if (newValue !== null && newValue !== undefined) {
+            actionIsEnabled.resize = newValue;
+
+            return interact;
+        }
+        return actionIsEnabled.resize;
+    }, 'interact.enableResizing is deprecated and will soon be removed.');
+
+    /*\
+     * interact.enableGesturing
+     [ method ]
+     *
+     * Deprecated.
+     *
+     * Returns or sets whether gesturing is enabled for any Interactables
+     *
+     - newValue (boolean) #optional `true` to allow the action; `false` to disable action for all Interactables
+     = (boolean | object) The current setting or interact
+    \*/
+    interact.enableGesturing = warnOnce(function (newValue) {
+        if (newValue !== null && newValue !== undefined) {
+            actionIsEnabled.gesture = newValue;
+
+            return interact;
+        }
+        return actionIsEnabled.gesture;
+    }, 'interact.enableGesturing is deprecated and will soon be removed.');
+
+    interact.eventTypes = eventTypes;
+
+    /*\
+     * interact.debug
+     [ method ]
+     *
+     * Returns debugging data
+     = (object) An object with properties that outline the current state and expose internal functions and variables
+    \*/
+    interact.debug = function () {
+        var interaction = interactions[0] || new Interaction();
+
+        return {
+            interactions          : interactions,
+            target                : interaction.target,
+            dragging              : interaction.dragging,
+            resizing              : interaction.resizing,
+            gesturing             : interaction.gesturing,
+            prepared              : interaction.prepared,
+            matches               : interaction.matches,
+            matchElements         : interaction.matchElements,
+
+            prevCoords            : interaction.prevCoords,
+            startCoords           : interaction.startCoords,
+
+            pointerIds            : interaction.pointerIds,
+            pointers              : interaction.pointers,
+            addPointer            : listeners.addPointer,
+            removePointer         : listeners.removePointer,
+            recordPointer        : listeners.recordPointer,
+
+            snap                  : interaction.snapStatus,
+            restrict              : interaction.restrictStatus,
+            inertia               : interaction.inertiaStatus,
+
+            downTime              : interaction.downTimes[0],
+            downEvent             : interaction.downEvent,
+            downPointer           : interaction.downPointer,
+            prevEvent             : interaction.prevEvent,
+
+            Interactable          : Interactable,
+            interactables         : interactables,
+            pointerIsDown         : interaction.pointerIsDown,
+            defaultOptions        : defaultOptions,
+            defaultActionChecker  : defaultActionChecker,
+
+            actionCursors         : actionCursors,
+            dragMove              : listeners.dragMove,
+            resizeMove            : listeners.resizeMove,
+            gestureMove           : listeners.gestureMove,
+            pointerUp             : listeners.pointerUp,
+            pointerDown           : listeners.pointerDown,
+            pointerMove           : listeners.pointerMove,
+            pointerHover          : listeners.pointerHover,
+
+            eventTypes            : eventTypes,
+
+            events                : events,
+            globalEvents          : globalEvents,
+            delegatedEvents       : delegatedEvents,
+
+            prefixedPropREs       : prefixedPropREs
+        };
+    };
+
+    // expose the functions used to calculate multi-touch properties
+    interact.getPointerAverage = pointerAverage;
+    interact.getTouchBBox     = touchBBox;
+    interact.getTouchDistance = touchDistance;
+    interact.getTouchAngle    = touchAngle;
+
+    interact.getElementRect         = getElementRect;
+    interact.getElementClientRect   = getElementClientRect;
+    interact.matchesSelector        = matchesSelector;
+    interact.closest                = closest;
+
+    /*\
+     * interact.margin
+     [ method ]
+     *
+     * Deprecated. Use `interact(target).resizable({ margin: number });` instead.
+     * Returns or sets the margin for autocheck resizing used in
+     * @Interactable.getAction. That is the distance from the bottom and right
+     * edges of an element clicking in which will start resizing
+     *
+     - newValue (number) #optional
+     = (number | interact) The current margin value or interact
+    \*/
+    interact.margin = warnOnce(function (newvalue) {
+        if (isNumber(newvalue)) {
+            margin = newvalue;
+
+            return interact;
+        }
+        return margin;
+    },
+    'interact.margin is deprecated. Use interact(target).resizable({ margin: number }); instead.') ;
+
+    /*\
+     * interact.supportsTouch
+     [ method ]
+     *
+     = (boolean) Whether or not the browser supports touch input
+    \*/
+    interact.supportsTouch = function () {
+        return supportsTouch;
+    };
+
+    /*\
+     * interact.supportsPointerEvent
+     [ method ]
+     *
+     = (boolean) Whether or not the browser supports PointerEvents
+    \*/
+    interact.supportsPointerEvent = function () {
+        return supportsPointerEvent;
+    };
+
+    /*\
+     * interact.stop
+     [ method ]
+     *
+     * Cancels all interactions (end events are not fired)
+     *
+     - event (Event) An event on which to call preventDefault()
+     = (object) interact
+    \*/
+    interact.stop = function (event) {
+        for (var i = interactions.length - 1; i >= 0; i--) {
+            interactions[i].stop(event);
+        }
+
+        return interact;
+    };
+
+    /*\
+     * interact.dynamicDrop
+     [ method ]
+     *
+     * Returns or sets whether the dimensions of dropzone elements are
+     * calculated on every dragmove or only on dragstart for the default
+     * dropChecker
+     *
+     - newValue (boolean) #optional True to check on each move. False to check only before start
+     = (boolean | interact) The current setting or interact
+    \*/
+    interact.dynamicDrop = function (newValue) {
+        if (isBool(newValue)) {
+            //if (dragging && dynamicDrop !== newValue && !newValue) {
+                //calcRects(dropzones);
+            //}
+
+            dynamicDrop = newValue;
+
+            return interact;
+        }
+        return dynamicDrop;
+    };
+
+    /*\
+     * interact.pointerMoveTolerance
+     [ method ]
+     * Returns or sets the distance the pointer must be moved before an action
+     * sequence occurs. This also affects tolerance for tap events.
+     *
+     - newValue (number) #optional The movement from the start position must be greater than this value
+     = (number | Interactable) The current setting or interact
+    \*/
+    interact.pointerMoveTolerance = function (newValue) {
+        if (isNumber(newValue)) {
+            pointerMoveTolerance = newValue;
+
+            return this;
+        }
+
+        return pointerMoveTolerance;
+    };
+
+    /*\
+     * interact.maxInteractions
+     [ method ]
+     **
+     * Returns or sets the maximum number of concurrent interactions allowed.
+     * By default only 1 interaction is allowed at a time (for backwards
+     * compatibility). To allow multiple interactions on the same Interactables
+     * and elements, you need to enable it in the draggable, resizable and
+     * gesturable `'max'` and `'maxPerElement'` options.
+     **
+     - newValue (number) #optional Any number. newValue <= 0 means no interactions.
+    \*/
+    interact.maxInteractions = function (newValue) {
+        if (isNumber(newValue)) {
+            maxInteractions = newValue;
+
+            return this;
+        }
+
+        return maxInteractions;
+    };
+
+    interact.createSnapGrid = function (grid) {
+        return function (x, y) {
+            var offsetX = 0,
+                offsetY = 0;
+
+            if (isObject(grid.offset)) {
+                offsetX = grid.offset.x;
+                offsetY = grid.offset.y;
+            }
+
+            var gridx = Math.round((x - offsetX) / grid.x),
+                gridy = Math.round((y - offsetY) / grid.y),
+
+                newX = gridx * grid.x + offsetX,
+                newY = gridy * grid.y + offsetY;
+
+            return {
+                x: newX,
+                y: newY,
+                range: grid.range
+            };
+        };
+    };
+
+    function endAllInteractions (event) {
+        for (var i = 0; i < interactions.length; i++) {
+            interactions[i].pointerEnd(event, event);
+        }
+    }
+
+    function listenToDocument (doc) {
+        if (contains(documents, doc)) { return; }
+
+        var win = doc.defaultView || doc.parentWindow;
+
+        // add delegate event listener
+        for (var eventType in delegatedEvents) {
+            events.add(doc, eventType, delegateListener);
+            events.add(doc, eventType, delegateUseCapture, true);
+        }
+
+        if (PointerEvent) {
+            if (PointerEvent === win.MSPointerEvent) {
+                pEventTypes = {
+                    up: 'MSPointerUp', down: 'MSPointerDown', over: 'mouseover',
+                    out: 'mouseout', move: 'MSPointerMove', cancel: 'MSPointerCancel' };
+            }
+            else {
+                pEventTypes = {
+                    up: 'pointerup', down: 'pointerdown', over: 'pointerover',
+                    out: 'pointerout', move: 'pointermove', cancel: 'pointercancel' };
+            }
+
+            events.add(doc, pEventTypes.down  , listeners.selectorDown );
+            events.add(doc, pEventTypes.move  , listeners.pointerMove  );
+            events.add(doc, pEventTypes.over  , listeners.pointerOver  );
+            events.add(doc, pEventTypes.out   , listeners.pointerOut   );
+            events.add(doc, pEventTypes.up    , listeners.pointerUp    );
+            events.add(doc, pEventTypes.cancel, listeners.pointerCancel);
+
+            // autoscroll
+            events.add(doc, pEventTypes.move, listeners.autoScrollMove);
+        }
+        else {
+            events.add(doc, 'mousedown', listeners.selectorDown);
+            events.add(doc, 'mousemove', listeners.pointerMove );
+            events.add(doc, 'mouseup'  , listeners.pointerUp   );
+            events.add(doc, 'mouseover', listeners.pointerOver );
+            events.add(doc, 'mouseout' , listeners.pointerOut  );
+
+            events.add(doc, 'touchstart' , listeners.selectorDown );
+            events.add(doc, 'touchmove'  , listeners.pointerMove  );
+            events.add(doc, 'touchend'   , listeners.pointerUp    );
+            events.add(doc, 'touchcancel', listeners.pointerCancel);
+
+            // autoscroll
+            events.add(doc, 'mousemove', listeners.autoScrollMove);
+            events.add(doc, 'touchmove', listeners.autoScrollMove);
+        }
+
+        events.add(win, 'blur', endAllInteractions);
+
+        try {
+            if (win.frameElement) {
+                var parentDoc = win.frameElement.ownerDocument,
+                    parentWindow = parentDoc.defaultView;
+
+                events.add(parentDoc   , 'mouseup'      , listeners.pointerEnd);
+                events.add(parentDoc   , 'touchend'     , listeners.pointerEnd);
+                events.add(parentDoc   , 'touchcancel'  , listeners.pointerEnd);
+                events.add(parentDoc   , 'pointerup'    , listeners.pointerEnd);
+                events.add(parentDoc   , 'MSPointerUp'  , listeners.pointerEnd);
+                events.add(parentWindow, 'blur'         , endAllInteractions );
+            }
+        }
+        catch (error) {
+            interact.windowParentError = error;
+        }
+
+        // prevent native HTML5 drag on interact.js target elements
+        events.add(doc, 'dragstart', function (event) {
+            for (var i = 0; i < interactions.length; i++) {
+                var interaction = interactions[i];
+
+                if (interaction.element
+                    && (interaction.element === event.target
+                        || nodeContains(interaction.element, event.target))) {
+
+                    interaction.checkAndPreventDefault(event, interaction.target, interaction.element);
+                    return;
+                }
+            }
+        });
+
+        if (events.useAttachEvent) {
+            // For IE's lack of Event#preventDefault
+            events.add(doc, 'selectstart', function (event) {
+                var interaction = interactions[0];
+
+                if (interaction.currentAction()) {
+                    interaction.checkAndPreventDefault(event);
+                }
+            });
+
+            // For IE's bad dblclick event sequence
+            events.add(doc, 'dblclick', doOnInteractions('ie8Dblclick'));
+        }
+
+        documents.push(doc);
+    }
+
+    listenToDocument(document);
+
+    function indexOf (array, target) {
+        for (var i = 0, len = array.length; i < len; i++) {
+            if (array[i] === target) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    function contains (array, target) {
+        return indexOf(array, target) !== -1;
+    }
+
+    function matchesSelector (element, selector, nodeList) {
+        if (ie8MatchesSelector) {
+            return ie8MatchesSelector(element, selector, nodeList);
+        }
+
+        // remove /deep/ from selectors if shadowDOM polyfill is used
+        if (window !== realWindow) {
+            selector = selector.replace(/\/deep\//g, ' ');
+        }
+
+        return element[prefixedMatchesSelector](selector);
+    }
+
+    function matchesUpTo (element, selector, limit) {
+        while (isElement(element)) {
+            if (matchesSelector(element, selector)) {
+                return true;
+            }
+
+            element = parentElement(element);
+
+            if (element === limit) {
+                return matchesSelector(element, selector);
+            }
+        }
+
+        return false;
+    }
+
+    // For IE8's lack of an Element#matchesSelector
+    // taken from http://tanalin.com/en/blog/2012/12/matches-selector-ie8/ and modified
+    if (!(prefixedMatchesSelector in Element.prototype) || !isFunction(Element.prototype[prefixedMatchesSelector])) {
+        ie8MatchesSelector = function (element, selector, elems) {
+            elems = elems || element.parentNode.querySelectorAll(selector);
+
+            for (var i = 0, len = elems.length; i < len; i++) {
+                if (elems[i] === element) {
+                    return true;
+                }
+            }
+
+            return false;
+        };
+    }
+
+    // requestAnimationFrame polyfill
+    (function() {
+        var lastTime = 0,
+            vendors = ['ms', 'moz', 'webkit', 'o'];
+
+        for(var x = 0; x < vendors.length && !realWindow.requestAnimationFrame; ++x) {
+            reqFrame = realWindow[vendors[x]+'RequestAnimationFrame'];
+            cancelFrame = realWindow[vendors[x]+'CancelAnimationFrame'] || realWindow[vendors[x]+'CancelRequestAnimationFrame'];
+        }
+
+        if (!reqFrame) {
+            reqFrame = function(callback) {
+                var currTime = new Date().getTime(),
+                    timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+                    id = setTimeout(function() { callback(currTime + timeToCall); },
+                  timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+        }
+
+        if (!cancelFrame) {
+            cancelFrame = function(id) {
+                clearTimeout(id);
+            };
+        }
+    }());
+
+    /* global exports: true, module, define */
+
+    // http://documentcloud.github.io/underscore/docs/underscore.html#section-11
+    if (typeof exports !== 'undefined') {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = interact;
+        }
+        exports.interact = interact;
+    }
+    // AMD
+    else if (typeof define === 'function' && define.amd) {
+        define('interact', function() {
+            return interact;
+        });
+    }
+    else {
+        realWindow.interact = interact;
+    }
+
+} (typeof window === 'undefined'? undefined : window));
+
+var app = {
+    "name": "Web Audio API Show",
+    "version": "0.0.1",
+    "audioCtx": new (window.AudioContext || window.webkitAudioContext),
+    "audioNodeCollection": [],
+    "inCollection": [],
+    "outCollection": [],
+    "uiControllerCollection": [],
+    "services": [],
+    "nextId": -1
+};
+app.idGenerate = function () {
+    return app.nextId += 1;
+};
+
+
+app.Collection = function () {
+    this.itens = [];
+
+};
+app.Collection.prototype.get = function (id) {
+    var i, max, item;
+    for (i = 0, max = this.itens.length; i < max; i += 1) {
+        item = this.itens[i];
+        if (item.id === id) {
+            return item;
+        }
+    }
+    return undefined;
+};
+app.Collection.prototype.add = function (item) {
+    this.itens.push(item);
+};
+
+
+app.Input = function () {
+    this.type = "input";
+    this.id = app.idGenerate();
+    this.node;
+};
+
+app.Output = function () {
+    this.type = "output";
+    this.id = app.idGenerate();
+    this.node;
+};
+
+app.createGain = function () {
+    return {"type": "gain",
+        "id": app.idGenerate(),
+        "node": app.audioCtx.createGain()}
+};
+
+app.createOscillator = function () {
+    return {"type": "oscillator",
+        "id": app.idGenerate(),
+        "node": app.audioCtx.createOscillator()}
+};
+app.createDestination = function () {
+    return {"type": "destination",
+        "id": app.idGenerate(),
+        "node": app.audioCtx.destination
+    }
+};
+app.service = {};
+app.service.connect = function (origin, destination) {
+    origin.node.connect(destination.node);
+};
+app.service.disconnect = function (node) {
+    node.node.disconnect();
+};
+
+
+
+(function (app) {
+
+
+
+
+    /*
+     * app.Colection
+     */
+    (function (app) {
+        var collection = new app.Collection();
+        console.log("##########################");
+        collection.add({"id": 0});
+        if (collection.get(0) === undefined) {
+            console.log("Collection.get => ", "fail");
+        } else {
+            console.log("Collection.get => ", "ok");
+        }
+    })(app);
+
+
+
+    /*
+     * app.Input
+     */
+    (function (app) {
+        var input = new app.Input();
+        console.log("##########################");
+        if (input.type === "input") {
+            console.log("new app.Input() => ", "ok");
+        } else {
+            console.log("new app.Input() => ", "fail");
+        }
+
+        try {
+            input.node = {"type": "node"};
+            console.log("app.Input.node => ", "ok");
+        } catch (err) {
+            console.log("app.Input.node => ", "fail");
+        }
+    })(app);
+
+    /*
+     * app.Output
+     */
+    (function (app) {
+        var output = new app.Output();
+        console.log("##########################");
+        if (output.type === "output") {
+            console.log("new app.Output() => ", "ok");
+        } else {
+            console.log("new app.Output() => ", "fail");
+        }
+
+        try {
+            output.node = {"type": "node"};
+            console.log("app.Output.node => ", "ok");
+        } catch (err) {
+            console.log("app.Output.node => ", "fail");
+        }
+    })(app);
+
+    /*
+     * factories
+     */
+    (function (app) {
+        var node;
+
+        try {
+            node = app.createGain();
+            if (node.type === 'gain') {
+                console.log("app.createGain => ", "ok");
+            } else {
+                console.log("app.createGain => ", "fail");
+            }
+        } catch (err) {
+            console.log("app.createGain => ", "fail");
+        }
+        
+        try {
+            node = app.createOscillator();
+            if (node.type === 'oscillator') {
+                console.log("app.createOscillator => ", "ok");
+            } else {
+                console.log("app.createOscillator => ", "fail");
+            }
+        } catch (err) {
+            console.log("app.createOscillator => ", "fail");
+        }  
+        
+        try {
+            node = app.createDestination();
+            if (node.type === 'destination') {
+                console.log("app.createDestination => ", "ok");
+            } else {
+                console.log("app.createDestination => ", "fail");
+            }
+        } catch (err) {
+            console.log("app.createDestination => ", "fail");
+        }         
+    })(app);
+
+
+})(app);

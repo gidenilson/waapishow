@@ -1,0 +1,29 @@
+@background-color: #EBEBEB;
+@border-color: #AAAAAA;
+@shadow-color: #8C8C8C;
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+input {
+    background-color: @background-color;
+}
+.audio-ui-module {
+    .rounded-corners;
+    border: solid 1px @border-color;
+    box-shadow:2px 2px 9px @shadow-color;
+    width: 200px;
+    background-color: @background-color;
+}
+.audio-ui-module .header{
+    margin: 3px;
+    
+}
+.audio-ui-module .header input {
+    border: 0px;
+}
+.audio-ui-module .header i {
+    position: relative;
+    right: -7px;
+}
