@@ -18,8 +18,10 @@ gulp.task('default', function () {
     gulp.src(['./bower_components/interact/dist/interact.js',
          './src/js/main.js',
         './src/js/class/*.js',
+        './src/js/factory/partials/*.js',
         './src/js/factory/*.js',
         './src/js/service/*.js',
+        './src/js/module/*.js',
         './tests/tests.js'])
             .pipe(concat('app.js'))
             //.pipe(uglify())

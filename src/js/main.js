@@ -6,10 +6,12 @@ var app = {
     "inCollection": [],
     "outCollection": [],
     "uiControllerCollection": [],
-    "services": [],
+    "service": {},
+    "controller": {},
     "nextId": -1
 };
 app.idGenerate = function () {
     return app.nextId += 1;
 };
+
 

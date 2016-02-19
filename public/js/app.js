@@ -5983,12 +5983,14 @@ var app = {
     "inCollection": [],
     "outCollection": [],
     "uiControllerCollection": [],
-    "services": [],
+    "service": {},
+    "controller": {},
     "nextId": -1
 };
 app.idGenerate = function () {
     return app.nextId += 1;
 };
+
 
 
 app.Collection = function () {
@@ -6022,6 +6024,113 @@ app.Output = function () {
     this.node;
 };
 
+app.createViewControl = function () {
+    var control = document.createElement("div");
+    control.setAttribute("class", "audio-ui-control");
+    control.innerHTML =
+            "<input id='myRange' type='range' name='points' min='0' max='100' step='1' value='70' data-ref='70'>"
+            + "<span class='audio-ui-label'>Gain: </span><span class='audio-ui-value'>0</span><span class='audio-ui-unit'> dB</span>";
+
+    return control;
+};
+/*
+ <div class="audio-ui-module">
+ <div class="audio-ui-header">
+ <i class="fa fa-arrows audio-ui-move"></i> <input placeholder="model label"/> <i  class="fa fa-trash-o"></i>
+ </div>            
+ <div class="audio-ui-container">
+ <div class="audio-ui-control">
+ <input id="myRange" type="range" name="points" min="0" max="100" step="1" value="70" data-ref="70">
+ <span class="audio-ui-label">Gain: </span><span class="audio-ui-value">0</span><span class="audio-ui-unit"> dB</span>
+ </div>
+ </div>
+ <div class="audio-ui-connections">
+ <div class="audio-ui-row">
+ <i class="fa fa-circle fa-lg audio-ui-input"></i><i class="fa fa-circle fa-lg audio-ui-output"></i>                
+ </div>
+ </div>
+ <div class="audio-ui-footer"></div>
+ 
+ </div>
+ 
+ */
+app.createViewModule = function (title) {
+    var module = document.createElement("div");
+    module.setAttribute("class", "audio-ui-module");
+    module.innerHTML =
+            "<div class='audio-ui-header'>"
+            + "<i class='fa fa-arrows audio-ui-move'></i> <input value='" + title + "' placeholder='model label'/> <i  class='fa fa-trash-o'></i>"
+            + "</div>"
+            + "<div class='audio-ui-container'></div>"
+            + "<div class='audio-ui-connection'></div>"
+            + "<div class='audio-ui-footer'></div>";
+
+    return module;
+};
+/*
+ <div class="audio-ui-module">
+ <div class="audio-ui-header">
+ <i class="fa fa-arrows audio-ui-move"></i> <input placeholder="model label"/> <i  class="fa fa-trash-o"></i>
+ </div>            
+ <div class="audio-ui-container">
+ <div class="audio-ui-control">
+ <input id="myRange" type="range" name="points" min="0" max="100" step="1" value="70" data-ref="70">
+ <span class="audio-ui-label">Gain: </span><span class="audio-ui-value">0</span><span class="audio-ui-unit"> dB</span>
+ </div>
+ </div>
+ <div class="audio-ui-connections">
+ <div class="audio-ui-row">
+ <i class="fa fa-circle fa-lg audio-ui-input"></i><i class="fa fa-circle fa-lg audio-ui-output"></i>                
+ </div>
+ </div>
+ <div class="audio-ui-footer"></div>
+ 
+ </div>
+ 
+ */
+app.createViewRow = function () {
+    var row = document.createElement("div");
+    row.setAttribute("class", "audio-ui-row");
+    row.innerHTML = 
+            "<i class='fa fa-circle fa-lg audio-ui-input'></i><i class='fa fa-circle fa-lg audio-ui-output'></i>";
+
+    return row;
+};
+/*
+ <div class="audio-ui-module">
+ <div class="audio-ui-header">
+ <i class="fa fa-arrows audio-ui-move"></i> <input placeholder="model label"/> <i  class="fa fa-trash-o"></i>
+ </div>            
+ <div class="audio-ui-container">
+ <div class="audio-ui-control">
+ <input id="myRange" type="range" name="points" min="0" max="100" step="1" value="70" data-ref="70">
+ <span class="audio-ui-label">Gain: </span><span class="audio-ui-value">0</span><span class="audio-ui-unit"> dB</span>
+ </div>
+ </div>
+ <div class="audio-ui-connections">
+ <div class="audio-ui-row">
+ <i class="fa fa-circle fa-lg audio-ui-input"></i><i class="fa fa-circle fa-lg audio-ui-output"></i>                
+ </div>
+ </div>
+ <div class="audio-ui-footer"></div>
+ 
+ </div>
+ 
+ */
+app.createGainNode = function () {
+    var module, container, connection;
+    module = app.createViewModule('meu modulo');
+    container = module.getElementsByClassName("audio-ui-container")[0];
+    connection = module.getElementsByClassName("audio-ui-connection")[0];
+    
+    container.appendChild(app.createViewControl());
+    connection.appendChild(app.createViewRow());
+    
+    return module;
+};
+
+
+
 app.createGain = function () {
     return {"type": "gain",
         "id": app.idGenerate(),
@@ -6046,6 +6155,32 @@ app.service.connect = function (origin, destination) {
 app.service.disconnect = function (node) {
     node.node.disconnect();
 };
+
+
+
+
+/*
+ * module/move.js
+ */
+interact('.audio-ui-move')
+        .draggable({autoScroll: true,
+            onmove: function (event) {
+                var target = event.target.parentNode.parentNode,
+                        // keep the dragged position in the data-x/data-y attributes
+                        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+                        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                
+                // translate the element
+                target.style.webkitTransform =
+                        target.style.transform =
+                        'translate(' + x + 'px, ' + y + 'px)';
+
+                // update the posiion attributes
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+            }
+        });
+
 
 
 
