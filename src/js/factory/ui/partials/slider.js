@@ -1,9 +1,11 @@
-app.createViewControl = function () {
+app.createViewSlider = function (label) {
     var control = document.createElement("div");
     control.setAttribute("class", "audio-ui-control");
     control.innerHTML =
-            "<input id='myRange' type='range' name='points' min='0' max='100' step='1' value='70' data-ref='70'>"
-            + "<span class='audio-ui-label'>Gain: </span><span class='audio-ui-value'>0</span><span class='audio-ui-unit'> dB</span>";
+            "<div class='audio-ui-slider'>"
+            + "<input id='myRange' type='range' name='points' min='0' max='100' step='1' value='70' data-ref='70'>"
+            + "<span class='audio-ui-label'>"+label.label+"</span><span class='audio-ui-value'>0</span><span class='audio-ui-unit'>"+label.unit+"</span>"
+            + "</div>";
 
     return control;
 };

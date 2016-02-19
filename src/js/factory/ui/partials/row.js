@@ -1,8 +1,9 @@
-app.createViewRow = function () {
+app.createViewRow = function (input, output) {
     var row = document.createElement("div");
     row.setAttribute("class", "audio-ui-row");
-    row.innerHTML = 
-            "<i class='fa fa-circle fa-lg audio-ui-input'></i><i class='fa fa-circle fa-lg audio-ui-output'></i>";
+    input = input ? "<i class='fa fa-circle fa-lg audio-ui-input'></i>" : "";
+    output = output ? "<i class='fa fa-circle fa-lg audio-ui-output'></i>" : "";
+    row.innerHTML = input + output;
 
     return row;
 };
